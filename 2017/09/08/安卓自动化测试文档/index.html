@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            安卓自动化测试文档 | 
+        
+        Hexo
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="ChangQin">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",Android,Test">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hexo">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="安卓自动化测试文档 | Hexo">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="Test"> 
+
+    
+        <meta property="article:published_time" content="Fri Sep 08 2017 10:06:07 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Sep 13 2017 12:51:27 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="安卓自动化测试文档 | Hexo">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html",
+    "headline": "安卓自动化测试文档",
+    "datePublished": "Fri Sep 08 2017 10:06:07 GMT+0800",
+    "dateModified": "Wed Sep 13 2017 12:51:27 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "ChangQin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hexo",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android,Test",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安卓自动化测试文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">安卓自动化测试文档</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Monkey"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Monkey</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-Monkey"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. Monkey</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-环境变量配置"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2. 环境变量配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-Monkey基本用法"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3. Monkey基本用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-Monkey基础参数"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4. Monkey基础参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-Monkey发送事件的类型"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5. Monkey发送事件的类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-Monkey调试参数"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6. Monkey调试参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-Monkey黑名单与白名单"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">7. Monkey黑名单与白名单</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-MonkeyRunner常用的按键介绍"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">8. MonkeyRunner常用的按键介绍</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9-停止命令"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">9. 停止命令</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UiAutomator2"><span class="post-toc-number">2.</span> <span class="post-toc-text">UiAutomator2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-环境配置，以Android-Studio为例"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">1. 环境配置，以Android Studio为例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-Google官方Demo"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">2. Google官方Demo</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-常见API"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">3. 常见API</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#鸣谢"><span class="post-toc-number">3.</span> <span class="post-toc-text">鸣谢</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                安卓自动化测试文档
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>ChangQin</strong>
+        <span>9月 08, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Test/">Test</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=安卓自动化测试文档&url=http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=安卓自动化测试文档&url=http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html&via=ChangQin" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/09/08/安卓自动化测试文档/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="安卓自动化测试文档"><a href="#安卓自动化测试文档" class="headerlink" title="安卓自动化测试文档"></a>安卓自动化测试文档</h2><h3 id="Monkey"><a href="#Monkey" class="headerlink" title="Monkey"></a>Monkey</h3><h4 id="1-Monkey"><a href="#1-Monkey" class="headerlink" title="1. Monkey"></a>1. Monkey</h4><pre><code>安卓SDK自带的测试工具，    顾名思义，Monkey就是一只猴子，到处乱抓、乱按，属于压力测试软件。
+特点： 1.测试对象为程序包，有一定局限性 2.伪随机事件，不能自定义 3.可对事件数量、类型、频率设置
+</code></pre><h4 id="2-环境变量配置"><a href="#2-环境变量配置" class="headerlink" title="2. 环境变量配置"></a>2. 环境变量配置</h4><p>以macOs为例<br>运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open ~/.zshrc</div></pre></td></tr></table></figure></p>
+<p>新增环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/wangchangqin/develop/android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/wangchangqin/develop/android/sdk/tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/wangchangqin/develop/android/sdk/tools/bin</div></pre></td></tr></table></figure></p>
+<p>这样就把monkeyrunner 配置到环境变量了。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fjbygk3zpuj30em050756.jpg" alt=""></p>
+<h4 id="3-Monkey基本用法"><a href="#3-Monkey基本用法" class="headerlink" title="3. Monkey基本用法"></a>3. Monkey基本用法</h4><pre><code>**adb shell monkey [option]**
+option为可选参数，如果不加的话,默认会测试所有的APP。
+
+**adb shell monkey -p your.package.name &lt;event count &gt;**
+-p用来指定需要测试的APP，后面跟测试APP的包名 event count 表示需要发送事件的个数。
+</code></pre><h4 id="4-Monkey基础参数"><a href="#4-Monkey基础参数" class="headerlink" title="4. Monkey基础参数"></a>4. Monkey基础参数</h4><ul>
+<li><strong>-p</strong> <your.package.name><br>  用于指定一个包或多个包，指定了包之后，Monkey将只启动指定的APP，不指定的话，将允许启动所有的APP。</your.package.name></li>
+<li><strong>-c</strong> <category><br>  如果用此参数指定了一个或几个类别，Monkey将只允许系统启动被这些类别中的某个类别列出的Activity。如果不指定任何类别，Monkey将选择下列类别中列出的Activity:Intent.CATEGORY.LAUNCHER或Intent.CATEGORY.MONKEY。要指定多个类别，需要使用多个-c选项，每个-c选项只能用于一个类别。</category></li>
+<li><strong>-v</strong> 日志反馈级别。总共分3个级别，分别对应的参数如下所示：<br>  | Level | cmd | Info |<br>  | — | — | – |<br>  | -v | Level 0  :  adb shell monkey -p your.package.name -v 100 | 缺省值，仅提供启动提示、测试完        成和最终结果等少量信息 |<br>  | -v -v | adb shell monkey -p your.package.name -v  -v 100 | 提供较为详细的日志，包括每个发送到Activity的事件信息 |<br>  | -v -v -v | adb shell monkey -p your.package.name -v  -v  -v 100 | 最详细的日志，包括了测试中选中/未选中的Activity信息 |</li>
+<li><strong>-s</strong> (随机数种子)<br>  用于指定伪随机数生成器的seed值，如果seed相同，则两次Monkey测试所产生的事件序列也相同的。  示例：<br>  monkey测试1：adb shell monkey -p your.package.name –s 10 100<br>  monkey测试2：adb shell monkey -p your.package.name –s 10 100    </li>
+<li><strong>–throttle</strong> &lt;毫秒&gt;<br>  用于指定用户操作（即事件）间的时延，单位是毫秒；如果不指定这个参数，monkey会尽可能快的 生成和发送消息。<br>  例：adb shell monkey -p your.package.name –throttle 3000 100</li>
+</ul>
+<h4 id="5-Monkey发送事件的类型"><a href="#5-Monkey发送事件的类型" class="headerlink" title="5. Monkey发送事件的类型"></a>5. Monkey发送事件的类型</h4><ul>
+<li><strong>–pct-touch<percent></percent></strong><br>  调整触摸事件的百分比（触摸事件是一个down-up事件），它发生在屏幕上的某单一位置</li>
+<li><strong>–pct-motion<percent></percent></strong><br>  调整动作事件的百分比（动作事件是由屏幕上某处的一个down事件、一系列的伪随机事件和一个up事件组成）</li>
+<li><strong>–pct-trackball<percent></percent></strong><br>  调整轨迹事件的百分比（轨迹事件由一个或几个随机的移动组成，有时还伴随有点击）事件</li>
+<li><strong>–pct-nav<percent></percent></strong><br>  调整“基本”导航时间的百分比（导航事件由来自方向输入设备的up/down/left/right组成）</li>
+<li><strong>–pct-majornav<percent></percent></strong><br>  调整“主要”导航事件的百分比（这些导航事件通常引发图形界面中的动作，如5-way键盘的中间按键、回退按键、菜单按键）</li>
+<li><strong>–pct-syskeys<percent></percent></strong><br>  调整“系统”按钮事件的百分比（这些按键通常被保留，由系统使用，如Home、Back、StartCall、End   Call及音量控制键）</li>
+<li><strong>–pct-appswitch</strong><br>  调整启动Activity的百分比。在随机间隔里，Monkey执行一个startActivity()调用，作为最大程度覆盖包中全部Activity的一种方法</li>
+<li><strong>–pct-anyevent<percent></percent></strong><br>  调整其他类型事件的百分比。它包罗了所有其他类型的事件，如：按键、其他不常用的设备按钮等</li>
+<li><strong>–pct-flip<percent></percent></strong></li>
+<li><strong>–pct-pinchzoom<percnet></percnet></strong></li>
+</ul>
+<h4 id="6-Monkey调试参数"><a href="#6-Monkey调试参数" class="headerlink" title="6. Monkey调试参数"></a>6. Monkey调试参数</h4><ul>
+<li><strong>–dbg-no-events</strong><br>  设置此选项，Monkey将执行初始启动，进入到一个测试Activity，然后不会再进一步生成事件。最好将它与-v、一个或几个包约束。以及一个保持Monkey运行30秒或更长事件的非零值联合起来，从而提供一个环境，可以监视应用程序所调用的包之间的转换</li>
+<li><strong>–hprof</strong><br>  设置此选项，将在Monkey事件序列之前和之后立即生成profiling报告，这将在data/misc中生成大文件（~5MB），所以要小心使用</li>
+<li><strong>–ignore-crashes</strong><br>  通常，当应用程序崩溃或发生任何失控异常时，Monkey将停止运行。如果设置此选项，Monkey将继续向系统发送事件，直到计数完成</li>
+<li><strong>–ignore-timeouts</strong><br>  应用程序发生任何超时错误（如”Application   Not Responding”对话框）时，Monkey将停止运行。如果设置此选项，Monkey将继续向系统发送事件，直到计数完成</li>
+<li><strong>–ingore-security-exceptions</strong><br>  当应用程序发生权限许可错误时，Monkey将停止运行。如果设置了此选项，Monkey将继续向系统发送事件，直到计数完成</li>
+<li><strong>–ingnore-native-crashes</strong><br>  当应用程序发生底层C/C++代码引起的崩溃事件时，Monkey将停止运行。选择此项，Monkey将继续向系统发送事件，直到计数完成</li>
+<li><strong>–monitor-native-crashes</strong><br>  监视并报告Android系统中Android   C/C++引起的崩溃事件。如果设置了–kill-process-after-error，系统将停止运行</li>
+<li><strong>–kill-process-after-error</strong><br>  当Monkey由于一个错误而停止时，出错的应用程序将继续处于运行状态。当设置了此选项时，将会通知系统停止发生错误的进程。注意，当Monkey正常执行完毕，它不会关闭所有启动的应用，设备依然保留Monkey结束时的状态</li>
+<li><strong>–wait-dbq</strong><pre><code>启动Monkey后，先中断其运行，等待调试器附加上来
+</code></pre></li>
+</ul>
+<h4 id="7-Monkey黑名单与白名单"><a href="#7-Monkey黑名单与白名单" class="headerlink" title="7. Monkey黑名单与白名单"></a>7. Monkey黑名单与白名单</h4><pre><code>***黑名单：不测试的应用***
+***白名单：只测试这部分应用***
+***注意：不能同时设置黑名单和白名单***
+</code></pre><ul>
+<li><strong>–pkg-blacklist-file</strong><br>  apk黑名单，屏蔽掉黑名单中的apk</li>
+<li><strong>–pkg-whitelist-file</strong><br>  apk白名单，只测试包含在白名单中的apk</li>
+</ul>
+<p>以黑名单为例，具体的步骤如下：</p>
+<pre><code>1.  查找系统的包，并输出到e盘的pkg文档里。adb shell pm list package&gt;e:\pkg.txt
+2.  将想要加入黑名单的apk的包名放到blacklist.txt里，最后push进设备。adb push e:\blacklist.txt /data/local/tmp/
+3.  执行Monkey命令。adb shell monkey --pkg-blacklist-file /data/local/tmp/blacklist.txt --throttle 200 200
+</code></pre><h4 id="8-MonkeyRunner常用的按键介绍"><a href="#8-MonkeyRunner常用的按键介绍" class="headerlink" title="8. MonkeyRunner常用的按键介绍"></a>8. MonkeyRunner常用的按键介绍</h4><p>Home键：KEYCOD_HOME<br> Back键：KEYCODE_BACK<br>send键：KEYCODE_CALL<br>end键：KEYCODE_ENDCALL  </p>
+<p>上导航键：KEYCODE_DPAD_UP（现在手机已经没有这个键）<br>下导航键：KEYCODE_DPAD_DOWN（现在手机已经没有这个键）<br>左导航：KEYCODE_DPAD_LEFT   现在手机已经没有这个键<br>右导航键：KEYCODE_DPAD_RIGHT 现在手机已经没有这个键 </p>
+<p>ok键：KEYCODE_DPAD_CENTER </p>
+<p>上音量键：KEYCODE_VOLUME_UP<br>下音量键：KEYCODE_VOLUME_DOWN </p>
+<p>power键：KEYCODE_POWER<br>camera键：KEYCODE_CAMERA<br>menu键：KEYCODE_MENU<br>search键：KEYCODE_SEARCH<br>call键：KEYCODE_CALL </p>
+<p>按下HOME键 device.press(‘KEYCODE_HOME’,MonkeyDevice.DOWN_AND_UP)<br>按下BACK键 device.press(‘KEYCODE_BACK’,MonkeyDevice.DOWN_AND_UP)<br>按下下导航键 device.press(‘KEYCODE_DPAD_DOWN’,MonkeyDevice.DOWN_AND_UP)<br>按下上导航键 device.press(‘KEYCODE_DPAD_UP’,MonkeyDevice.DOWN_AND_UP)<br>按下OK键 device.press(‘KEYCODE_DPAD_CENTER’,MonkeyDevice.DOWN_AND_UP)   </p>
+<p>device.press(‘KEYCODE_ENTER’,MonkeyDevice.DOWN_AND_UP)#输入回车</p>
+<p>device.press(‘KEYCODE_BACK’,MonkeyDevice.DOWN_AND_UP)#点击返回</p>
+<h4 id="9-停止命令"><a href="#9-停止命令" class="headerlink" title="9. 停止命令"></a>9. 停止命令</h4><p>adb shell ps | grep monkey<br>返回来的第一个数字，即是monkey的进程号<br>adb shell kill [刚才查到的进程号]</p>
+<h2 id="UiAutomator2"><a href="#UiAutomator2" class="headerlink" title="UiAutomator2"></a>UiAutomator2</h2><h4 id="1-环境配置，以Android-Studio为例"><a href="#1-环境配置，以Android-Studio为例" class="headerlink" title="1. 环境配置，以Android Studio为例"></a>1. 环境配置，以Android Studio为例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    ...</div><div class="line">    //测试框架</div><div class="line">    // Force usage of support annotations in the test app, since it is internally used by the runner module.</div><div class="line">    androidTestCompile &apos;com.android.support:support-annotations:25.4.0&apos;</div><div class="line">    androidTestCompile &apos;com.android.support.test:runner:1.0.0&apos;</div><div class="line">    // UiAutomator Testing</div><div class="line">    androidTestCompile &apos;com.android.support.test.uiautomator:uiautomator-v18:2.1.3&apos;</div><div class="line">    androidTestCompile &apos;org.hamcrest:hamcrest-integration:1.3&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion 25</div><div class="line">    buildToolsVersion &quot;25.0.3&quot;</div><div class="line">    defaultConfig &#123;</div><div class="line">       ...</div><div class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-Google官方Demo"><a href="#2-Google官方Demo" class="headerlink" title="2. Google官方Demo"></a>2. Google官方Demo</h4><ul>
+<li><code>[Demo](https://github.com/googlesamples/android-testing/tree/master/ui/uiautomator/BasicSample)</code></li>
+<li><code>[文档](https://developer.android.com/training/testing/ui-automator.html)</code></li>
+</ul>
+<h4 id="3-常见API"><a href="#3-常见API" class="headerlink" title="3. 常见API"></a>3. 常见API</h4><ul>
+<li></li>
+</ul>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><ul>
+<li><a href="http://t.leborn.me/blog/home/detail/1509242157594151495" target="_blank" rel="external">http://t.leborn.me/blog/home/detail/1509242157594151495</a></li>
+<li><a href="http://www.cnblogs.com/ITGirl00/p/4141277.html" target="_blank" rel="external">http://www.cnblogs.com/ITGirl00/p/4141277.html</a></li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/09/13/转-AppBarLayout的五种ScrollFlags/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/09/07/Linux下添加FTP账号和服务器、增加密码和用户，更改FTP目录/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="ChangQin's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        changqinhappy@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: changqinhappy@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Glide/">Glide<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Kotlin/">Kotlin<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Test/">Test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Centos/">Centos<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Go/">Go<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Mac/">Mac<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hexo
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

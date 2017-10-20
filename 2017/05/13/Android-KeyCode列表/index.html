@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            Android KeyCode列表 | 
+        
+        Hexo
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="ChangQin">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",Android,KeyCode">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hexo">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Android KeyCode列表 | Hexo">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="KeyCode"> 
+
+    
+        <meta property="article:published_time" content="Sat May 13 2017 22:52:39 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Aug 25 2017 10:26:15 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Android KeyCode列表 | Hexo">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html",
+    "headline": "Android KeyCode列表",
+    "datePublished": "Sat May 13 2017 22:52:39 GMT+0800",
+    "dateModified": "Fri Aug 25 2017 10:26:15 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "ChangQin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hexo",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android,KeyCode",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KEYCODE列表"><span class="post-toc-number">1.</span> <span class="post-toc-text">KEYCODE列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#电话键"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">电话键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#控制键"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">控制键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基本"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">基本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#符号"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">符号</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小键盘"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">小键盘</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#功能键"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">功能键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多媒体键"><span class="post-toc-number">1.0.7.</span> <span class="post-toc-text">多媒体键</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#手柄按键"><span class="post-toc-number">1.0.8.</span> <span class="post-toc-text">手柄按键</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Android KeyCode列表
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>ChangQin</strong>
+        <span>5月 13, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/KeyCode/">KeyCode</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android KeyCode列表&url=http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android KeyCode列表&url=http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html&via=ChangQin" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/05/13/Android-KeyCode列表/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="KEYCODE列表"><a href="#KEYCODE列表" class="headerlink" title="KEYCODE列表"></a>KEYCODE列表</h2><h4 id="电话键"><a href="#电话键" class="headerlink" title="电话键"></a>电话键</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:right">Num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_CALL</td>
+<td style="text-align:center">拨号键</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td>KEYCODE_ENDCALL</td>
+<td style="text-align:center">挂机键</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td>KEYCODE_HOME</td>
+<td style="text-align:center">按键Home</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td>KEYCODE_MENU</td>
+<td style="text-align:center">菜单键</td>
+<td style="text-align:right">82</td>
+</tr>
+<tr>
+<td>KEYCODE_BACK</td>
+<td style="text-align:center">返回键</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td>KEYCODE_SEARCH</td>
+<td style="text-align:center">搜索键</td>
+<td style="text-align:right">84</td>
+</tr>
+<tr>
+<td>KEYCODE_CAMERA</td>
+<td style="text-align:center">拍照键</td>
+<td style="text-align:right">27</td>
+</tr>
+<tr>
+<td>KEYCODE_FOCUS</td>
+<td style="text-align:center">拍照对焦键</td>
+<td style="text-align:right">80</td>
+</tr>
+<tr>
+<td>KEYCODE_POWER</td>
+<td style="text-align:center">电源键</td>
+<td style="text-align:right">26</td>
+</tr>
+<tr>
+<td>KEYCODE_NOTIFICATION</td>
+<td style="text-align:center">通知键</td>
+<td style="text-align:right">83</td>
+</tr>
+<tr>
+<td>KEYCODE_MUTE</td>
+<td style="text-align:center">话筒静音键</td>
+<td style="text-align:right">91</td>
+</tr>
+<tr>
+<td>KEYCODE_VOLUME_MUTE</td>
+<td style="text-align:center">扬声器静音键</td>
+<td style="text-align:right">164</td>
+</tr>
+<tr>
+<td>KEYCODE_VOLUME_UP</td>
+<td style="text-align:center">音量增加键</td>
+<td style="text-align:right">24</td>
+</tr>
+<tr>
+<td>KEYCODE_VOLUME_DOWN</td>
+<td style="text-align:center">音量减小键</td>
+<td style="text-align:right">25</td>
+</tr>
+</tbody>
+</table>
+<h4 id="控制键"><a href="#控制键" class="headerlink" title="控制键"></a>控制键</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+<th style="text-align:right">Num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_ENTER</td>
+<td style="text-align:center">回车键</td>
+<td style="text-align:right">66</td>
+</tr>
+<tr>
+<td>KEYCODE_ESCAPE</td>
+<td style="text-align:center">ESC键</td>
+<td style="text-align:right">111</td>
+</tr>
+<tr>
+<td>KEYCODE_DPAD_CENTER</td>
+<td style="text-align:center">导航键 确定键</td>
+<td style="text-align:right">23</td>
+</tr>
+<tr>
+<td>KEYCODE_DPAD_UP</td>
+<td style="text-align:center">导航键 向上</td>
+<td style="text-align:right">19</td>
+</tr>
+<tr>
+<td>KEYCODE_DPAD_DOWN</td>
+<td style="text-align:center">导航键 向下</td>
+<td style="text-align:right">20</td>
+</tr>
+<tr>
+<td>KEYCODE_DPAD_LEFT</td>
+<td style="text-align:center">导航键 向左</td>
+<td style="text-align:right">21</td>
+</tr>
+<tr>
+<td>KEYCODE_DPAD_RIGHT</td>
+<td style="text-align:center">导航键 向右</td>
+<td style="text-align:right">22</td>
+</tr>
+<tr>
+<td>KEYCODE_MOVE_HOME</td>
+<td style="text-align:center">光标移动到开始键</td>
+<td style="text-align:right">122</td>
+</tr>
+<tr>
+<td>KEYCODE_MOVE_END</td>
+<td style="text-align:center">光标移动到末尾键</td>
+<td style="text-align:right">123</td>
+</tr>
+<tr>
+<td>KEYCODE_PAGE_UP</td>
+<td style="text-align:center">向上翻页键</td>
+<td style="text-align:right">92</td>
+</tr>
+<tr>
+<td>KEYCODE_PAGE_DOWN</td>
+<td style="text-align:center">向下翻页键</td>
+<td style="text-align:right">93</td>
+</tr>
+<tr>
+<td>KEYCODE_DEL</td>
+<td style="text-align:center">退格键</td>
+<td style="text-align:right">67</td>
+</tr>
+<tr>
+<td>KEYCODE_FORWARD_DEL</td>
+<td style="text-align:center">删除键</td>
+<td style="text-align:right">112</td>
+</tr>
+<tr>
+<td>KEYCODE_INSERT</td>
+<td style="text-align:center">插入键</td>
+<td style="text-align:right">124</td>
+</tr>
+<tr>
+<td>KEYCODE_TAB</td>
+<td style="text-align:center">Tab键</td>
+<td style="text-align:right">61</td>
+</tr>
+<tr>
+<td>KEYCODE_NUM_LOCK</td>
+<td style="text-align:center">小键盘锁</td>
+<td style="text-align:right">143</td>
+</tr>
+<tr>
+<td>KEYCODE_CAPS_LOCK</td>
+<td style="text-align:center">大写锁定键</td>
+<td style="text-align:right">115</td>
+</tr>
+<tr>
+<td>KEYCODE_BREAK</td>
+<td style="text-align:center">Break/Pause键</td>
+<td style="text-align:right">121</td>
+</tr>
+<tr>
+<td>KEYCODE_SCROLL_LOCK</td>
+<td style="text-align:center">滚动锁定键</td>
+<td style="text-align:right">116</td>
+</tr>
+<tr>
+<td>KEYCODE_ZOOM_IN</td>
+<td style="text-align:center">放大键</td>
+<td style="text-align:right">168</td>
+</tr>
+<tr>
+<td>KEYCODE_ZOOM_OUT</td>
+<td style="text-align:center">缩小键</td>
+<td style="text-align:right">169</td>
+</tr>
+</tbody>
+</table>
+<h4 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+<th style="text-align:right">Num</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_0</td>
+<td style="text-align:center">按键’0’</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td>KEYCODE_1</td>
+<td style="text-align:center">按键’1’</td>
+<td style="text-align:right">8</td>
+</tr>
+<tr>
+<td>KEYCODE_2</td>
+<td style="text-align:center">按键’2’</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td>KEYCODE_3</td>
+<td style="text-align:center">按键’3’</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td>KEYCODE_4</td>
+<td style="text-align:center">按键’4’</td>
+<td style="text-align:right">11</td>
+</tr>
+<tr>
+<td>KEYCODE_5</td>
+<td style="text-align:center">按键’5’</td>
+<td style="text-align:right">12</td>
+</tr>
+<tr>
+<td>KEYCODE_6</td>
+<td style="text-align:center">按键’6’</td>
+<td style="text-align:right">13</td>
+</tr>
+<tr>
+<td>KEYCODE_7</td>
+<td style="text-align:center">按键’7’</td>
+<td style="text-align:right">14</td>
+</tr>
+<tr>
+<td>KEYCODE_8</td>
+<td style="text-align:center">按键’8’</td>
+<td style="text-align:right">15</td>
+</tr>
+<tr>
+<td>KEYCODE_9</td>
+<td style="text-align:center">按键’9’</td>
+<td style="text-align:right">16</td>
+</tr>
+<tr>
+<td>KEYCODE_A</td>
+<td style="text-align:center">按键’A’</td>
+<td style="text-align:right">29</td>
+</tr>
+<tr>
+<td>KEYCODE_B</td>
+<td style="text-align:center">按键’B’</td>
+<td style="text-align:right">30</td>
+</tr>
+<tr>
+<td>KEYCODE_C</td>
+<td style="text-align:center">按键’C’</td>
+<td style="text-align:right">31</td>
+</tr>
+<tr>
+<td>KEYCODE_D</td>
+<td style="text-align:center">按键’D’</td>
+<td style="text-align:right">32</td>
+</tr>
+<tr>
+<td>KEYCODE_E</td>
+<td style="text-align:center">按键’E’</td>
+<td style="text-align:right">33</td>
+</tr>
+<tr>
+<td>KEYCODE_F</td>
+<td style="text-align:center">按键’F’</td>
+<td style="text-align:right">34</td>
+</tr>
+<tr>
+<td>KEYCODE_G</td>
+<td style="text-align:center">按键’G’</td>
+<td style="text-align:right">35</td>
+</tr>
+<tr>
+<td>KEYCODE_H</td>
+<td style="text-align:center">按键’H’</td>
+<td style="text-align:right">36</td>
+</tr>
+<tr>
+<td>KEYCODE_I</td>
+<td style="text-align:center">按键’I’</td>
+<td style="text-align:right">37</td>
+</tr>
+<tr>
+<td>KEYCODE_J</td>
+<td style="text-align:center">按键’J’</td>
+<td style="text-align:right">38</td>
+</tr>
+<tr>
+<td>KEYCODE_K</td>
+<td style="text-align:center">按键’K’</td>
+<td style="text-align:right">39</td>
+</tr>
+<tr>
+<td>KEYCODE_L</td>
+<td style="text-align:center">按键’L’</td>
+<td style="text-align:right">40</td>
+</tr>
+<tr>
+<td>KEYCODE_M</td>
+<td style="text-align:center">按键’M’</td>
+<td style="text-align:right">41</td>
+</tr>
+<tr>
+<td>KEYCODE_N</td>
+<td style="text-align:center">按键’N’</td>
+<td style="text-align:right">42</td>
+</tr>
+<tr>
+<td>KEYCODE_O</td>
+<td style="text-align:center">按键’O’</td>
+<td style="text-align:right">43</td>
+</tr>
+<tr>
+<td>KEYCODE_P</td>
+<td style="text-align:center">按键’P’</td>
+<td style="text-align:right">44</td>
+</tr>
+<tr>
+<td>KEYCODE_Q</td>
+<td style="text-align:center">按键’Q’</td>
+<td style="text-align:right">45</td>
+</tr>
+<tr>
+<td>KEYCODE_R</td>
+<td style="text-align:center">按键’R’</td>
+<td style="text-align:right">46</td>
+</tr>
+<tr>
+<td>KEYCODE_S</td>
+<td style="text-align:center">按键’S’</td>
+<td style="text-align:right">47</td>
+</tr>
+<tr>
+<td>KEYCODE_T</td>
+<td style="text-align:center">按键’T’</td>
+<td style="text-align:right">48</td>
+</tr>
+<tr>
+<td>KEYCODE_U</td>
+<td style="text-align:center">按键’U’</td>
+<td style="text-align:right">49</td>
+</tr>
+<tr>
+<td>KEYCODE_V</td>
+<td style="text-align:center">按键’V’</td>
+<td style="text-align:right">50</td>
+</tr>
+<tr>
+<td>KEYCODE_W</td>
+<td style="text-align:center">按键’W’</td>
+<td style="text-align:right">51</td>
+</tr>
+<tr>
+<td>KEYCODE_X</td>
+<td style="text-align:center">按键’X’</td>
+<td style="text-align:right">52</td>
+</tr>
+<tr>
+<td>KEYCODE_Y</td>
+<td style="text-align:center">按键’Y’</td>
+<td style="text-align:right">53</td>
+</tr>
+<tr>
+<td>KEYCODE_Z</td>
+<td style="text-align:center">按键’Z’</td>
+<td style="text-align:right">54</td>
+</tr>
+</tbody>
+</table>
+<h4 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_PLUS</td>
+<td style="text-align:center">按键’+’</td>
+</tr>
+<tr>
+<td>KEYCODE_MINUS</td>
+<td style="text-align:center">按键’-‘</td>
+</tr>
+<tr>
+<td>KEYCODE_STAR</td>
+<td style="text-align:center">按键’*’</td>
+</tr>
+<tr>
+<td>KEYCODE_SLASH</td>
+<td style="text-align:center">按键’/‘</td>
+</tr>
+<tr>
+<td>KEYCODE_EQUALS</td>
+<td style="text-align:center">按键’=’</td>
+</tr>
+<tr>
+<td>KEYCODE_AT</td>
+<td style="text-align:center">按键’@’</td>
+</tr>
+<tr>
+<td>KEYCODE_POUND</td>
+<td style="text-align:center">按键’#’</td>
+</tr>
+<tr>
+<td>KEYCODE_APOSTROPHE</td>
+<td style="text-align:center">按键’’’ (单引号)</td>
+</tr>
+<tr>
+<td>KEYCODE_BACKSLASH</td>
+<td style="text-align:center">按键’\’</td>
+</tr>
+<tr>
+<td>KEYCODE_COMMA</td>
+<td style="text-align:center">按键’,’</td>
+</tr>
+<tr>
+<td>KEYCODE_PERIOD</td>
+<td style="text-align:center">按键’.’</td>
+</tr>
+<tr>
+<td>KEYCODE_LEFT_BRACKET</td>
+<td style="text-align:center">按键’[‘</td>
+</tr>
+<tr>
+<td>KEYCODE_RIGHT_BRACKET</td>
+<td style="text-align:center">按键’]’</td>
+</tr>
+<tr>
+<td>KEYCODE_SEMICOLON</td>
+<td style="text-align:center">按键’;’</td>
+</tr>
+<tr>
+<td>KEYCODE_GRAVE</td>
+<td style="text-align:center">按键’`’</td>
+</tr>
+<tr>
+<td>KEYCODE_SPACE</td>
+<td style="text-align:center">空格键</td>
+</tr>
+</tbody>
+</table>
+<h4 id="小键盘"><a href="#小键盘" class="headerlink" title="小键盘"></a>小键盘</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_NUMPAD_0</td>
+<td style="text-align:center">小键盘按键’0’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_1</td>
+<td style="text-align:center">小键盘按键’1’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_2</td>
+<td style="text-align:center">小键盘按键’2’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_3</td>
+<td style="text-align:center">小键盘按键’3’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_4</td>
+<td style="text-align:center">小键盘按键’4’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_5</td>
+<td style="text-align:center">小键盘按键’5’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_6</td>
+<td style="text-align:center">小键盘按键’6’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_7</td>
+<td style="text-align:center">小键盘按键’7’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_8</td>
+<td style="text-align:center">小键盘按键’8’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_9</td>
+<td style="text-align:center">小键盘按键’9’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_ADD</td>
+<td style="text-align:center">小键盘按键’+’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_SUBTRACT</td>
+<td style="text-align:center">小键盘按键’-‘</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_MULTIPLY</td>
+<td style="text-align:center">小键盘按键’*’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_DIVIDE</td>
+<td style="text-align:center">小键盘按键’/‘</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_EQUALS</td>
+<td style="text-align:center">小键盘按键’=’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_COMMA</td>
+<td style="text-align:center">小键盘按键’,’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_DOT</td>
+<td style="text-align:center">小键盘按键’.’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_LEFT_PAREN</td>
+<td style="text-align:center">小键盘按键’(‘</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_RIGHT_PAREN</td>
+<td style="text-align:center">小键盘按键’)’</td>
+</tr>
+<tr>
+<td>KEYCODE_NUMPAD_ENTER</td>
+<td style="text-align:center">小键盘按键回车</td>
+</tr>
+</tbody>
+</table>
+<h4 id="功能键"><a href="#功能键" class="headerlink" title="功能键"></a>功能键</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_F1</td>
+<td style="text-align:center">按键F1</td>
+</tr>
+<tr>
+<td>KEYCODE_F2</td>
+<td style="text-align:center">按键F2</td>
+</tr>
+<tr>
+<td>KEYCODE_F3</td>
+<td style="text-align:center">按键F3</td>
+</tr>
+<tr>
+<td>KEYCODE_F4</td>
+<td style="text-align:center">按键F4</td>
+</tr>
+<tr>
+<td>KEYCODE_F5</td>
+<td style="text-align:center">按键F5</td>
+</tr>
+<tr>
+<td>KEYCODE_F6</td>
+<td style="text-align:center">按键F6</td>
+</tr>
+<tr>
+<td>KEYCODE_F7</td>
+<td style="text-align:center">按键F7</td>
+</tr>
+<tr>
+<td>KEYCODE_F8</td>
+<td style="text-align:center">按键F8</td>
+</tr>
+<tr>
+<td>KEYCODE_F9</td>
+<td style="text-align:center">按键F9</td>
+</tr>
+<tr>
+<td>KEYCODE_F10</td>
+<td style="text-align:center">按键F10</td>
+</tr>
+<tr>
+<td>KEYCODE_F11</td>
+<td style="text-align:center">按键F11</td>
+</tr>
+<tr>
+<td>KEYCODE_F12</td>
+<td style="text-align:center">按键F12</td>
+</tr>
+</tbody>
+</table>
+<h4 id="多媒体键"><a href="#多媒体键" class="headerlink" title="多媒体键"></a>多媒体键</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_MEDIA_PLAY</td>
+<td style="text-align:center">多媒体键 播放</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_STOP</td>
+<td style="text-align:center">多媒体键 停止</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_PAUSE</td>
+<td style="text-align:center">多媒体键 暂停</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_PLAY_PAUSE</td>
+<td style="text-align:center">多媒体键 播放/暂停</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_FAST_FORWARD</td>
+<td style="text-align:center">多媒体键 快进</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_REWIND</td>
+<td style="text-align:center">多媒体键 快退</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_NEXT</td>
+<td style="text-align:center">多媒体键 下一首</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_PREVIOUS</td>
+<td style="text-align:center">多媒体键 上一首</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_CLOSE</td>
+<td style="text-align:center">多媒体键 关闭</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_EJECT</td>
+<td style="text-align:center">多媒体键 弹出</td>
+</tr>
+<tr>
+<td>KEYCODE_MEDIA_RECORD</td>
+<td style="text-align:center">多媒体键 录音</td>
+</tr>
+</tbody>
+</table>
+<h4 id="手柄按键"><a href="#手柄按键" class="headerlink" title="手柄按键"></a>手柄按键</h4><table>
+<thead>
+<tr>
+<th>KeyCode</th>
+<th style="text-align:center">键位名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KEYCODE_BUTTON_1</td>
+<td style="text-align:center">通用游戏手柄按钮#1</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_2</td>
+<td style="text-align:center">通用游戏手柄按钮 #2</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_3</td>
+<td style="text-align:center">通用游戏手柄按钮 #3</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_4</td>
+<td style="text-align:center">通用游戏手柄按钮 #4</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_5</td>
+<td style="text-align:center">通用游戏手柄按钮 #5</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_6</td>
+<td style="text-align:center">通用游戏手柄按钮 #6</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_7</td>
+<td style="text-align:center">通用游戏手柄按钮 #7</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_8</td>
+<td style="text-align:center">通用游戏手柄按钮 #8</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_9</td>
+<td style="text-align:center">通用游戏手柄按钮 #9</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_10</td>
+<td style="text-align:center">通用游戏手柄按钮 #10</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_11</td>
+<td style="text-align:center">通用游戏手柄按钮 #11</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_12</td>
+<td style="text-align:center">通用游戏手柄按钮 #12</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_13</td>
+<td style="text-align:center">通用游戏手柄按钮 #13</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_14</td>
+<td style="text-align:center">通用游戏手柄按钮 #14</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_15</td>
+<td style="text-align:center">通用游戏手柄按钮 #15</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_16</td>
+<td style="text-align:center">通用游戏手柄按钮 #16</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_A</td>
+<td style="text-align:center">游戏手柄按钮 A</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_B</td>
+<td style="text-align:center">游戏手柄按钮 B</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_C</td>
+<td style="text-align:center">游戏手柄按钮 C</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_X</td>
+<td style="text-align:center">游戏手柄按钮 X</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_Y</td>
+<td style="text-align:center">游戏手柄按钮 Y</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_Z</td>
+<td style="text-align:center">游戏手柄按钮 Z</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_L1</td>
+<td style="text-align:center">游戏手柄按钮 L1</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_L2</td>
+<td style="text-align:center">游戏手柄按钮 L2</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_R1</td>
+<td style="text-align:center">游戏手柄按钮 R1</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_R2</td>
+<td style="text-align:center">游戏手柄按钮 R2</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_MODE</td>
+<td style="text-align:center">游戏手柄按钮 Mode</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_SELECT</td>
+<td style="text-align:center">游戏手柄按钮 Select</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_START</td>
+<td style="text-align:center">游戏手柄按钮 Start</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_THUMBL</td>
+<td style="text-align:center">Left Thumb Button</td>
+</tr>
+<tr>
+<td>KEYCODE_BUTTON_THUMBR</td>
+<td style="text-align:center">Right Thumb Button</td>
+</tr>
+</tbody>
+</table>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/05/19/Android-Studio-配置Kotlin详解/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/05/13/Android中键盘的一些小tip/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="ChangQin's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        changqinhappy@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: changqinhappy@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Glide/">Glide<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Kotlin/">Kotlin<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Test/">Test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Centos/">Centos<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Go/">Go<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Mac/">Mac<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hexo
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

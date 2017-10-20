@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.0 -->
+    <script>
+        window.materialVersion = "1.5.0"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Title -->
+    
+    <title>
+        
+            (转)30多个短小而又专业的最佳安卓开发者建议 | 
+        
+        Hexo
+    </title>
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="ChangQin">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",Android">
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hexo">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icon -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="(转)30多个短小而又专业的最佳安卓开发者建议 | Hexo">
+    <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Android"> 
+
+    
+        <meta property="article:published_time" content="Thu Aug 24 2017 09:30:42 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Aug 25 2017 10:26:15 GMT+0800" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="(转)30多个短小而又专业的最佳安卓开发者建议 | Hexo">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://yoursite.com" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html",
+    "headline": "(转)30多个短小而又专业的最佳安卓开发者建议",
+    "datePublished": "Thu Aug 24 2017 09:30:42 GMT+0800",
+    "dateModified": "Fri Aug 25 2017 10:26:15 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "ChangQin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hexo",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#【翻译】30多个短小而又专业的最佳安卓开发者建议"><span class="post-toc-number">1.</span> <span class="post-toc-text">【翻译】30多个短小而又专业的最佳安卓开发者建议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、原文"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一、原文</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、译文"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二、译文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#标题：-30-多个为成为一名更好的安卓开发者的短小而又专业的建议"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">标题： 30 多个为成为一名更好的安卓开发者的短小而又专业的建议</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                (转)30多个短小而又专业的最佳安卓开发者建议
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>ChangQin</strong>
+        <span>8月 24, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=(转)30多个短小而又专业的最佳安卓开发者建议&url=http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=(转)30多个短小而又专业的最佳安卓开发者建议&url=http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html&via=ChangQin" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="【翻译】30多个短小而又专业的最佳安卓开发者建议"><a href="#【翻译】30多个短小而又专业的最佳安卓开发者建议" class="headerlink" title="【翻译】30多个短小而又专业的最佳安卓开发者建议"></a>【翻译】30多个短小而又专业的最佳安卓开发者建议</h1><p>2017-08-14 by Liuqingwen | Tags: <a href="http://liuqingwen.me/blog/tags/Android/" target="_blank" rel="external">Android</a></p>
+<p><img src="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/30tips.jpg" alt=""></p>
+<h2 id="一、原文"><a href="#一、原文" class="headerlink" title="一、原文"></a><a href="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/#一、原文" title="一、原文" target="_blank" rel="external"></a>一、原文</h2><p>文章是我在自己的 <a href="https://feedly.com/" target="_blank" rel="external">Feedly</a> 订阅上看到的，两个地方有原文的发布（新版和旧版）：<br><a href="https://blog.aritraroy.in/30-bite-sized-pro-tips-to-become-a-better-android-developer-b311fd641089" target="_blank" rel="external">30+ Bite-Sized Pro Tips to Become a Better Android Developer</a><br><a href="https://techbeacon.com/how-become-better-android-developer-30-bite-sized-pro-tips" target="_blank" rel="external">https://techbeacon.com/how-become-better-android-developer-30-bite-sized-pro-tips</a></p>
+<p>小建议大用处！建议有能力的朋友优先阅读原版，翻译有不当之处请海涵哈!</p>
+<h2 id="二、译文"><a href="#二、译文" class="headerlink" title="二、译文"></a><a href="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/#二、译文" title="二、译文" target="_blank" rel="external"></a>二、译文</h2><h3 id="标题：-30-多个为成为一名更好的安卓开发者的短小而又专业的建议"><a href="#标题：-30-多个为成为一名更好的安卓开发者的短小而又专业的建议" class="headerlink" title="标题： 30 多个为成为一名更好的安卓开发者的短小而又专业的建议"></a><a href="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/#标题：-30-多个为成为一名更好的安卓开发者的短小而又专业的建议" title="标题： 30 多个为成为一名更好的安卓开发者的短小而又专业的建议" target="_blank" rel="external"></a>标题： 30 多个为成为一名更好的安卓开发者的短小而又专业的建议</h3><p>成为一名安卓开发者很容易，但是<strong>要成为一名成功的、突出的安卓开发者</strong>却不那么容易。这需要付出很多的努力，耐心，奉献和毅力才能做到。</p>
+<p>我并没有什么捷径或者简单的方法来告诉你让你成为一名成功的开发者。但是如果你愿意身心投入且付出努力的话，你肯定会得到应得的成功的。</p>
+<p>应大家的请求为成为一名更优秀的安卓开发者，这里有<strong>一些从我的经验中吸收的小巧而专业的小窍门</strong>来助你一臂之力。所以，如果你决定从事安卓开发或者已经是一名安卓开发者的话，那么你算是找对地方了。</p>
+<p>好了，不需要再浪费口舌了，让我们开始吧。</p>
+<p><strong>1. 进一步熟悉安卓内部框架</strong></p>
+<p>我并不是告诉你怎样去熟悉文档，我指的是实实在在的安卓框架的源码。我见过很多开发者很害怕查看或者深入安卓框架的内部，探索其实际工作原理和不同的模块之间是如何正确地一起运作。</p>
+<p>如果你需要提升你的安卓技能，那么请克服对安卓 SDK 内部工作机制的恐惧感，并开始和它成为好朋友吧。</p>
+<p><strong>2. 尝试克服对未知的害怕（ FoMo ）</strong></p>
+<p>安卓系统很大，非常大。你不可能在一两个月内完全掌握它。随着学习越深入，你会发现越多的内容需要学习。作为一名初学者，很容易也很正常地会出现这种对未知恐惧的害怕。</p>
+<p>但是尝试去克服它把。学习那些你确实需要用到的东西，能够让你开始手头正在构建的应用，然后慢慢地开拓你的视野。</p>
+<p><strong>3. 开始阅读更多的代码</strong></p>
+<p>大部分的开发者不会抽时间阅读其他开发者所写的代码。他们大部分时间只是花在写他们已经知道了的事情上。</p>
+<p>但是那并不利于你成长为一名优秀的开发者。也不会增长你的见识。你应该从现在开始看一些开源的应用和类库并开始学习它们。每天 30 分钟的代码阅读量是个非常好的开始。你将会惊讶的发现：还有如此多的东西是你没见过的。</p>
+<p>小贴士：<em>这里有一些最好的开源应用程序助你起航</em></p>
+<p><a href="https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4" target="_blank" rel="external">20多个开源安卓程序大大提升你的开发技巧<br>https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4</a><a href="https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4" target="_blank" rel="external"></a></p>
+<p><strong>4. 考虑学习更多的语言</strong></p>
+<p>我并不是要你去学习西班牙语或者中文，而是学习新的编程语言。随着科技的发展，你需要保持自己的知识更新，而不是把自己固定死在安卓一个方面。</p>
+<p>这能够开阔你的视野，并能够显著地提升你的安卓开发技巧。下定决心每年至少学习一门新的编程语言吧。但是，请不要在仅仅一周的尝试后就跳过这门语言而放弃学习。尝试着深入这门语言并弄懂它内部的工作原理。</p>
+<p>小贴士：<em>看看<a href="https://medium.freecodecamp.org/what-programming-language-should-i-learn-first-%CA%87d%C4%B1%C9%B9%C9%94s%C9%90%CA%8C%C9%90%C9%BE-%C9%B9%C7%9D%CA%8Dsu%C9%90-19a33b0a467d" target="_blank" rel="external">这篇神奇的文章</a>，来帮助你做一个更好的选择。（剧透 —— 答案是 JavaScript ）</em></p>
+<p><strong>5. 是时候学习 Java 设计模式了</strong></p>
+<p>在长远看来，我并不能完全阐明这会对你的安卓开发生涯有多大的影响。任何时刻，你被卡在需要解决的某个严重的程序问题的时候，设计模式着实能帮助你构建一个优雅的解决方案。</p>
+<p>你也需要保持和其他程序员一致的节奏，因此他们在谈论关于使用<a href="https://www.tutorialspoint.com/design_pattern/factory_pattern.htm" target="_blank" rel="external">工厂模式</a>或者<a href="https://www.tutorialspoint.com/design_pattern/decorator_pattern.htm" target="_blank" rel="external">装饰着模式</a>或者<a href="https://www.tutorialspoint.com/design_pattern/facade_pattern.htm" target="_blank" rel="external">外观模式</a>的时候，你也能够立马懂得他们所指的含义。</p>
+<p>给自己定下目标每周学习一个新的设计模式吧。</p>
+<p>小贴士：<em>这里有一个<a href="https://github.com/iluwatar/java-design-patterns" target="_blank" rel="external">极好的资源</a>可以作为你的开始。如果你钟情于书籍，那么你肯定会读一读<a href="http://shop.oreilly.com/product/9780596007126.do" target="_blank" rel="external">这个</a>。</em></p>
+<p><img src="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/git.png" alt="git"></p>
+<p><strong>6. 开始贡献开源库</strong></p>
+<p>如果你已经开发出了一些很有用的东西，并在你自己的应用开发中使用到了，那么考虑开源它吧。在这个过程中有许多的东西是需要你学习的，而且这有助于你成长为一名优秀的开发者。</p>
+<p>如果你没有可以开源的项目，考虑浏览其它你所感兴趣的开源项目，并尝试修复一些 bug ，改进其文档注释或者写一些测试等。</p>
+<p>即使是最小的贡献量，它仍然对项目维护者保持项目的运作有所帮助。</p>
+<p>小贴士：<em><a href="https://opensource.guide/" target="_blank" rel="external">这里</a>有一些良好的指导能够让你开始贡献开源项目。</em></p>
+<p><strong>7. 让你的 IDE 更好地为你工作</strong></p>
+<p>准备花更多的时间来了解你所使用的 IDE —— Android Studio 。它所能做的事情比你想象的更多。许多的酷炫特性和快捷方式隐藏着而不为人知，以至于大部分开发者都不了解甚至从来没有尝试探索使用它们。</p>
+<p>养成一个探索开发新的、更佳的方式的习惯，让你的工具更好地为你工作，这样能够有效提升你的工作流程和工作效率。</p>
+<p>小贴士：<em><a href="https://stanfy.com/blog/use-android-studio-like-a-pro/" target="_blank" rel="external">这里</a>有一篇很棒的文章能帮助你像专业人士一样掌握 Android Studio 。</em></p>
+<p><strong>8. 是时候正确地架构你的应用了</strong></p>
+<p>大部分时间里我们都以放置所有代码到一个活动或者碎片里而结束（你也可以因此怪罪我吧），最终让导致他们成了巨神对象而变得很难维护和测试。</p>
+<p>让你的应用适配一个好的架构是非常重要的，像 <a href="https://antonioleiva.com/mvp-android/" target="_blank" rel="external">MVP</a> ， <a href="http://mvvm%20android/" target="_blank" rel="external">MVVM</a> ， <a href="https://medium.com/@trikita/writing-a-todo-app-with-redux-on-android-5de31cfbdb4f" target="_blank" rel="external">Redux</a> 框架等等。考虑解耦你的应用程序的业务逻辑，交互界面，以及数据结构到不同的层级里，使得他们能够更容易的被管理和测试。</p>
+<p>小贴士：<em>看看<a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external">这些</a>有用的谷歌蓝图能够让你的安卓应用框架更加容易。</em></p>
+<p><strong>9. 学习安卓致简代码指南</strong></p>
+<p>你不能忽视了这个。和那些写不出整洁代码的开发者合作会变得很难，至少需要符合安卓开发代码指南。</p>
+<p>这根本不是什么高深的技术，而且也不会花费你超过几个小时的时间来学习大部分的 Java 和安卓代码指南基础。这不应该是一次性的学习，而应该是作为开发者的一种习惯上的改变。</p>
+<p>小贴士：_<a href="https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md" target="_blank" rel="external">这里</a>有一篇精彩的资源作为你开始学习标准代码的指南_</p>
+<p><strong>10. 花一些时间来学习安卓最佳实践</strong></p>
+<p>要使自己比其他开发者更加出众，并能构建出整洁美观而又功能完善的应用，你需要开始学习一些安卓开发最佳实践。</p>
+<p>这里有一些该做和不该做的条例，能助你成为一名更优秀的开发者，并能让你的应用从其他应用程序中脱颖而出。</p>
+<p>小贴士：<em><a href="https://github.com/futurice/android-best-practices" target="_blank" rel="external">这里</a>有一个最佳实践文章可以让你做出更好的应用</em></p>
+<p><strong>11. 通过接听电台来充分地高效地利用你的业余时间</strong></p>
+<p>尝试高效合理地利用你的业余时间。这些时间属于你从家到办公室或者离开，在健身房锻炼，开车，烹饪的时间等等。而这个时候你那聪明的大脑却处于无事可做的状态。</p>
+<p>你可以充分利用这些时间来听一些安卓广播资源。经常性地保持你的大脑尽可能高效地使用这些有用的信息，并努力做到大部分空闲时间的最大利用化。</p>
+<p>小贴士：<em><a href="http://fragmentedpodcast.com/" target="_blank" rel="external">碎片广播</a>和<a href="http://androidbackstage.blogspot.in/" target="_blank" rel="external">安卓开发者后台</a>是两个让你开始行动的超酷资源广播电台。</em></p>
+<p><strong>12. 不要过于工程化，现实点。</strong></p>
+<p>这不仅仅发生在我自己身上，同时我也在一些和我工作的其他开发者伙伴身上也看到了。在开始进行之前就考虑周全是很不错（是非很好），但是过于考虑和过于分析事情会导致最终一事无成，就如同不必要的迷茫，延误和焦虑。</p>
+<p>立刻开始行动做那些项目中正确的部分，这样你总是能够适应在之后需要做出改变的规则。</p>
+<p><strong>推荐阅读</strong></p>
+<p><a href="https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51" target="_blank" rel="external">两年的安卓开发教会我的那些困难和经验<br>https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51</a><a href="https://blog.aritraroy.in/what-my-2-years-of-android-development-have-taught-me-the-hard-way-52b495ba5c51" target="_blank" rel="external"></a></p>
+<p><strong>13. 尝试着学习平面设计</strong></p>
+<p>我能理解作为一名程序员，你所主要的重心点在于学习编写更好的代码，这是显而易见的。但是如果你要成为一名完完全全的开发者，你应该开始每天花一些时间来学习并理解关于 UI 和 UX 的设计。</p>
+<p>这将会颠覆你对待你自己一直正在使用代码编写应用的看法。尝试着和你团队中的 UI 以及 UX 设计师做更多的沟通和交流的机会，你将会更加深入地了解应用设计。</p>
+<p>小贴士：<em>读一读<a href="https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654" target="_blank" rel="external">这本书</a>如果你对理解设计如何工作的原理感兴趣的话</em></p>
+<p><strong>14. 开始成为一名完美主义者</strong></p>
+<p>这是一个类似：我所谓的“完美主义”并非其他人的“完美主义”的话题。但是作为一个小的建议，始终尝试着帮你所需要发布的版本的产品做到尽可能最好。</p>
+<p>不要妥协。不要为了单纯的做事而做事。要对你自己的工作有激情并尝试做得比他人更好。这会让你持续成长并在长远看来会让你成为一名更加成功的开发者。</p>
+<p><strong>15. 坚持是成功的关键</strong></p>
+<p>如果你想成为一名成功的安卓开发者（或者你生命中其他想要的），那么你需要坚持。</p>
+<p>做事情坚持不了几天或者几周就放弃那并不会让你学到什么东西。尝试着描绘一下作为一名安卓开发者在未来几年里你所想要成为的人的模样，坚持并不断挑战自我，最终实现自己的目标。</p>
+<p>开始一件事很容易，但是保持同样的激情和奉献精神，长时间坚持下去却很难（非常的难）。</p>
+<p><strong>16. 积少成多，逐步深入</strong></p>
+<p>作为一名开发者，你应该时常试着把你所遇到的任何复杂的问题或者特性，转化成小型的、简单的和独立的组件，这样做能够很容易地被理解并能快速地解决问题。</p>
+<p>不要被一个项目的大小和复杂度所压倒。只要你使用正确的方式，任何问题都能够迎刃而解。从小的部分开始，慢慢积累并逐步扩张。</p>
+<p><strong>17. 保持手里有项目的另一个测试版本</strong></p>
+<p>经常有一个后台的测试版本项目能够完全改变你学习东西的方式。如果你在安卓开发界遇到什么新的事物，请养成一个立刻就开始新建一个后台测试项目的习惯。</p>
+<p>假设你在某个地方发现了一个很有趣的安卓代码库，你应该立刻想到新建一个后台测试项目来使用这个库，而不是仅仅快速地浏览一下它的文档和 API 。这会让你更加熟悉、更加深入地了解这个类库。</p>
+<p><strong>18. 开始写一些测试</strong></p>
+<p>我没法再强调这个有多重要了。你并不能完全吃透某个特性，除非你用尽心思给它写测试。测试能帮助你的代码构建出一个信心彼岸。</p>
+<p>不要犯那种忽略测试或者认为测试只是一个“可选项”的错误了，这会让你的生活更加痛苦并增加许多的问题。记住，一个没有测试的代码很容易立刻变成旧地遗留代码。</p>
+<p><strong>推荐阅读</strong></p>
+<p><a href="https://blog.aritraroy.in/50-ultimate-resources-to-master-android-development-15165d6bc376" target="_blank" rel="external">50 多个有用的关于掌握安卓开发的资源<br>https://blog.aritraroy.in/50-ultimate-resources-to-master-android-development-15165d6bc376</a><a href="https://blog.aritraroy.in/50-ultimate-resources-to-master-android-development-15165d6bc376" target="_blank" rel="external"></a></p>
+<p><strong>19. 考虑适配 TDD</strong></p>
+<p>当你在开发一个应用的时候，考虑选择一种机械地而又高效的方式，以便能够顺利地通过测试。</p>
+<p>开始遵守 TDD 的“红-绿-重构”周期模式。首先，你所编写的测试可能会失败（红），然后写一些有效的代码让这个测试通过（绿），接着进一步优化并清理整洁这些代码（重构）。</p>
+<blockquote>
+<p>测试驱动型开发是一种编程期间控制自我焦虑的方式。焦虑感会让你变得很具有试探性。焦虑感让你变得不容易沟通。焦虑感会让你害怕发出反馈。焦虑感让你变得心浮气躁。—— 来自 TDD 的案例</p>
+</blockquote>
+<p><strong>20. 设立一个合适的自动发布机制</strong></p>
+<p>作为一名开发者，尝试着让自己不要操心那些可以自动完成的东西，比如应用程序质量的测试和发布。</p>
+<p>你应该使用那些自动检测程序质量的工具，像 <a href="https://plugins.jetbrains.com/plugin/1065-checkstyle-idea" target="_blank" rel="external">CheckStyle</a> ， <a href="https://github.com/pmd/pmd" target="_blank" rel="external">PMD</a> ， <a href="https://developer.android.com/studio/write/lint.html" target="_blank" rel="external">Lint</a> ， <a href="https://plugins.jetbrains.com/plugin/3847-findbugs-idea" target="_blank" rel="external">FindBugs</a> 。在合并主要的改变之前运行所有的单元测试和真机测试是必须要做到的。</p>
+<p>当所有这些测试通过后，你就会得到一个允许 APK 发布到 Play 商店或者分发到其他你想要的地方的（比如 <a href="http://try.crashlytics.com/beta/" target="_blank" rel="external">Crashlytics Beta</a> ）的绿色信号。</p>
+<p>小贴士：<em>考虑 Play 商店自动发布机制以及使用<a href="https://github.com/Triple-T/gradle-play-publisher" target="_blank" rel="external">这些</a>工具。</em></p>
+<p><strong>21. 拥抱 Reactive 编程的到来</strong></p>
+<p>如果你作为安卓开发者想要提升自己的技能，你绝对应该考虑拥抱 reactive 的实现。这会迫使你在构建应用的时候采用完全不同的方式思考问题。</p>
+<p>采取 reactive 的方式肯定能够有助于你更加快速地写出交互式应用，并且能够让你的开发更加容易且有趣。</p>
+<p>小贴士：<em><a href="http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/" target="_blank" rel="external">这里</a>是一个非常好的学习 RxJava 在安卓应用开发的精彩系列。</em></p>
+<p><img src="http://liuqingwen.me/blog/2017/08/14/translation-of-30-bite-sized-pro-tips-to-become-a-better-android-developer/kotlin.png" alt="kotlin.png"></p>
+<p><strong>22. 学会使用 Kotlin 进行安卓开发</strong></p>
+<p>Kotlin 是目前最受欢迎和热议的语言，自从它来到安卓开发界后。它现在也是开发安卓应用的<a href="https://blog.jetbrains.com/kotlin/2017/05/kotlin-on-android-now-official/" target="_blank" rel="external">官方支持的语言</a>。这个简洁高效的语言给安卓开发界带来了一丝新鲜的空气。</p>
+<p>对于那些被古老、繁琐以及易出错的 Java 所困扰的人们来说，这是发生在安卓开发者身上最大的一件幸事之一。尝试着使用它，你将会重新燃起对你的开发生活的热爱。</p>
+<p>小贴士：<em>了解更多关于更好的安卓应用开发你需要开始学习并使用 Kotlin 的原因 。</em></p>
+<p><a href="https://blog.aritraroy.in/why-you-should-start-using-kotlin-to-supercharge-your-android-development-in-2017-61db1f11d666" target="_blank" rel="external">2017 年为什么你要开始使用 Kotlin 来掌控你的安卓开发<br>https://blog.aritraroy.in/why-you-should-start-using-kotlin-to-supercharge-your-android-development-in-2017-61db1f11d666</a><a href="https://blog.aritraroy.in/why-you-should-start-using-kotlin-to-supercharge-your-android-development-in-2017-61db1f11d666" target="_blank" rel="external"></a></p>
+<p><strong>23. 参加聚会并和更多的开发者建立社交关系</strong></p>
+<p>我们开发者趋向于内向，喜欢坐在一个角落里，和自己的电脑组成一个自我的世界。</p>
+<p>但是请走出你自己的舒适区，和其他开发者发生更多的联系和沟通吧。当你参加开发者会议，社交活动以及和其他有着和你共同兴趣爱好的开发者一起谈论问题的时候，你会学习到很多很多的东西。</p>
+<p>小贴士：<em><a href="https://www.meetup.com/" target="_blank" rel="external">这里</a>是一个发现你所感兴趣会谈沙龙的好地方。</em></p>
+<p><strong>24. 熟悉使用键盘快捷键</strong></p>
+<p>试着养成一个尽可能不使用你的鼠标的习惯。在 Android Studio 上几乎所有的操作都可以由快捷方式完成。</p>
+<p>这会显著地减少你的开发时间并提升你的工作流程。记住一些键盘快捷键可能会在初始阶段花上一些时间，但是从长远时间来看，它会有助于你进入一个真正无鼠标的工作流程状态。</p>
+<p>小贴士：<em>如果你用古老的方式不能记住快捷键，<a href="https://plugins.jetbrains.com/plugin/1003-key-promoter" target="_blank" rel="external">这里</a>有一个超棒的 AS 插件来帮你搞定。</em></p>
+<p><strong>25. 尝试着至少每周学会一个安卓相关的知识</strong></p>
+<p>在安卓大千世界里，当你在一开始踏入的时候，有太多需要学习和了解的东西会让你感觉猝不及防。但是如果你给自己下定决心，每周学习一个安卓相关的知识点，那么事情会变得更加容易。</p>
+<p>做一个列表记下所有你不会的东西，给他们标上先后顺序和重要性，在接下来每周里开始学习，并一步一步地完成它们。那么在几个月后，你会发现你已经远远不是那个刚开始的自己了。</p>
+<p><strong>26. 把所有浪费你时间的事情自动化</strong></p>
+<p>我们作为工程师，生来就喜欢偷懒，总是想着找到一种简便的方式来完成一份烦人的工作。</p>
+<p>所以，如果你在一天里需要做一些重复且厌烦的事情的时候，尝试着考虑把它自动化吧。这会累计让你每周都节约不少时间，从而可以用来花在做其他高效率以及有用的事情上，并能够减少你的焦虑感。</p>
+<p>小贴士：<em>看一下<a href="https://zapier.com/" target="_blank" rel="external">这个</a>神奇的工具，它能帮你连接并自动化你每天所使用的工具之间的沟通。</em></p>
+<p><strong>27. 考虑同时运行两个不同版本的 Android Studio</strong></p>
+<p>保持使用一个稳定版本的 Android Studio 用来做你每天需要做的那些很重要的事情。但是也同时考虑保持安装使用一个最新候选版本的 Android Studio 。</p>
+<p>有时候早期版本中会有很多令人兴奋的新特性，那都是你很乐意去尽可能尝试使用的。</p>
+<p><strong>推荐阅读</strong></p>
+<p><a href="https://blog.aritraroy.in/30-kickass-tools-to-develop-android-apps-like-a-pro-191e52b9419b" target="_blank" rel="external">30 多个像专业人士一样开发安卓应用的强大工具<br>https://blog.aritraroy.in/30-kickass-tools-to-develop-android-apps-like-a-pro-191e52b9419b</a><a href="https://blog.aritraroy.in/30-kickass-tools-to-develop-android-apps-like-a-pro-191e52b9419b" target="_blank" rel="external"></a></p>
+<p><strong>28. 仔细审查所有你一次性添加的第三方类库</strong></p>
+<p>在我们需要的时候我们都喜欢使用添加类库，这当然没问题。但是，要养成一个习惯，审查你所一次性添加的所有的第三方类库，并且移除那些你不再需要的库。</p>
+<p>如果你仅仅是使用一个类库的一小部分，那么考虑把它分解出来而不是使用整个库。有那么一个可能性的事件是：审查有时候也会帮你更新那些急需更新的旧类库。</p>
+<p><strong>29. 学习更好的方法用来重构遗留代码库</strong></p>
+<p>不要犯那种一次性重构一个完整的庞大代码库的错误。这样做会把你陷入到没有退路的困境之中。</p>
+<p>考虑重构你现在就需要使用的部分代码库，然后慢慢地延伸扩展到你所需要的其他部分。同样，考虑在碰到其他代码之前为你所需要重构而又怀疑会破坏现有功能的那部分写一些测试。</p>
+<p>小贴士：<em><a href="http://www.amazon.in/Working-Effectively-Legacy-Robert-Martin/dp/0131177052" target="_blank" rel="external">这本书</a>完全改变了我使用旧代码的方式。你完全值得看一看。</em></p>
+<p><strong>30. 经常在低端设备上进行开发和测试</strong></p>
+<p>如果你想要像专业人士一样开发应用程序，那么不要犯那种总是在高端设备上开发并测试程序的错误。一般来说，我们开发者手头拥有高端的旗舰产品，并且使用它来做应用的开发和测试用。但是这完全正是你需要克制的地方。</p>
+<p>尝试着在市场上买点便宜的、低端的设备，并养成在上面开发应用程序的习惯。你将会看到你的应用的一大堆缺陷，而你之前并不知道它们的存在。</p>
+<p><strong>31. 买你所能负担起的最好的设备</strong></p>
+<p>不要犯那种购买一个低端的工作用机器来做每天工作的错误，那会有损你的开发经验。</p>
+<p>考虑使用一个 Mac （超越 Windows ）来做开发。你会爱上它那简介而又稳定的特性的。</p>
+<p>从现在开始，如果你要买一台苹果笔记本，那么考虑买一个最合适你自己的版本。几百块（美元，编者按 <img src="http://liuqingwen.me/blog/images/emoji/joy.png &quot;" alt="joy"> ）的额外开销并不会伤害你，反而你会感谢自己做下了这个决定的。</p>
+<hr>
+<p>希望这些<strong>小贴士能够帮助你成为一名更好的安卓开发者。</strong>你虽然已经看完并理解了这些条条例例，但是也正是时候把它们转化成实际行动了，只有这样你才能感受到他们的强大之处。</p>
+<p>如果你发现这是一篇有用的文章，请考虑推荐它给你的朋友们、室友同学们、竞争对手或者你通过社交媒体认识的任何人。</p>
+<p><em>这篇文章最初发布于： <a href="http://techbeacon.com/" target="_blank" rel="external">TechBeacon</a></em></p>
+<hr>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/08/26/android-studio-jni-入门实战/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/08/23/Glide缓存知识梳理/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="ChangQin's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        changqinhappy@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto: changqinhappy@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">16</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Glide/">Glide<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Kotlin/">Kotlin<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Test/">Test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Centos/">Centos<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Go/">Go<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Mac/">Mac<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Hexo
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
