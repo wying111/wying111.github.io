@@ -37,7 +37,7 @@
     
     <title>
         
-            Glide缓存知识梳理 | 
+            搭建 FTP 文件服务 | 
         
         Happy&#39;s blog
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="ChangQin">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",Android,Glide">
+    <meta name="keywords" content=",FTP">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,18 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Glide缓存知识梳理 | Happy&#39;s blog">
+    <meta property="og:title" content="搭建 FTP 文件服务 | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="Glide"> 
+    <meta property="og:article:tag" content="FTP"> 
 
     
-        <meta property="article:published_time" content="Wed Aug 23 2017 15:54:57 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Aug 25 2017 10:26:15 GMT+0800" />
+        <meta property="article:published_time" content="Fri Nov 24 2017 20:09:39 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Nov 24 2017 20:10:25 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Glide缓存知识梳理 | Happy&#39;s blog">
+    <meta name="twitter:title" content="搭建 FTP 文件服务 | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -250,7 +250,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html",
-    "headline": "Glide缓存知识梳理",
-    "datePublished": "Wed Aug 23 2017 15:54:57 GMT+0800",
-    "dateModified": "Fri Aug 25 2017 10:26:15 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html",
+    "headline": "搭建 FTP 文件服务",
+    "datePublished": "Fri Nov 24 2017 20:09:39 GMT+0800",
+    "dateModified": "Fri Nov 24 2017 20:10:25 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -283,7 +283,7 @@
             "url": "/img/avatar.png"
         }
     },
-    "keywords": ",Android,Glide",
+    "keywords": ",FTP",
     "description": "",
 }
 </script>
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#style-candy"><span class="post-toc-number">1.</span> <span class="post-toc-text">style: candy</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Glide缓存知识梳理"><span class="post-toc-number"></span> <span class="post-toc-text">Glide缓存知识梳理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Glide磁盘缓存策略分为四种，默认的是RESULT"><span class="post-toc-number">0.1.</span> <span class="post-toc-text">Glide磁盘缓存策略分为四种，默认的是RESULT</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#组合策略"><span class="post-toc-number">0.1.0.1.</span> <span class="post-toc-text">组合策略</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Glide默认缓存路径"><span class="post-toc-number">0.2.</span> <span class="post-toc-text">Glide默认缓存路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Glide默认缓存大小"><span class="post-toc-number">0.3.</span> <span class="post-toc-text">Glide默认缓存大小</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义缓存路径和缓存大小"><span class="post-toc-number">0.4.</span> <span class="post-toc-text">自定义缓存路径和缓存大小</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Glide清除缓存"><span class="post-toc-number">0.5.</span> <span class="post-toc-text">Glide清除缓存</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建-FTP-文件服务（转自腾讯云）"><span class="post-toc-number">1.</span> <span class="post-toc-text">搭建 FTP 文件服务（转自腾讯云）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装并启动-FTP-服务"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 安装并启动 FTP 服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-配置-FTP-权限"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 配置 FTP 权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-配置-FTP-OK"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 配置 FTP OK</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                Glide缓存知识梳理
+                搭建 FTP 文件服务
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>ChangQin</strong>
-        <span>8月 23, 2017</span>
+        <span>11月 24, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -424,7 +424,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Glide/">Glide</a>
+        <a class="post_tag-link" href="/tags/FTP/">FTP</a>
     </ul>
     
 
@@ -441,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Glide缓存知识梳理&url=http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=搭建 FTP 文件服务&url=http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Glide缓存知识梳理&url=http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html&via=ChangQin" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=搭建 FTP 文件服务&url=http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html&via=ChangQin" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -468,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/23/Glide缓存知识梳理/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/24/搭建-FTP-文件服务/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -493,35 +493,55 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <hr>
-<h2 id="style-candy"><a href="#style-candy" class="headerlink" title="style: candy"></a>style: candy</h2><h1 id="Glide缓存知识梳理"><a href="#Glide缓存知识梳理" class="headerlink" title="Glide缓存知识梳理"></a>Glide缓存知识梳理</h1><h3 id="Glide磁盘缓存策略分为四种，默认的是RESULT"><a href="#Glide磁盘缓存策略分为四种，默认的是RESULT" class="headerlink" title="Glide磁盘缓存策略分为四种，默认的是RESULT"></a>Glide磁盘缓存策略分为四种，默认的是RESULT</h3><ul>
-<li><p>1.ALL:缓存原图(SOURCE)和处理图(RESULT)</p>
+        <h2 id="搭建-FTP-文件服务（转自腾讯云）"><a href="#搭建-FTP-文件服务（转自腾讯云）" class="headerlink" title="搭建 FTP 文件服务（转自腾讯云）"></a>搭建 FTP 文件服务（转自腾讯云）</h2><h3 id="1-安装并启动-FTP-服务"><a href="#1-安装并启动-FTP-服务" class="headerlink" title="1. 安装并启动 FTP 服务"></a>1. 安装并启动 FTP 服务</h3><ul>
+<li><p>安装 VSFTPD<br>使用 <code>yum</code> 安装 vsftpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install vsftpd -y</div></pre></td></tr></table></figure>
 </li>
-<li><p>2.NONE:什么都不缓存</p>
-</li>
-<li><p>3.SOURCE:只缓存原图(SOURCE)</p>
-</li>
-<li><p>*4.RESULT:只缓存处理图(RESULT) —默认值</p>
+<li><p>启动 VSFTPD</p>
 </li>
 </ul>
-<p>tips:这里原图的意思是假设你的ImageView长100，宽100。图片长300，宽200。那么Glide只缓存300<em>200的图片。处理图的意思是Glide只缓存100</em>100的图片。</p>
-<h5 id="组合策略"><a href="#组合策略" class="headerlink" title="组合策略"></a>组合策略</h5><p>1.内存不缓存,磁盘缓存缓存所有图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Glide.with(this).load(mUrl).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.ALL).into(mIv);</div></pre></td></tr></table></figure></p>
-<p>2.内存缓存处理图,磁盘缓存原图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Glide.with(this).load(mUrl).skipMemoryCache(false).diskCacheStrategy(DiskCacheStrategy.SOURCE).into(mIv);</div></pre></td></tr></table></figure>
-<h3 id="Glide默认缓存路径"><a href="#Glide默认缓存路径" class="headerlink" title="Glide默认缓存路径"></a>Glide默认缓存路径</h3><pre><code>默认缓存路径为DiskCache中定义的DEFAULT_DISK_CACHE_DIR，这个值为image_manager_disk_cache。如果不自定义缓存路径，那么默认的缓存完整路径为/data/user/0/包名/cache/image_manager_disk_cache这个目录。
-</code></pre><h3 id="Glide默认缓存大小"><a href="#Glide默认缓存大小" class="headerlink" title="Glide默认缓存大小"></a>Glide默认缓存大小</h3><pre><code>默认缓存大小为DiskCache中定义的DEFAULT_DISK_CACHE_SIZE，这个值为250 * 1024 * 1024，即250MB。
-</code></pre><h3 id="自定义缓存路径和缓存大小"><a href="#自定义缓存路径和缓存大小" class="headerlink" title="自定义缓存路径和缓存大小"></a>自定义缓存路径和缓存大小</h3><ol>
-<li>自定义一个实现了<code>GlideModule</code>接口的类，重写<code>applyOptions</code>方法。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class MyGlideModule implements GlideModule &#123;</div><div class="line"></div><div class="line">  // 图片缓存最大容量，150M，根据自己的需求进行修改</div><div class="line">  public static final int GLIDE_CATCH_SIZE = 100 * 1000 * 1000;    </div><div class="line">  //图片缓存子目录</div><div class="line">  public static final String GLIDE_CARCH_DIR = &quot;my_cache_dir&quot;;    @Override</div><div class="line">  public void applyOptions(Context context, GlideBuilder builder) &#123;</div><div class="line">     //自定义缓存目录和大小</div><div class="line">	 builder.setDiskCache(new InternalCacheDiskCacheFactory(context,GLIDE_CARCH_DIR,GLIDE_CATCH_SIZE));</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  @Override</div><div class="line">  public void registerComponents(Context context, Glide glide) &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.在<code>AndroidManifest.xml</code>中的<code>&lt;application&gt;</code>标签下定义<code>&lt;meta-data&gt;</code>，这样<code>Glide</code>才能知道我们定义了这么一个类，其中<code>android:name</code>是我们自定义的<code>GlideModule</code>的完整路径，而<code>android:value</code>是固定值<code>GlideModule</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">  android:name=&quot;com.demo.glide.MyGlideModule&quot;</div><div class="line">  android:value=&quot;GlideModule&quot; /&gt;</div></pre></td></tr></table></figure>
-<h3 id="Glide清除缓存"><a href="#Glide清除缓存" class="headerlink" title="Glide清除缓存"></a>Glide清除缓存</h3><ol>
-<li>Glide提供两个方法清除缓存，其中<code>Glide.get(context).clearMemory();</code>这个方法会清除所有的内存缓存。需要在UI线程操作。<code>Glide.get(context).clearDiskCache();</code>这个方法会清除所有的磁盘缓存，需要在子线程操作。</li>
-<li>工具类安利<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div></pre></td><td class="code"><pre><div class="line">public class GlideCacheUtil &#123;</div><div class="line">    private static GlideCacheUtil instance;</div><div class="line"></div><div class="line">    public static GlideCacheUtil getInstance() &#123;</div><div class="line">        if (null == instance) &#123;</div><div class="line">            instance = new GlideCacheUtil();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">    // 获取Glide磁盘缓存大小</div><div class="line">    public String getCacheSize(Context context) &#123;</div><div class="line">        return getCacheSize(context,null);</div><div class="line">    &#125;</div><div class="line">    // 获取Glide磁盘缓存大小</div><div class="line">    public String getCacheSize(Context context,String fileName) &#123;</div><div class="line">        try &#123;</div><div class="line">            File cacheFile = null;</div><div class="line">            if (fileName==null)&#123;</div><div class="line">                cacheFile = new File(context.getCacheDir() + &quot;/&quot; + InternalCacheDiskCacheFactory.DEFAULT_DISK_CACHE_DIR);</div><div class="line">            &#125;else&#123;</div><div class="line">                cacheFile = new File(context.getCacheDir() + &quot;/&quot; + fileName);</div><div class="line">            &#125;</div><div class="line">            return getFormatSize(getFolderSize(cacheFile));</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 清除图片磁盘缓存，调用Glide自带方法</div><div class="line">    public boolean clearCacheDiskSelf(final Context context) &#123;</div><div class="line">        try &#123;</div><div class="line">            if (Looper.myLooper() == Looper.getMainLooper()) &#123;</div><div class="line">                new Thread(new Runnable() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void run() &#123;</div><div class="line">                        Glide.get(context).clearDiskCache();</div><div class="line">                    &#125;</div><div class="line">                &#125;).start();</div><div class="line">            &#125; else &#123;</div><div class="line">                Glide.get(context).clearDiskCache();</div><div class="line">            &#125;</div><div class="line">            return true;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 清除Glide内存缓存</div><div class="line">    public boolean clearCacheMemory(Contenxt context) &#123;</div><div class="line">        try &#123;</div><div class="line">            if (Looper.myLooper() == Looper.getMainLooper()) &#123; //只能在主线程执行</div><div class="line">                Glide.get(context).clearMemory();</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    // 获取指定文件夹内所有文件大小的和</div><div class="line">    private long getFolderSize(File file) throws Exception &#123;</div><div class="line">        long size = 0;</div><div class="line">        try &#123;</div><div class="line">            File[] fileList = file.listFiles();</div><div class="line">            for (File aFileList : fileList) &#123;</div><div class="line">                if (aFileList.isDirectory()) &#123;</div><div class="line">                    size = size + getFolderSize(aFileList);</div><div class="line">                &#125; else &#123;</div><div class="line">                    size = size + aFileList.length();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return size;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 格式化单位</div><div class="line">    private static String getFormatSize(double size) &#123;</div><div class="line">        double kiloByte = size / 1024;</div><div class="line">        if (kiloByte &lt; 1) &#123;</div><div class="line">            return size + &quot;Byte&quot;;</div><div class="line">        &#125;</div><div class="line">        double megaByte = kiloByte / 1024;</div><div class="line">        if (megaByte &lt; 1) &#123;</div><div class="line">            BigDecimal result1 = new BigDecimal(Double.toString(kiloByte));</div><div class="line">            return result1.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + &quot;KB&quot;;</div><div class="line">        &#125;</div><div class="line">        double gigaByte = megaByte / 1024;</div><div class="line">        if (gigaByte &lt; 1) &#123;</div><div class="line">            BigDecimal result2 = new BigDecimal(Double.toString(megaByte));</div><div class="line">            return result2.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + &quot;MB&quot;;</div><div class="line">        &#125;</div><div class="line">        double teraBytes = gigaByte / 1024;</div><div class="line">        if (teraBytes &lt; 1) &#123;</div><div class="line">            BigDecimal result3 = new BigDecimal(Double.toString(gigaByte));</div><div class="line">            return result3.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + &quot;GB&quot;;</div><div class="line">        &#125;</div><div class="line">        BigDecimal result4 = new BigDecimal(teraBytes);</div><div class="line">        return result4.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + &quot;TB&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 按目录删除文件夹文件方法</div><div class="line">    private boolean deleteFolderFile(String filePath, boolean deleteThisPath) &#123;</div><div class="line">        try &#123;</div><div class="line">            File file = new File(filePath);</div><div class="line">            if (file.isDirectory()) &#123;</div><div class="line">                File files[] = file.listFiles();</div><div class="line">                for (File file1 : files) &#123;</div><div class="line">                    deleteFolderFile(file1.getAbsolutePath(), true);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if (deleteThisPath) &#123;</div><div class="line">                if (!file.isDirectory()) &#123;</div><div class="line">                    file.delete();</div><div class="line">                &#125; else &#123;</div><div class="line">                    if (file.listFiles().length == 0) &#123;</div><div class="line">                        file.delete();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return true;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>安装完成后，启动 FTP 服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service vsftpd start</div></pre></td></tr></table></figure>
+<p>启动后，可以看到系统已经<br>监听了 21 端口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netstat -nltp | grep 21</div></pre></td></tr></table></figure></p>
+<p>此时，访问 ftp://<strong><strong>**</strong></strong> 可浏览机器上的 /var/ftp 目录了。</p>
+<h3 id="2-配置-FTP-权限"><a href="#2-配置-FTP-权限" class="headerlink" title="2. 配置 FTP 权限"></a>2. 配置 FTP 权限</h3><ul>
+<li><p>了解 VSFTP 配置</p>
+<p>vsftpd 的配置目录为 /etc/vsftpd，包含下列的配置文件：</p>
 </li>
+</ul>
+<ol>
+<li>vsftpd.conf 为主要配置文件</li>
+<li>ftpusers 配置禁止访问 FTP 服务器的用户列表</li>
+<li>user_list 配置用户访问控制</li>
 </ol>
-
+<ul>
+<li>阻止匿名访问和切换根目录</li>
+</ul>
+<p>匿名访问和切换根目录都会给服务器带来安全风险，我们把这两个功能关闭。</p>
+<p>编辑 /etc/vsftpd/vsftpd.conf，<br>找到下面两处配置<br>并修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 禁用匿名用户</div><div class="line">anonymous_enable=NO</div><div class="line"></div><div class="line"># 禁止切换根目录</div><div class="line">chroot_local_user=YES</div></pre></td></tr></table></figure></p>
+<p>编辑完成后，保存配置，重新启动 FTP 服务，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service vsftpd restart</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>创建 FTP 用户</p>
+<p>创建一个用户 <code>ftpuser</code> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd ftpuser</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>为用户 <code>ftpuser</code> 设置密码 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;tmKSsoUW&quot; | passwd ftpuser --stdin</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>限制该用户仅能通过 FTP 访问</p>
+<p>限制用户 <code>ftpuser</code> 只能通过 FTP 访问服务器，而不能直接登录服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">usermod -s /sbin/nologin ftpuser</div></pre></td></tr></table></figure>
+</li>
+<li><p>为用户分配主目录</p>
+<p>为用户 <code>ftpuser</code> 创建主目录并约定：</p>
+</li>
+</ul>
+<p><code>/data/ftp</code> 为主目录, 该目录不可上传文件</p>
+<p><code>/data/ftp/pub</code> 文件只能上传到该目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/ftp/pub</div></pre></td></tr></table></figure></p>
+<p>创建登录欢迎文件 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;Welcome to use FTP service.&quot; &gt; /data/ftp/welcome.txt</div></pre></td></tr></table></figure></p>
+<p>设置访问权限：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod a-w /data/ftp &amp;&amp; chmod 777 -R /data/ftp/pub</div></pre></td></tr></table></figure></p>
+<p>设置为用户的主目录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">usermod -d /data/ftp ftpuser</div></pre></td></tr></table></figure></p>
+<h3 id="3-配置-FTP-OK"><a href="#3-配置-FTP-OK" class="headerlink" title="3. 配置 FTP OK"></a>3. 配置 FTP OK</h3>
         
     
 
@@ -541,21 +561,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/24/转-30多个短小而又专业的最佳安卓开发者建议/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/06/28/Android-Handler源码浅析/" id="post_nav-older" class="next-content">
+        <a href="/2017/11/10/Go的命令行参数/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
