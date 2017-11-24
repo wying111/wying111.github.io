@@ -8,7 +8,8 @@
       <content type="html"><![CDATA[<h2 id="搭建-FTP-文件服务（转自腾讯云）"><a href="#搭建-FTP-文件服务（转自腾讯云）" class="headerlink" title="搭建 FTP 文件服务（转自腾讯云）"></a>搭建 FTP 文件服务（转自腾讯云）</h2><h3 id="1-安装并启动-FTP-服务"><a href="#1-安装并启动-FTP-服务" class="headerlink" title="1. 安装并启动 FTP 服务"></a>1. 安装并启动 FTP 服务</h3><ul>
 <li>安装 VSFTPD</li>
 </ul>
-<p>使用 <code>yum</code> 安装 vsftpd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install vsftpd -y</div></pre></td></tr></table></figure></p>
+<p>使用 <code>yum</code> 安装 vsftpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install vsftpd -y</div></pre></td></tr></table></figure>
 <ul>
 <li>启动 VSFTPD</li>
 </ul>
