@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Sat Nov 25 2017 10:49:01 GMT+0800" />
-        <meta property="article:modified_time" content="Sat Nov 25 2017 10:52:01 GMT+0800" />
+        <meta property="article:modified_time" content="Sat Nov 25 2017 11:07:18 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/25/Android-日常积累/index.html",
     "headline": "Android 日常积累",
     "datePublished": "Sat Nov 25 2017 10:49:01 GMT+0800",
-    "dateModified": "Sat Nov 25 2017 10:52:01 GMT+0800",
+    "dateModified": "Sat Nov 25 2017 11:07:18 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -484,14 +484,17 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>1.More than one file was found with OS independent path ‘META-INF/ASL2.0’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">packagingOptions &#123;</div><div class="line">        exclude &apos;META-INF/DEPENDENCIES&apos;</div><div class="line">        exclude &apos;META-INF/NOTICE&apos;</div><div class="line">        exclude &apos;META-INF/LICENSE&apos;</div><div class="line">        exclude &apos;META-INF/LICENSE.txt&apos;</div><div class="line">        exclude &apos;META-INF/NOTICE.txt&apos;</div><div class="line">        exclude &apos;META-INF/ASL2.0&apos;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+        <ol>
+<li>More than one file was found with OS independent path ‘META-INF/ASL2.0’</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">packagingOptions &#123;</div><div class="line">        exclude &apos;META-INF/DEPENDENCIES&apos;</div><div class="line">        exclude &apos;META-INF/NOTICE&apos;</div><div class="line">        exclude &apos;META-INF/LICENSE&apos;</div><div class="line">        exclude &apos;META-INF/LICENSE.txt&apos;</div><div class="line">        exclude &apos;META-INF/NOTICE.txt&apos;</div><div class="line">        exclude &apos;META-INF/ASL2.0&apos;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <ol>
 <li>ArrayList继承自AbstractList,前者实现了Serializable接口，后者未实现，所以慎用ArrayList的subList方法，它返回的是一个AbstractList。</li>
 <li>startActivityForResult()执行后onActivityResult立即执行，有可能是activity的launchmode为singletask。</li>
 <li>对list用foreach遍历的时候，不能直接删除，可以使用迭代器。</li>
-<li>对于HashMap,如果含有值，put相同key的时候返回上一次的值，如果没有值，返回null。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/**返回qqq*/</div><div class="line">Map&lt;String,String&gt; map = new HashMap&lt;&gt;(); map.put(&quot;a&quot;, &quot;qqq&quot;); Object o1 =  map.put(&quot;a&quot;,&quot;qin&quot;) ; System.out.println(o1);</div></pre></td></tr></table></figure>
-</li>
+<li>对于HashMap,如果含有值，put相同key的时候返回上一次的值，如果没有值，返回null。</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/**返回qqq*/</div><div class="line">Map&lt;String,String&gt; map = new HashMap&lt;&gt;(); map.put(&quot;a&quot;, &quot;qqq&quot;); Object o1 =  map.put(&quot;a&quot;,&quot;qin&quot;) ; System.out.println(o1);</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">返回null</div><div class="line">Map&lt;String,String&gt; map = new HashMap&lt;&gt;(); //map.put(&quot;a&quot;, &quot;qqq&quot;); Object o1 =  map.put(&quot;a&quot;,&quot;qin&quot;) ; System.out.println(o1);</div></pre></td></tr></table></figure>
 
         
