@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[brew常用命令(转)]]></title>
+      <title><![CDATA[brew常用命令]]></title>
       <url>/2017/11/27/brew%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<ol>
 <li><p>安装（需要 Ruby，不过一般自带都有）：<br><code>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</code></p>
