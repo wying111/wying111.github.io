@@ -6,23 +6,18 @@
       <title><![CDATA[brew常用命令]]></title>
       <url>/2017/11/27/brew%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<ol>
-<li><p>安装（需要 Ruby，不过一般自带都有）：<br><code>ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</code></p>
+<li><p>安装（需要 Ruby，不过一般自带都有）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</div></pre></td></tr></table></figure>
 </li>
 <li><p>搜索：<code>brew search XXX   在安装之前可以先查询一下，是否有这个软件</code> </p>
 </li>
-<li><p>查询：<code>brew info XXX</code> 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</p>
-</li>
-<li><p>查看依赖：  brew deps 查看包的依赖</p>
-</li>
+<li>查询：<code>brew info XXX</code> 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</li>
+<li>查看依赖：  brew deps 查看包的依赖</li>
 <li>安装：brew install xxx  用于安装软件</li>
-<li><p>更新：<code>brew update</code> 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——</p>
-</li>
-<li><p>检查过时（是否有新版本）：<code>brew outdated</code> 这回列出所有安装的软件里可以升级的那些</p>
-</li>
-<li><p>升级：<code>brew upgrade</code> 升级所有可以升级的软件们</p>
-</li>
-<li><p>清理：<code>brew cleanup</code> 清理不需要的版本极其安装包缓存</p>
-</li>
+<li>更新：<code>brew update</code> 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——</li>
+<li>检查过时（是否有新版本）：<code>brew outdated</code> 这回列出所有安装的软件里可以升级的那些</li>
+<li>升级：<code>brew upgrade</code> 升级所有可以升级的软件们</li>
+<li>清理：<code>brew cleanup</code> 清理不需要的版本极其安装包缓存</li>
 </ol>
 ]]></content>
       
