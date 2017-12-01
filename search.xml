@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title><![CDATA[mac上用终端启动和关闭mysql服务]]></title>
+      <url>/2017/12/01/mac%E4%B8%8A%E7%94%A8%E7%BB%88%E7%AB%AF%E5%90%AF%E5%8A%A8%E5%92%8C%E5%85%B3%E9%97%ADmysql%E6%9C%8D%E5%8A%A1/</url>
+      <content type="html"><![CDATA[<p>启动服务<br>mysql.server start<br>关闭服务<br>mysql.server stop<br>重启服务<br>mysql.server restart</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Mac </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Mac </tag>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[brew常用命令]]></title>
       <url>/2017/11/27/brew%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<ol>
