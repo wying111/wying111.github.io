@@ -1503,7 +1503,7 @@
     <entry>
       <title><![CDATA[Android的ANR文件导出]]></title>
       <url>/2017/10/07/Android%E7%9A%84ANR%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA/</url>
-      <content type="html"><![CDATA[<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><p>在应用程序ANR的时候，会在<code>/data/anr</code>下面生成<code>traces.txt</code>文件<br>使用 <code>adb pull /data/anr/traces.txt /Users/wangchangqin/Downloads</code>命令可以导出分析</p>
+      <content type="html"><![CDATA[<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><p>1、adb remount  是将设备改为可读可写<br>2、adb root 必要时<br>在应用程序ANR的时候，会在<code>/data/anr</code>下面生成<code>traces.txt</code>文件<br>使用 <code>adb pull /data/anr/traces.txt /Users/wangchangqin/Downloads</code>命令可以导出分析</p>
 ]]></content>
       
         
