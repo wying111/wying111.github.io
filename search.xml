@@ -3,6 +3,87 @@
   
     
     <entry>
+      <title><![CDATA[sqlite在命令行的使用]]></title>
+      <url>/2018/01/25/sqlite%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>一、基本简介</p>
+<p>SQLite 是一个自持的（self-contained）、无服务器的、零配置的、事务型的关系型数据库引擎。因为他很小，所以也可以作为嵌入式数据库内建在你的应用程序中。SQLite 被应用在 Solaris 10操作系统、Mac OS 操作系统、iPhone 和 Skype 中。QT4 、Python 、 PHP 都默认支持 SQLite ，Firefox Amarok 等流行的应用程序在内部也使用了 SQLite.</p>
+<p>SQLite   数据库引擎实现了主要的 SQL-92 标准，引擎本身只有一个文件，大小不到 300k ，但是并不作为一个独立的进程运行，而是动态或者静态的链接到其他应用程序中。它生成的数据库文件是一个普通的磁盘文件，可以放置在任何目录下。SQLite 本身是 C 语言开发的，开源也跨平台，并且被所有的主流编程语言支持。</p>
+<p>相关资源</p>
+<p>sqlite.org<br>wikipedia.org</p>
+<p>二、下载安装<br>在 Windows 上安装 SQLite<br>请访问 SQLite 下载页面，从 Windows 区下载预编译的二进制文件。</p>
+<p>您需要下载 sqlite-shell-win32-<em>.zip 和 sqlite-dll-win32-</em>.zip 压缩文件。</p>
+<p>创建文件夹 C:\sqlite，并在此文件夹下解压上面两个压缩文件，将得到 sqlite3.def、sqlite3.dll 和 sqlite3.exe 文件。</p>
+<p>添加 C:\sqlite 到 PATH 环境变量，最后在命令提示符下，使用 sqlite3 命令，将显示如下结果。</p>
+<p>1<br>2<br>3<br>4<br>5<br>C:>sqlite3<br>SQLite version 3.7.15.2 2013-01-09 11:53:05<br>Enter “.help” for instructions<br>Enter SQL statements terminated with a “;”<br>sqlite&gt;<br>在 Linux 上安装 SQLite<br>目前，几乎所有版本的 Linux 操作系统都附带 SQLite。所以，只要使用下面的命令来检查您的机器上是否已经安装了 SQLite。</p>
+<p>1<br>2<br>3<br>4<br>5<br>$sqlite3<br>SQLite version 3.7.15.2 2013-01-09 11:53:05<br>Enter “.help” for instructions<br>Enter SQL statements terminated with a “;”<br>sqlite&gt;<br>如果没有看到上面的结果，那么就意味着没有在 Linux 机器上安装 SQLite。因此，让我们按照下面的步骤安装 SQLite：</p>
+<p>请访问 SQLite 下载页面，从源代码区下载 sqlite-autoconf-*.tar.gz。</p>
+<p>步骤如下：</p>
+<p>1<br>2<br>3<br>4<br>5<br>$tar xvfz sqlite-autoconf-3071502.tar.gz<br>$cd sqlite-autoconf-3071502<br>$./configure –prefix=/usr/local<br>$make<br>$make install<br>上述步骤将在 Linux 机器上安装 SQLite，您可以按照上述讲解的进行验证。</p>
+<p>在 Mac OS X 上安装 SQLite<br>最新版本的 Mac OS X 会预安装 SQLite，但是如果没有可用的安装，只需按照如下步骤进行：</p>
+<p>请访问 SQLite 下载页面，从源代码区下载 sqlite-autoconf-*.tar.gz。</p>
+<p>步骤如下：</p>
+<p>1<br>2<br>3<br>4<br>5<br>$tar xvfz sqlite-autoconf-3071502.tar.gz<br>$cd sqlite-autoconf-3071502<br>$./configure –prefix=/usr/local<br>$make<br>$make install<br>上述步骤将在 Mac OS X 机器上安装 SQLite，您可以使用下列命令进行验证：</p>
+<p>1<br>2<br>3<br>4<br>5<br>$sqlite3<br>SQLite version 3.7.15.2 2013-01-09 11:53:05<br>Enter “.help” for instructions<br>Enter SQL statements terminated with a “;”<br>sqlite&gt;<br>最后，在 SQLite 命令提示符下，使用 SQLite 命令做练习。</p>
+<p>三、基本命令 </p>
+<p>1、进入命令行环境：sqlite3<br>打开一个控制台窗口，输入 sqlite3 回车，这时你就进入了 SQLite 命令行环境，如图</p>
+<p>它显示了版本号，并告诉你每一条 SQL 语句必须用分号 ； 结尾 </p>
+<p>2、命令行帮助：.help<br>在命令行环境下输入 .help 回车，显示所有可使用的命令以及这些命令的帮助。注意：所有的命令开头都是一个点</p>
+<p>3、退出命令行环境<br>.quit 或者 .exit  都可以退出</p>
+<p>四、数据库和表的相关命令</p>
+<p>1、创建一个新的数据库：sqlite3     文件名</p>
+<p>先建立一个 Db 目录，并在 Db 目录中创建一个 test.db 数据库文件，打开控制台窗口，命令如下：</p>
+<p>1<br>2<br>3<br>mkdir Db<br>cd Db<br>sqlite3 test.db<br>2、打开一个已经存在的数据库：sqlite3      已经存在的文件名</p>
+<p>创建一个新数据库和打开一个已经存在的数据库命令是一模一样的，如果文件在当前目录下不存在，则新建；如果存在，则打开。</p>
+<p>3、导入数据：.read     数据文件</p>
+<p>打开记事本，并将下列 SQL 语句复制到记事本中，保存为 test.sql 到上面说到的 Db 目录下，在命令行环境中输入</p>
+<p>1<br>.read   test.sql<br>即将所有的数据导入到 test.db 数据库中。</p>
+<p>test.db 导入数据</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>BEGIN TRANSACTION;<br>CREATE TABLE Cars(Id integer PRIMARY KEY, Name text, Cost integer);<br>INSERT INTO Cars VALUES(1,’Audi’,52642);<br>INSERT INTO Cars VALUES(2,’Mercedes’,57127);<br>INSERT INTO Cars VALUES(3,’Skoda’,9000);<br>INSERT INTO Cars VALUES(4,’Volvo’,29000);<br>INSERT INTO Cars VALUES(5,’Bentley’,350000);<br>INSERT INTO Cars VALUES(6,’Citroen’,21000);<br>INSERT INTO Cars VALUES(7,’Hummer’,41400);<br>INSERT INTO Cars VALUES(8,’Volkswagen’,21600);<br>COMMIT;</p>
+<p>BEGIN TRANSACTION;<br>CREATE TABLE Orders(Id integer PRIMARY KEY, OrderPrice integer CHECK(OrderPrice&gt;0),<br>                    Customer text);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(1200, “Williamson”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(200, “Robertson”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(40, “Robertson”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(1640, “Smith”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(100, “Robertson”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(50, “Williamson”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(150, “Smith”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(250, “Smith”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(840, “Brown”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(440, “Black”);<br>INSERT INTO Orders(OrderPrice, Customer) VALUES(20, “Brown”);<br>COMMIT;</p>
+<p>BEGIN TRANSACTION;<br>CREATE TABLE Friends(Id integer PRIMARY KEY, Name text UNIQUE NOT NULL,<br>                     Sex text CHECK(Sex IN (‘M’, ‘F’)));<br>INSERT INTO Friends VALUES(1,’Jane’, ‘F’);<br>INSERT INTO Friends VALUES(2,’Thomas’, ‘M’);<br>INSERT INTO Friends VALUES(3,’Franklin’, ‘M’);<br>INSERT INTO Friends VALUES(4,’Elisabeth’, ‘F’);<br>INSERT INTO Friends VALUES(5,’Mary’, ‘F’);<br>INSERT INTO Friends VALUES(6,’Lucy’, ‘F’);<br>INSERT INTO Friends VALUES(7,’Jack’, ‘M’);<br>COMMIT;</p>
+<p>BEGIN TRANSACTION;<br>CREATE TABLE IF NOT EXISTS Customers(CustomerId integer PRIMARY KEY, Name text);<br>INSERT INTO Customers(Name) VALUES(‘Paul Novak’);<br>INSERT INTO Customers(Name) VALUES(‘Terry Neils’);<br>INSERT INTO Customers(Name) VALUES(‘Jack Fonda’);<br>INSERT INTO Customers(Name) VALUES(‘Tom Willis’);</p>
+<p>CREATE TABLE IF NOT EXISTS Reservations(Id integer PRIMARY KEY,<br>                                        CustomerId integer, Day text);<br>INSERT INTO Reservations(CustomerId, Day) VALUES(1, ‘2009-22-11’);<br>INSERT INTO Reservations(CustomerId, Day) VALUES(2, ‘2009-28-11’);<br>INSERT INTO Reservations(CustomerId, Day) VALUES(2, ‘2009-29-11’);<br>INSERT INTO Reservations(CustomerId, Day) VALUES(1, ‘2009-29-11’);<br>INSERT INTO Reservations(CustomerId, Day) VALUES(3, ‘2009-02-12’);<br>COMMIT;</p>
+<p>BEGIN TRANSACTION;<br>CREATE TABLE Names(Id integer, Name text);<br>INSERT INTO Names VALUES(1,’Tom’);<br>INSERT INTO Names VALUES(2,’Lucy’);<br>INSERT INTO Names VALUES(3,’Frank’);<br>INSERT INTO Names VALUES(4,’Jane’);<br>INSERT INTO Names VALUES(5,’Robert’);<br>COMMIT;</p>
+<p>BEGIN TRANSACTION;<br>CREATE TABLE Books(Id integer PRIMARY KEY, Title text, Author text,<br>                   Isbn text default ‘not available’);<br>INSERT INTO Books VALUES(1,’War and Peace’,’Leo Tolstoy’,’978-0345472403’);<br>INSERT INTO Books VALUES(2,’The Brothers Karamazov’,<br>                         ‘Fyodor Dostoyevsky’,’978-0486437910’);<br>INSERT INTO Books VALUES(3,’Crime and Punishment’,<br>                         ‘Fyodor Dostoyevsky’,’978-1840224306’);<br>COMMIT<br>4、列出所有的数据表： .tables<br>完成上面所有的工作以后，我们就可以列出所有的数据表了</p>
+<p>5、显示数据库结构：.schema</p>
+<p>其实就是一些 SQL 语句，他们描述了数据库的结构，如图</p>
+<p>6、显示表的结构：.schema    表名</p>
+<p> 7、导出某个表的数据： .dump    表名</p>
+<p>这时我们可以看到，整个表以 SQL 语句的形式为导出来了，但是只是显示在终端上，如何把它导出到文件中呢？</p>
+<p>8、设置导出目标：<br>1<br>.output 文件名<br>或者<br>1<br>.output stdout<br>先运行 .output cars.sql ，然后再运行 .dump 命令试试看？如果要回复成导出到终端（标准输出），则运行 .output stdout </p>
+<p>五、数据显示相关命令 </p>
+<p>1、设置分隔符：.separator 分隔符<br>我们可以首先运行 SELECT <em> FROM Names； ，可以看到默认的分隔符是 |<br>运行.separator : 以后，再 SELECT </em> FROM Names；，可以看到分隔符已经变成 : 了 </p>
+<p>2、设置显示模式：.mode    模式</p>
+<p>有好几种显示模式，默认的是 list 显示模式，一般我们使用 column 显示模式，还有其他几种显示模式可以 .help 看 mode 相关内容。看看下面的图，和上面是不是显示的不一样了？</p>
+<p>3、显示标题栏：.headers   on</p>
+<p>看看，是不是又不太一样了？</p>
+<p>4、设置每一列的显示宽度：.width     w1,w2,w3………</p>
+<p>一些内容，默认的宽度显示不下，这个命令就有用了</p>
+<p>5、设置 NULL 值显示成什么样子： .nullvalue     你想要的NULL值格式</p>
+<p>默认情况下NULL值什么也不显示，你可以设置成你自己想要的样子</p>
+<p>6、列出当前显示格式设置情况：.show</p>
+<p>7、配置文件 .sqliterc</p>
+<p>如果我们每次进入命令行都要重新设置显示格式，很麻烦，其实 .show 命令列出的所有设置项都可以保存到一个 .sqliterc 文件中，这样每次进入命令行就自动设置好了。.sqlterc 文件在 Linux 下保存在用户的 Home 目录下，在 Windows 下可以保存到任何目录下，但是需要设置环境变量让数据库引擎能找到它，感兴趣的可以看看帮助。 </p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> sqlite </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android简单拍照]]></title>
       <url>/2018/01/17/Android%E7%AE%80%E5%8D%95%E6%8B%8D%E7%85%A7/</url>
       <content type="html"><![CDATA[<h1 id="camera"><a href="#camera" class="headerlink" title="camera"></a>camera</h1><h4 id="1、简单拍照"><a href="#1、简单拍照" class="headerlink" title="1、简单拍照"></a>1、简单拍照</h4><h3 id="1-1请求camera的feature"><a href="#1-1请求camera的feature" class="headerlink" title="1.1请求camera的feature"></a>1.1请求camera的feature</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;manifest ... &gt; </div><div class="line"> &lt;uses-feature  android:name=&quot;android.hardware.camera&quot;  android:required=&quot;true&quot;  /&gt; </div><div class="line">...</div><div class="line"> &lt;/manifest&gt;</div></pre></td></tr></table></figure>
