@@ -37,7 +37,7 @@
     
     <title>
         
-            brew常用命令 | 
+            curl命令详解(转) | 
         
         Happy&#39;s blog
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="ChangQin">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",Mac,brew">
+    <meta name="keywords" content=",Linux,curl">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,18 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="brew常用命令 | Happy&#39;s blog">
+    <meta property="og:title" content="curl命令详解(转) | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Mac"> <meta property="og:article:tag" content="brew"> 
+    <meta property="og:article:tag" content="Linux"> <meta property="og:article:tag" content="curl"> 
 
     
-        <meta property="article:published_time" content="Mon Nov 27 2017 15:08:08 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Nov 27 2017 15:18:27 GMT+0800" />
+        <meta property="article:published_time" content="Wed Feb 14 2018 11:32:40 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Feb 14 2018 11:49:11 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="brew常用命令 | Happy&#39;s blog">
+    <meta name="twitter:title" content="curl命令详解(转) | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -250,7 +250,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/11/27/brew常用命令/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/02/14/curl命令详解-转/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/11/27/brew常用命令/index.html",
-    "headline": "brew常用命令",
-    "datePublished": "Mon Nov 27 2017 15:08:08 GMT+0800",
-    "dateModified": "Mon Nov 27 2017 15:18:27 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/02/14/curl命令详解-转/index.html",
+    "headline": "curl命令详解(转)",
+    "datePublished": "Wed Feb 14 2018 11:32:40 GMT+0800",
+    "dateModified": "Wed Feb 14 2018 11:49:11 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -283,7 +283,7 @@
             "url": "/img/avatar.png"
         }
     },
-    "keywords": ",Mac,brew",
+    "keywords": ",Linux,curl",
     "description": "",
 }
 </script>
@@ -343,6 +343,15 @@
     <!-- Left aligned menu below button -->
     
     
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令：curl"><span class="post-toc-number">1.</span> <span class="post-toc-text">命令：curl</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见参数："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">常见参数：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、基本用法"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1、基本用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、保存访问的网页"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2、保存访问的网页</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-1-使用linux的重定向功能保存"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">2.1:使用linux的重定向功能保存</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-2-可以使用curl的内置option-o-小写-保存网页"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">2.2:可以使用curl的内置option:-o(小写)保存网页</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-3-可以使用curl的内置option-O-大写-保存网页中的文件"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">2.3:可以使用curl的内置option:-O(大写)保存网页中的文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、测试网页返回值"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3、测试网页返回值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、指定proxy服务器以及其端口"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4、指定proxy服务器以及其端口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、cookie"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5、cookie</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-1-保存http的response里面的cookie信息。内置option-c（小写）"><span class="post-toc-number">1.1.5.1.</span> <span class="post-toc-text">5.1:保存http的response里面的cookie信息。内置option:-c（小写）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-2-保存http的response里面的header信息。内置option-D"><span class="post-toc-number">1.1.5.2.</span> <span class="post-toc-text">5.2:保存http的response里面的header信息。内置option: -D</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-3-使用cookie"><span class="post-toc-number">1.1.5.3.</span> <span class="post-toc-text">5.3:使用cookie</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6、模仿浏览器"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6、模仿浏览器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7、伪造referer（盗链）"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">7、伪造referer（盗链）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8、下载文件"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">8、下载文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-1：利用curl下载文件。"><span class="post-toc-number">1.1.8.1.</span> <span class="post-toc-text">8.1：利用curl下载文件。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-2：循环下载"><span class="post-toc-number">1.1.8.2.</span> <span class="post-toc-text">8.2：循环下载</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-3：下载重命名"><span class="post-toc-number">1.1.8.3.</span> <span class="post-toc-text">8.3：下载重命名</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-4：分块下载"><span class="post-toc-number">1.1.8.4.</span> <span class="post-toc-text">8.4：分块下载</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-5：通过ftp下载文件"><span class="post-toc-number">1.1.8.5.</span> <span class="post-toc-text">8.5：通过ftp下载文件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-6：显示下载进度条"><span class="post-toc-number">1.1.8.6.</span> <span class="post-toc-text">8.6：显示下载进度条</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#8-7：不会显示下载进度信息"><span class="post-toc-number">1.1.8.7.</span> <span class="post-toc-text">8.7：不会显示下载进度信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#9、断点续传"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">9、断点续传</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#10、上传文件"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">10、上传文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#11、显示抓取错误"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">11、显示抓取错误</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
 
 
 
@@ -372,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                brew常用命令
+                curl命令详解(转)
             </p>
         </div>
 
@@ -391,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>ChangQin</strong>
-        <span>11月 27, 2017</span>
+        <span>2月 14, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -415,7 +424,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Mac/">Mac</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/brew/">brew</a>
+        <a class="post_tag-link" href="/tags/Linux/">Linux</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/curl/">curl</a>
     </ul>
     
 
@@ -432,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=brew常用命令&url=http://yoursite.com/2017/11/27/brew常用命令/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=curl命令详解(转)&url=http://yoursite.com/2018/02/14/curl命令详解-转/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -441,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=brew常用命令&url=http://yoursite.com/2017/11/27/brew常用命令/index.html&via=ChangQin" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=curl命令详解(转)&url=http://yoursite.com/2018/02/14/curl命令详解-转/index.html&via=ChangQin" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -450,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/27/brew常用命令/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/14/curl命令详解-转/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -459,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/27/brew常用命令/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/14/curl命令详解-转/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -484,21 +493,49 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <ol>
-<li>安装（需要 Ruby，不过一般自带都有）：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</div></pre></td></tr></table></figure>
-<ol>
-<li>搜索：<code>brew search XXX   在安装之前可以先查询一下，是否有这个软件</code> </li>
-<li>查询：<code>brew info XXX</code> 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</li>
-<li>查看依赖：  brew deps 查看包的依赖</li>
-<li>安装：brew install xxx  用于安装软件</li>
-<li>更新：<code>brew update</code> 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——</li>
-<li>检查过时（是否有新版本）：<code>brew outdated</code> 这回列出所有安装的软件里可以升级的那些</li>
-<li>升级：<code>brew upgrade</code> 升级所有可以升级的软件们</li>
-<li>清理：<code>brew cleanup</code> 清理不需要的版本极其安装包缓存</li>
-</ol>
-
+        <p>本文转载自 <a href="http://www.linuxdiyf.com/linux/2800.html" target="_blank" rel="external">http://www.linuxdiyf.com/linux/2800.html</a></p>
+<h2 id="命令：curl"><a href="#命令：curl" class="headerlink" title="命令：curl"></a>命令：curl</h2><p>在Linux中curl是一个利用URL规则在命令行下工作的文件传输工具，可以说是一款很强大的http命令行工具。它支持文件的上传和下载，是综合传输工具，但按传统，习惯称url为下载工具。</p>
+<p>语法：<code>curl [option] [url]</code></p>
+<h3 id="常见参数："><a href="#常见参数：" class="headerlink" title="常见参数："></a>常见参数：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-A/--user-agent &lt;string&gt;              设置用户代理发送给服务器</div><div class="line">-b/--cookie &lt;name=string/file&gt;    cookie字符串或文件读取位置</div><div class="line">-c/--cookie-jar &lt;file&gt;                    操作结束后把cookie写入到这个文件中</div><div class="line">-C/--continue-at &lt;offset&gt;            断点续转</div><div class="line">-D/--dump-header &lt;file&gt;              把header信息写入到该文件中</div><div class="line">-e/--referer                                  来源网址</div><div class="line">-f/--fail                                          连接失败时不显示http错误</div><div class="line">-o/--output                                  把输出写到该文件中</div><div class="line">-O/--remote-name                      把输出写到该文件中，保留远程文件的文件名</div><div class="line">-r/--range &lt;range&gt;                      检索来自HTTP/1.1或FTP服务器字节范围</div><div class="line">-s/--silent                                    静音模式。不输出任何东西</div><div class="line">-T/--upload-file &lt;file&gt;                  上传文件</div><div class="line">-u/--user &lt;user[:password]&gt;      设置服务器的用户和密码</div><div class="line">-w/--write-out [format]                什么输出完成后</div><div class="line">-x/--proxy &lt;host[:port]&gt;              在给定的端口上使用HTTP代理</div><div class="line">-#/--progress-bar                        进度条显示当前的传送状态</div></pre></td></tr></table></figure>
+<p>例子：</p>
+<h4 id="1、基本用法"><a href="#1、基本用法" class="headerlink" title="1、基本用法"></a>1、基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl http://www.linux.com</div></pre></td></tr></table></figure>
+<p>执行后，www.linux.com 的html就会显示在屏幕上了<br>Ps：由于安装linux的时候很多时候是没有安装桌面的，也意味着没有浏览器，因此这个方法也经常用于测试一台服务器是否可以到达一个网站</p>
+<h4 id="2、保存访问的网页"><a href="#2、保存访问的网页" class="headerlink" title="2、保存访问的网页"></a>2、保存访问的网页</h4><h5 id="2-1-使用linux的重定向功能保存"><a href="#2-1-使用linux的重定向功能保存" class="headerlink" title="2.1:使用linux的重定向功能保存"></a>2.1:使用linux的重定向功能保存</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl http://www.linux.com &gt;&gt; linux.html</div></pre></td></tr></table></figure>
+<h5 id="2-2-可以使用curl的内置option-o-小写-保存网页"><a href="#2-2-可以使用curl的内置option-o-小写-保存网页" class="headerlink" title="2.2:可以使用curl的内置option:-o(小写)保存网页"></a>2.2:可以使用curl的内置option:-o(小写)保存网页</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl -o linux.html http://www.linux.com</div></pre></td></tr></table></figure>
+<p>执行完成后会显示如下界面，显示100%则表示保存成功</p>
+<p>% Total    % Received % Xferd  Average Speed  Time    Time    Time  Current<br>                                Dload  Upload  Total  Spent    Left  Speed 100 79684    0 79684    0    0  3437k      0 –:–:– –:–:– –:–:– 7781k</p>
+<h5 id="2-3-可以使用curl的内置option-O-大写-保存网页中的文件"><a href="#2-3-可以使用curl的内置option-O-大写-保存网页中的文件" class="headerlink" title="2.3:可以使用curl的内置option:-O(大写)保存网页中的文件"></a>2.3:可以使用curl的内置option:-O(大写)保存网页中的文件</h5><p>要注意这里后面的url要具体到某个文件，不然抓不下来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.linux.com/hello.sh</div></pre></td></tr></table></figure></p>
+<h4 id="3、测试网页返回值"><a href="#3、测试网页返回值" class="headerlink" title="3、测试网页返回值"></a>3、测试网页返回值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o /dev/null -s -w %&#123;http_code&#125; www.linux.com</div></pre></td></tr></table></figure>
+<p>Ps:在脚本中，这是很常见的测试网站是否正常的用法</p>
+<h4 id="4、指定proxy服务器以及其端口"><a href="#4、指定proxy服务器以及其端口" class="headerlink" title="4、指定proxy服务器以及其端口"></a>4、指定proxy服务器以及其端口</h4><p>很多时候上网需要用到代理服务器(比如是使用代理服务器上网或者因为使用curl别人网站而被别人屏蔽IP地址的时候)，幸运的是curl通过使用内置option：-x来支持设置代理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -x 192.168.100.100:1080 http://www.linux.com</div></pre></td></tr></table></figure></p>
+<h4 id="5、cookie"><a href="#5、cookie" class="headerlink" title="5、cookie"></a>5、cookie</h4><p>有些网站是使用cookie来记录session信息。对于chrome这样的浏览器，可以轻易处理cookie信息，但在curl中只要增加相关参数也是可以很容易的处理cookie</p>
+<h5 id="5-1-保存http的response里面的cookie信息。内置option-c（小写）"><a href="#5-1-保存http的response里面的cookie信息。内置option-c（小写）" class="headerlink" title="5.1:保存http的response里面的cookie信息。内置option:-c（小写）"></a>5.1:保存http的response里面的cookie信息。内置option:-c（小写）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -c cookiec.txt  http://www.linux.com</div></pre></td></tr></table></figure>
+<p>执行后cookie信息就被存到了cookiec.txt里面了</p>
+<h5 id="5-2-保存http的response里面的header信息。内置option-D"><a href="#5-2-保存http的response里面的header信息。内置option-D" class="headerlink" title="5.2:保存http的response里面的header信息。内置option: -D"></a>5.2:保存http的response里面的header信息。内置option: -D</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -D cookied.txt http://www.linux.com</div></pre></td></tr></table></figure>
+<p>执行后cookie信息就被存到了cookied.txt里面了</p>
+<p>注意：-c(小写)产生的cookie和-D里面的cookie是不一样的。</p>
+<h5 id="5-3-使用cookie"><a href="#5-3-使用cookie" class="headerlink" title="5.3:使用cookie"></a>5.3:使用cookie</h5><p>很多网站都是通过监视你的cookie信息来判断你是否按规矩访问他们的网站的，因此我们需要使用保存的cookie信息。内置option: -b<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -b cookiec.txt http://www.linux.com</div></pre></td></tr></table></figure></p>
+<h4 id="6、模仿浏览器"><a href="#6、模仿浏览器" class="headerlink" title="6、模仿浏览器"></a>6、模仿浏览器</h4><p>有些网站需要使用特定的浏览器去访问他们，有些还需要使用某些特定的版本。curl内置option:-A可以让我们指定浏览器去访问网站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -A &quot;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.0)&quot; http://www.linux.com</div></pre></td></tr></table></figure></p>
+<p>这样服务器端就会认为是使用IE8.0去访问的</p>
+<h4 id="7、伪造referer（盗链）"><a href="#7、伪造referer（盗链）" class="headerlink" title="7、伪造referer（盗链）"></a>7、伪造referer（盗链）</h4><p>很多服务器会检查http访问的referer从而来控制访问。比如：你是先访问首页，然后再访问首页中的邮箱页面，这里访问邮箱的referer地址就是访问首页成功后的页面地址，如果服务器发现对邮箱页面访问的referer地址不是首页的地址，就断定那是个盗连了<br>curl中内置option：-e可以让我们设定referer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -e &quot;www.linux.com&quot; http://mail.linux.com</div></pre></td></tr></table></figure></p>
+<p>这样就会让服务器其以为你是从www.linux.com点击某个链接过来的</p>
+<h4 id="8、下载文件"><a href="#8、下载文件" class="headerlink" title="8、下载文件"></a>8、下载文件</h4><h5 id="8-1：利用curl下载文件。"><a href="#8-1：利用curl下载文件。" class="headerlink" title="8.1：利用curl下载文件。"></a>8.1：利用curl下载文件。</h5><p>使用内置option：-o(小写)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o dodo1.jpg http:www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure></p>
+<p>使用内置option：-O（大写)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure></p>
+<p>这样就会以服务器上的名称保存文件到本地</p>
+<h5 id="8-2：循环下载"><a href="#8-2：循环下载" class="headerlink" title="8.2：循环下载"></a>8.2：循环下载</h5><p>有时候下载图片可以能是前面的部分名称是一样的，就最后的尾椎名不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.linux.com/dodo[1-5].JPG</div></pre></td></tr></table></figure></p>
+<p>这样就会把dodo1，dodo2，dodo3，dodo4，dodo5全部保存下来</p>
+<h5 id="8-3：下载重命名"><a href="#8-3：下载重命名" class="headerlink" title="8.3：下载重命名"></a>8.3：下载重命名</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.linux.com/&#123;hello,bb&#125;/dodo[1-5].JPG</div></pre></td></tr></table></figure>
+<p>由于下载的hello与bb中的文件名都是dodo1，dodo2，dodo3，dodo4，dodo5。因此第二次下载的会把第一次`下载的覆盖，这样就需要对文件进行重命名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o #1_#2.JPG http://www.linux.com/&#123;hello,bb&#125;/dodo[1-5].JPG</div></pre></td></tr></table></figure></p>
+<p>这样在hello/dodo1.JPG的文件下载下来就会变成hello_dodo1.JPG,其他文件依此类推，从而有效的避免了文件被覆盖</p>
+<h5 id="8-4：分块下载"><a href="#8-4：分块下载" class="headerlink" title="8.4：分块下载"></a>8.4：分块下载</h5><p>有时候下载的东西会比较大，这个时候我们可以分段下载。使用内置option：-r<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># curl -r 0-100 -o dodo1_part1.JPG http://www.linux.com/dodo1.JPG</div><div class="line"># curl -r 100-200 -o dodo1_part2.JPG http://www.linux.com/dodo1.JPG</div><div class="line"># curl -r 200- -o dodo1_part3.JPG http://www.linux.com/dodo1.JPG</div><div class="line"># cat dodo1_part* &gt; dodo1.JPG</div></pre></td></tr></table></figure></p>
+<p>这样就可以查看dodo1.JPG的内容了</p>
+<h5 id="8-5：通过ftp下载文件"><a href="#8-5：通过ftp下载文件" class="headerlink" title="8.5：通过ftp下载文件"></a>8.5：通过ftp下载文件</h5><p>curl可以通过ftp下载文件，curl提供两种从ftp中下载的语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># curl -O -u 用户名:密码 ftp://www.linux.com/dodo1.JPG</div><div class="line"># curl -O ftp://用户名:密码@www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure></p>
+<h5 id="8-6：显示下载进度条"><a href="#8-6：显示下载进度条" class="headerlink" title="8.6：显示下载进度条"></a>8.6：显示下载进度条</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl -# -O http://www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure>
+<h5 id="8-7：不会显示下载进度信息"><a href="#8-7：不会显示下载进度信息" class="headerlink" title="8.7：不会显示下载进度信息"></a>8.7：不会显示下载进度信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl -s -O http://www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure>
+<h4 id="9、断点续传"><a href="#9、断点续传" class="headerlink" title="9、断点续传"></a>9、断点续传</h4><p>在windows中，我们可以使用迅雷这样的软件进行断点续传。curl可以通过内置option:-C同样可以达到相同的效果<br>如果在下载dodo1.JPG的过程中突然掉线了，可以使用以下的方式续传<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl -C -O http://www.linux.com/dodo1.JPG</div></pre></td></tr></table></figure></p>
+<h4 id="10、上传文件"><a href="#10、上传文件" class="headerlink" title="10、上传文件"></a>10、上传文件</h4><p>curl不仅仅可以下载文件，还可以上传文件。通过内置option:-T来实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl -T dodo1.JPG -u 用户名:密码 ftp://www.linux.com/img/</div></pre></td></tr></table></figure></p>
+<p>这样就向ftp服务器上传了文件dodo1.JPG</p>
+<h4 id="11、显示抓取错误"><a href="#11、显示抓取错误" class="headerlink" title="11、显示抓取错误"></a>11、显示抓取错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"># curl -f http://www.linux.com/error</div></pre></td></tr></table></figure>
         
     
 
@@ -518,21 +555,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/01/mac上用终端启动和关闭mysql服务/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/11/25/Android-日常积累/" id="post_nav-older" class="next-content">
+        <a href="/2018/01/25/sqlite在命令行的使用/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
