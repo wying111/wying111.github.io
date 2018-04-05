@@ -3,6 +3,32 @@
   
     
     <entry>
+      <title><![CDATA[Go 如何交叉编译]]></title>
+      <url>/2018/04/05/Go-%E5%A6%82%E4%BD%95%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</url>
+      <content type="html"><![CDATA[<p>Golang 支持交叉编译，在一个平台上生成另一个平台的可执行程序，最近使用了一下，非常好用，这里备忘一下。</p>
+<p>Mac 下编译 Linux 和 Windows 64位可执行程序</p>
+<p>CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go<br>CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go<br>1<br>2<br>Linux 下编译 Mac 和 Windows 64位可执行程序</p>
+<p>CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go<br>CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go<br>1<br>2<br>Windows 下编译 Mac 和 Linux 64位可执行程序</p>
+<p>SET CGO_ENABLED=0<br>SET GOOS=darwin<br>SET GOARCH=amd64<br>go build main.go</p>
+<p>SET CGO_ENABLED=0<br>SET GOOS=linux<br>SET GOARCH=amd64<br>go build main.go</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Go </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Go </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SopHix接口说明]]></title>
       <url>/2018/03/29/SopHix%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E/</url>
       <content type="html"><![CDATA[<h1 id="SopHix接口说明"><a href="#SopHix接口说明" class="headerlink" title="SopHix接口说明"></a>SopHix接口说明</h1><p>1  initialize方法</p>
