@@ -3,6 +3,254 @@
   
     
     <entry>
+      <title><![CDATA[adb命令]]></title>
+      <url>/2018/05/04/adb%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<h4 id="查看Activity"><a href="#查看Activity" class="headerlink" title="查看Activity"></a>查看Activity</h4><p><code>1.  adb shell dumpsys activity activities | sed -En -e &#39;/Running activities/,/Run #0/p&#39;</code><br><code>2.  adb shell dumpsys activity | grep -i run</code><br><code>3.  adb shell dumpsys activity | grep &quot;mFoc&quot;</code></p>
+<h4 id="ADB-Debugging"><a href="#ADB-Debugging" class="headerlink" title="ADB Debugging"></a>ADB Debugging</h4><ul>
+<li><p>adb devices<br>主要是用于打印当前连接的所有模拟器或者设备。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6x8FZ46VFNiaGsd39h7omcbw1KoJKwyF8hWbH5bqtH1R7Lqffh1YibnSQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+</li>
+<li><p>adb forward<br>端口映射，将 PC 端的某端口数据重定向到手机端的一个端口。</p>
+</li>
+</ul>
+<blockquote>
+<p>adb forward <local> <remote></remote></local></p>
+</blockquote>
+<ul>
+<li>adb kill-server<br>终止 adb 进程。</li>
+</ul>
+<blockquote>
+<p>adb kill-server</p>
+</blockquote>
+<h4 id="Wireless"><a href="#Wireless" class="headerlink" title="Wireless"></a>Wireless</h4><ul>
+<li>adb connect<br>无限调试必备命令，需要保证设备和 PC 在同一局域网内，所以可通过远程桌面达到远程调试的结果。</li>
+</ul>
+<blockquote>
+<p>adb connect <host>[:<port>]</port></host></p>
+</blockquote>
+<p>需要保证设备的 /system/build.prop 文件中有命令 <code>service.adb.tcp.port=5555</code>,否则会遭到拒绝。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6GibEH9YiaSibBMONUmdjjC5dhRP0QNPt7ibTdJfvMDiafeXjOKDNMEgNIdA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<blockquote>
+<p>此处安利一下无限调试设置方法：</p>
+<ol>
+<li>打开设备的调试模式，允许 USB 以 MTP 模式传输，确保设备和 PC 能正常连接，可以通过<code>adb shell</code> 或者 <code>adb devices</code> 等进行验证。</li>
+</ol>
+<ol>
+<li>确保已连接后，依次执行以下命令：<br><code>adb root</code><br><code>adb remount</code><br><code>adb pull /system/build.prop ./</code></li>
+</ol>
+<ol>
+<li>在 adb 命令执行的文件夹下的 build.prop 中加入命令 <code>service.adb.tcp.port=5555</code></li>
+</ol>
+<ol>
+<li>执行 <code>adb push ./build.prop /system/</code> 后重启设备<br>结束后断开 USB 连接线，输入 adb connect 设备IP:5555 确认可以正常连接。</li>
+</ol>
+</blockquote>
+<ul>
+<li>adb usb<br>设置设备以 USB 形式连接 PC。</li>
+</ul>
+<h4 id="Package-Manager"><a href="#Package-Manager" class="headerlink" title="Package Manager"></a>Package Manager</h4><ul>
+<li>adb install<br>主要用于往 Android 设备 push 应用。</li>
+</ul>
+<blockquote>
+<p>adb install [option] <path></path></p>
+</blockquote>
+<p>其中的 option 也是比较有讲究的，下面就只说最常用的。</p>
+<blockquote>
+<ul>
+<li><code>adb install test.apk</code> <em>直接安装应用</em></li>
+</ul>
+<ul>
+<li><code>adb install -r test.apk</code> <em>替代存在的应用，不会删除应用数据，用于更新应用特别方便。</em></li>
+</ul>
+</blockquote>
+<p>其余的不是很常用的就不多提了，感兴趣的可以自行了解。</p>
+<ul>
+<li>adb uninstall<br>从设备或者模拟器卸载应用。</li>
+</ul>
+<blockquote>
+<p>adb uninstall [options] <package></package></p>
+</blockquote>
+<p>两种情况，假设我们的应用 APP 包名是 com.example.application</p>
+<blockquote>
+<p><code>adb uninstall com.example.application</code> <em>直接删除应用和所有数据</em><br><code>adb uninstall -k com.example.application</code> <em>删除应用，但会保留应用数据和缓存数据。</em></p>
+</blockquote>
+<ul>
+<li>adb shell pm list packages<br>打印设备下面的所有应用包名。</li>
+</ul>
+<blockquote>
+<p>adb shell pm list packages [options] <filter></filter></p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6aCQicNhapqDQYfUltaVLUOeV1ibQJZvBK1ZJzyJr5m5GGfenn2bWXFAg/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>其他的过滤方式和限定条件这里也不举例了。</p>
+<ul>
+<li>adb shell pm path<br>打印 apk 的路径。</li>
+</ul>
+<blockquote>
+<p>adb shell pm path <package></package></p>
+</blockquote>
+<ul>
+<li>adb shell pm clear<br>清除应用缓存。</li>
+</ul>
+<blockquote>
+<p>adb shell pm clear <package></package></p>
+</blockquote>
+<h4 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h4><ul>
+<li>adb pull<br>从 Android 设备下载文件到 PC。</li>
+</ul>
+<blockquote>
+<p>adb pull <remote> [local]</remote></p>
+</blockquote>
+<p>其中 代表文件在设备中的地址，[local] 代表存放目录。</p>
+<ul>
+<li>adb push<br>把 PC 的文件存放到 Android 设备。</li>
+</ul>
+<blockquote>
+<p>adb push <local> <remote></remote></local></p>
+</blockquote>
+<ul>
+<li>adb shell ls<br>列出目录内容。</li>
+</ul>
+<blockquote>
+<p>adb shell ls [options] <directory></directory></p>
+</blockquote>
+<ul>
+<li>adb shell cd<br>和一般的 PC 的 <code>cd</code> 差不多，主要用于切换目录。</li>
+</ul>
+<blockquote>
+<p>adb shell cd <directory></directory></p>
+</blockquote>
+<ul>
+<li>adb shell rm<br>删除文件或者目录</li>
+</ul>
+<blockquote>
+<p>adb shell rm [options] <file or="" directory=""></file></p>
+</blockquote>
+<ul>
+<li>adb shell mkdir<br>创建一个文件夹</li>
+</ul>
+<blockquote>
+<p>adb shell mkdir [options] <directory name=""></directory></p>
+</blockquote>
+<ul>
+<li>adb shell touch<br>创建一个新文件或者改变文件修改时间</li>
+</ul>
+<blockquote>
+<p>adb shell touch [options] <file></file></p>
+</blockquote>
+<ul>
+<li>adb shell pwd<br>定位当前的操作位置</li>
+</ul>
+<blockquote>
+<p>adb shell pwd</p>
+</blockquote>
+<ul>
+<li>adb shell cp<br>字面意思，很好理解，复制。</li>
+</ul>
+<blockquote>
+<p>adb shell cp [options] <source> <dest></dest></p>
+</blockquote>
+<ul>
+<li>adb shell mv<br>移动或者更名文件</li>
+</ul>
+<blockquote>
+<p>adb shell mv [options] <source> <dest></dest></p>
+</blockquote>
+<h4 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h4><ul>
+<li><p>adb shell netstat<br>主要用于网络统计。</p>
+</li>
+<li><p>adb shell ping<br>没啥好说的，和 PC 的 ping 命令一样的。</p>
+</li>
+<li><p>adb shell netcfg<br>通过配置文件配置和管理网络连接。</p>
+</li>
+</ul>
+<blockquote>
+<p>adb shell netcfg [<interface> {dhcp|up|down}]</interface></p>
+</blockquote>
+<ul>
+<li>adb shell ip<br>主要用于显示一些数据</li>
+</ul>
+<blockquote>
+<p>adb shell ip [OPTIONS] OBJECT</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6qr51tsmXZHxuJqnmzpGPO31BofHicicBE1LWoGhfDeOIevbM4yjIdVfQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<h4 id="Logcat"><a href="#Logcat" class="headerlink" title="Logcat"></a>Logcat</h4><ul>
+<li>adb logcat<br>打印日志文件。</li>
+</ul>
+<blockquote>
+<p>adb logcat [options] [filter-specs]</p>
+</blockquote>
+<p>当然可以像 Android Studio 一样只打印固定的日志</p>
+<blockquote>
+<p><code>adb logcat *:V</code> <em>lowest priority, filter to only show Verbose level</em><br><code>adb logcat *:D</code> <em>filter to only show Debug level</em><br><code>adb logcat *:I</code> <em>filter to only show Info level</em><br><code>adb logcat *:W</code> <em>filter to only show Warning level</em><br><code>adb logcat *:E</code> <em>filter to only show Error level</em><br><code>adb logcat *:F</code> <em>filter to only show Fatal level</em><br><code>adb logcat *:S</code> <em>Silent, highest priority, on which nothing is ever printed</em></p>
+</blockquote>
+<p>adb logcat -b</p>
+<blockquote>
+<p><code>adb logcat -b radio</code> <em>View the buffer that contains radio/telephony related messages.</em><br><code>adb logcat -b event</code> <em>View the buffer containing events-related messages.</em><br><code>adb logcat -b main</code> <em>default</em><br><code>adb logcat -c</code> <em>Clears the entire log and exits.</em><br><code>adb logcat -d</code> <em>Dumps the log to the screen and exits.</em><br><code>adb logcat -f test.logs</code> <em>Writes log message output to test.logs .</em><br><code>adb logcat -g</code> <em>Prints the size of the specified log buffer and exits.</em><br><code>adb logcat -n &lt;count&gt;</code> <em>Sets the maximum number of rotated logs to . </em></p>
+</blockquote>
+<ul>
+<li>adb shell dumpsys<br>获取系统数据。</li>
+</ul>
+<blockquote>
+<p>adb shell dumpsys [options]</p>
+</blockquote>
+<p>其中有个非常好用的是，当你在新接触一个项目的时候，不熟悉项目流程，此时正好可以用这个直接定位到你的 Activity 位置。</p>
+<p><code>adb shell dumpsys activity activities</code></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt60GOOlfus8iaLFl2AN1CX42DGQHCfbbHicw2LqCXpyoO9tFEUGLbKnBxA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>如图，直接在打印出来内容的后半段找到了当前 Activity 的定位，是 <code>NewLoginActivity</code>。</p>
+<ul>
+<li>adb shell dumpstate<br>和命令直译差不多，dumps state。</li>
+</ul>
+<h4 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h4><ul>
+<li>adb shell screencap<br>一般的手机都有截图功能（一般下拉菜单中有），但不代表所有 Android 设备都在可视化中开启了这个功能，所以这时候这个 adb 命令就显得特别重要。</li>
+</ul>
+<blockquote>
+<p>adb shell screencap <filename></filename></p>
+</blockquote>
+<p>结合前面的 pull 命令，就可以让我们轻松拿到屏幕截图。</p>
+<blockquote>
+<p><code>adb shell screencap /sdcard/test.png</code> <em>截图存放</em><br><code>adb pull /sdcard/test.png</code> <em>取到 PC 当前文件夹</em></p>
+</blockquote>
+<ul>
+<li>adb shell screencord<br>有了屏幕截图，自然也得有屏幕录制，可惜这个必须在 Android 4.4 (API level 19) 以上才可使用。</li>
+</ul>
+<blockquote>
+<p>adb shell screencord /sdcard/test.mp4</p>
+</blockquote>
+<p>这个还可以对大小 size 和 时间做限制，感兴趣的可以自行了解。</p>
+<h4 id="System"><a href="#System" class="headerlink" title="System"></a>System</h4><ul>
+<li><p>adb root<br>获取 root 权限。</p>
+</li>
+<li><p>adb sideload</p>
+</li>
+<li><p>adb shell ps<br>打印进程状态。</p>
+</li>
+<li><p>adb shell top<br>展现上层 CPU 进程信息。</p>
+</li>
+<li><p>adb shell getprop<br>获取 Android 系统服务属性</p>
+</li>
+<li><p>adb shell setprop<br>设置服务属性。<br>以上部分转载自<br><a href="https://mp.weixin.qq.com/s/JjFnWY6qCJfKVp4VsXml-g" target="_blank" rel="external">https://mp.weixin.qq.com/s/JjFnWY6qCJfKVp4VsXml-g</a></p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> adb </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[(转)P12证书转BKS证书]]></title>
       <url>/2018/04/23/%E8%BD%AC-P12%E8%AF%81%E4%B9%A6%E8%BD%ACBKS%E8%AF%81%E4%B9%A6/</url>
       <content type="html"><![CDATA[<p><strong>1.请先下载第三方转换工具protecle，配置java环境</strong></p>

@@ -37,7 +37,7 @@
     
     <title>
         
-            标签: mysql | 
+            adb命令 | 
         
         Happy&#39;s blog
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="ChangQin">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Android,adb">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,15 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: mysql | Happy&#39;s blog">
+    <meta property="og:title" content="adb命令 | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Android"> <meta property="og:article:tag" content="adb"> 
 
+    
+        <meta property="article:published_time" content="Fri May 04 2018 10:13:50 GMT+0800" />
+        <meta property="article:modified_time" content="Fri May 04 2018 10:16:57 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: mysql | Happy&#39;s blog">
+    <meta name="twitter:title" content="adb命令 | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -247,13 +250,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/tags/mysql/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/04/adb命令/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/04/adb命令/index.html",
+    "headline": "adb命令",
+    "datePublished": "Fri May 04 2018 10:13:50 GMT+0800",
+    "dateModified": "Fri May 04 2018 10:16:57 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "ChangQin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Happy&#39;s blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/avatar.png"
+        }
+    },
+    "keywords": ",Android,adb",
+    "description": "",
+}
+</script>
 
 
     
@@ -287,98 +320,444 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看Activity"><span class="post-toc-number">1.</span> <span class="post-toc-text">查看Activity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ADB-Debugging"><span class="post-toc-number">2.</span> <span class="post-toc-text">ADB Debugging</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Wireless"><span class="post-toc-number">3.</span> <span class="post-toc-text">Wireless</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Package-Manager"><span class="post-toc-number">4.</span> <span class="post-toc-text">Package Manager</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#File-Manager"><span class="post-toc-number">5.</span> <span class="post-toc-text">File Manager</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Network"><span class="post-toc-number">6.</span> <span class="post-toc-text">Network</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Logcat"><span class="post-toc-number">7.</span> <span class="post-toc-text">Logcat</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Screenshot"><span class="post-toc-number">8.</span> <span class="post-toc-text">Screenshot</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#System"><span class="post-toc-number">9.</span> <span class="post-toc-text">System</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/12/01/mac上用终端启动和关闭mysql服务/">mac上用终端启动和关闭mysql服务</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            启动服务mysql.server start关闭服务mysql.server stop重启服务mysql.s...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/12/01/mac上用终端启动和关闭mysql服务/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="ChangQin's avatar">
-            </div>
-            <div>
-                <strong>ChangQin</strong>
-                <span>12月 01, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Mac/">Mac</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                adb命令
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>ChangQin</strong>
+        <span>5月 04, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/adb/">adb</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=adb命令&url=http://yoursite.com/2018/05/04/adb命令/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=adb命令&url=http://yoursite.com/2018/05/04/adb命令/index.html&via=ChangQin" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/04/adb命令/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/04/adb命令/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="查看Activity"><a href="#查看Activity" class="headerlink" title="查看Activity"></a>查看Activity</h4><p><code>1.  adb shell dumpsys activity activities | sed -En -e &#39;/Running activities/,/Run #0/p&#39;</code><br><code>2.  adb shell dumpsys activity | grep -i run</code><br><code>3.  adb shell dumpsys activity | grep &quot;mFoc&quot;</code></p>
+<h4 id="ADB-Debugging"><a href="#ADB-Debugging" class="headerlink" title="ADB Debugging"></a>ADB Debugging</h4><ul>
+<li><p>adb devices<br>主要是用于打印当前连接的所有模拟器或者设备。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6x8FZ46VFNiaGsd39h7omcbw1KoJKwyF8hWbH5bqtH1R7Lqffh1YibnSQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+</li>
+<li><p>adb forward<br>端口映射，将 PC 端的某端口数据重定向到手机端的一个端口。</p>
+</li>
+</ul>
+<blockquote>
+<p>adb forward <local> <remote></remote></local></p>
+</blockquote>
+<ul>
+<li>adb kill-server<br>终止 adb 进程。</li>
+</ul>
+<blockquote>
+<p>adb kill-server</p>
+</blockquote>
+<h4 id="Wireless"><a href="#Wireless" class="headerlink" title="Wireless"></a>Wireless</h4><ul>
+<li>adb connect<br>无限调试必备命令，需要保证设备和 PC 在同一局域网内，所以可通过远程桌面达到远程调试的结果。</li>
+</ul>
+<blockquote>
+<p>adb connect <host>[:<port>]</port></host></p>
+</blockquote>
+<p>需要保证设备的 /system/build.prop 文件中有命令 <code>service.adb.tcp.port=5555</code>,否则会遭到拒绝。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6GibEH9YiaSibBMONUmdjjC5dhRP0QNPt7ibTdJfvMDiafeXjOKDNMEgNIdA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<blockquote>
+<p>此处安利一下无限调试设置方法：</p>
+<ol>
+<li>打开设备的调试模式，允许 USB 以 MTP 模式传输，确保设备和 PC 能正常连接，可以通过<code>adb shell</code> 或者 <code>adb devices</code> 等进行验证。</li>
+</ol>
+<ol>
+<li>确保已连接后，依次执行以下命令：<br><code>adb root</code><br><code>adb remount</code><br><code>adb pull /system/build.prop ./</code></li>
+</ol>
+<ol>
+<li>在 adb 命令执行的文件夹下的 build.prop 中加入命令 <code>service.adb.tcp.port=5555</code></li>
+</ol>
+<ol>
+<li>执行 <code>adb push ./build.prop /system/</code> 后重启设备<br>结束后断开 USB 连接线，输入 adb connect 设备IP:5555 确认可以正常连接。</li>
+</ol>
+</blockquote>
+<ul>
+<li>adb usb<br>设置设备以 USB 形式连接 PC。</li>
+</ul>
+<h4 id="Package-Manager"><a href="#Package-Manager" class="headerlink" title="Package Manager"></a>Package Manager</h4><ul>
+<li>adb install<br>主要用于往 Android 设备 push 应用。</li>
+</ul>
+<blockquote>
+<p>adb install [option] <path></path></p>
+</blockquote>
+<p>其中的 option 也是比较有讲究的，下面就只说最常用的。</p>
+<blockquote>
+<ul>
+<li><code>adb install test.apk</code> <em>直接安装应用</em></li>
+</ul>
+<ul>
+<li><code>adb install -r test.apk</code> <em>替代存在的应用，不会删除应用数据，用于更新应用特别方便。</em></li>
+</ul>
+</blockquote>
+<p>其余的不是很常用的就不多提了，感兴趣的可以自行了解。</p>
+<ul>
+<li>adb uninstall<br>从设备或者模拟器卸载应用。</li>
+</ul>
+<blockquote>
+<p>adb uninstall [options] <package></package></p>
+</blockquote>
+<p>两种情况，假设我们的应用 APP 包名是 com.example.application</p>
+<blockquote>
+<p><code>adb uninstall com.example.application</code> <em>直接删除应用和所有数据</em><br><code>adb uninstall -k com.example.application</code> <em>删除应用，但会保留应用数据和缓存数据。</em></p>
+</blockquote>
+<ul>
+<li>adb shell pm list packages<br>打印设备下面的所有应用包名。</li>
+</ul>
+<blockquote>
+<p>adb shell pm list packages [options] <filter></filter></p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6aCQicNhapqDQYfUltaVLUOeV1ibQJZvBK1ZJzyJr5m5GGfenn2bWXFAg/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>其他的过滤方式和限定条件这里也不举例了。</p>
+<ul>
+<li>adb shell pm path<br>打印 apk 的路径。</li>
+</ul>
+<blockquote>
+<p>adb shell pm path <package></package></p>
+</blockquote>
+<ul>
+<li>adb shell pm clear<br>清除应用缓存。</li>
+</ul>
+<blockquote>
+<p>adb shell pm clear <package></package></p>
+</blockquote>
+<h4 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a>File Manager</h4><ul>
+<li>adb pull<br>从 Android 设备下载文件到 PC。</li>
+</ul>
+<blockquote>
+<p>adb pull <remote> [local]</remote></p>
+</blockquote>
+<p>其中 代表文件在设备中的地址，[local] 代表存放目录。</p>
+<ul>
+<li>adb push<br>把 PC 的文件存放到 Android 设备。</li>
+</ul>
+<blockquote>
+<p>adb push <local> <remote></remote></local></p>
+</blockquote>
+<ul>
+<li>adb shell ls<br>列出目录内容。</li>
+</ul>
+<blockquote>
+<p>adb shell ls [options] <directory></directory></p>
+</blockquote>
+<ul>
+<li>adb shell cd<br>和一般的 PC 的 <code>cd</code> 差不多，主要用于切换目录。</li>
+</ul>
+<blockquote>
+<p>adb shell cd <directory></directory></p>
+</blockquote>
+<ul>
+<li>adb shell rm<br>删除文件或者目录</li>
+</ul>
+<blockquote>
+<p>adb shell rm [options] <file or="" directory=""></file></p>
+</blockquote>
+<ul>
+<li>adb shell mkdir<br>创建一个文件夹</li>
+</ul>
+<blockquote>
+<p>adb shell mkdir [options] <directory name=""></directory></p>
+</blockquote>
+<ul>
+<li>adb shell touch<br>创建一个新文件或者改变文件修改时间</li>
+</ul>
+<blockquote>
+<p>adb shell touch [options] <file></file></p>
+</blockquote>
+<ul>
+<li>adb shell pwd<br>定位当前的操作位置</li>
+</ul>
+<blockquote>
+<p>adb shell pwd</p>
+</blockquote>
+<ul>
+<li>adb shell cp<br>字面意思，很好理解，复制。</li>
+</ul>
+<blockquote>
+<p>adb shell cp [options] <source> <dest></dest></p>
+</blockquote>
+<ul>
+<li>adb shell mv<br>移动或者更名文件</li>
+</ul>
+<blockquote>
+<p>adb shell mv [options] <source> <dest></dest></p>
+</blockquote>
+<h4 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h4><ul>
+<li><p>adb shell netstat<br>主要用于网络统计。</p>
+</li>
+<li><p>adb shell ping<br>没啥好说的，和 PC 的 ping 命令一样的。</p>
+</li>
+<li><p>adb shell netcfg<br>通过配置文件配置和管理网络连接。</p>
+</li>
+</ul>
+<blockquote>
+<p>adb shell netcfg [<interface> {dhcp|up|down}]</interface></p>
+</blockquote>
+<ul>
+<li>adb shell ip<br>主要用于显示一些数据</li>
+</ul>
+<blockquote>
+<p>adb shell ip [OPTIONS] OBJECT</p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt6qr51tsmXZHxuJqnmzpGPO31BofHicicBE1LWoGhfDeOIevbM4yjIdVfQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<h4 id="Logcat"><a href="#Logcat" class="headerlink" title="Logcat"></a>Logcat</h4><ul>
+<li>adb logcat<br>打印日志文件。</li>
+</ul>
+<blockquote>
+<p>adb logcat [options] [filter-specs]</p>
+</blockquote>
+<p>当然可以像 Android Studio 一样只打印固定的日志</p>
+<blockquote>
+<p><code>adb logcat *:V</code> <em>lowest priority, filter to only show Verbose level</em><br><code>adb logcat *:D</code> <em>filter to only show Debug level</em><br><code>adb logcat *:I</code> <em>filter to only show Info level</em><br><code>adb logcat *:W</code> <em>filter to only show Warning level</em><br><code>adb logcat *:E</code> <em>filter to only show Error level</em><br><code>adb logcat *:F</code> <em>filter to only show Fatal level</em><br><code>adb logcat *:S</code> <em>Silent, highest priority, on which nothing is ever printed</em></p>
+</blockquote>
+<p>adb logcat -b</p>
+<blockquote>
+<p><code>adb logcat -b radio</code> <em>View the buffer that contains radio/telephony related messages.</em><br><code>adb logcat -b event</code> <em>View the buffer containing events-related messages.</em><br><code>adb logcat -b main</code> <em>default</em><br><code>adb logcat -c</code> <em>Clears the entire log and exits.</em><br><code>adb logcat -d</code> <em>Dumps the log to the screen and exits.</em><br><code>adb logcat -f test.logs</code> <em>Writes log message output to test.logs .</em><br><code>adb logcat -g</code> <em>Prints the size of the specified log buffer and exits.</em><br><code>adb logcat -n &lt;count&gt;</code> <em>Sets the maximum number of rotated logs to . </em></p>
+</blockquote>
+<ul>
+<li>adb shell dumpsys<br>获取系统数据。</li>
+</ul>
+<blockquote>
+<p>adb shell dumpsys [options]</p>
+</blockquote>
+<p>其中有个非常好用的是，当你在新接触一个项目的时候，不熟悉项目流程，此时正好可以用这个直接定位到你的 Activity 位置。</p>
+<p><code>adb shell dumpsys activity activities</code></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/Sib26KFUYxcQd7bgAubibYvx6QdSlq6Tt60GOOlfus8iaLFl2AN1CX42DGQHCfbbHicw2LqCXpyoO9tFEUGLbKnBxA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>如图，直接在打印出来内容的后半段找到了当前 Activity 的定位，是 <code>NewLoginActivity</code>。</p>
+<ul>
+<li>adb shell dumpstate<br>和命令直译差不多，dumps state。</li>
+</ul>
+<h4 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h4><ul>
+<li>adb shell screencap<br>一般的手机都有截图功能（一般下拉菜单中有），但不代表所有 Android 设备都在可视化中开启了这个功能，所以这时候这个 adb 命令就显得特别重要。</li>
+</ul>
+<blockquote>
+<p>adb shell screencap <filename></filename></p>
+</blockquote>
+<p>结合前面的 pull 命令，就可以让我们轻松拿到屏幕截图。</p>
+<blockquote>
+<p><code>adb shell screencap /sdcard/test.png</code> <em>截图存放</em><br><code>adb pull /sdcard/test.png</code> <em>取到 PC 当前文件夹</em></p>
+</blockquote>
+<ul>
+<li>adb shell screencord<br>有了屏幕截图，自然也得有屏幕录制，可惜这个必须在 Android 4.4 (API level 19) 以上才可使用。</li>
+</ul>
+<blockquote>
+<p>adb shell screencord /sdcard/test.mp4</p>
+</blockquote>
+<p>这个还可以对大小 size 和 时间做限制，感兴趣的可以自行了解。</p>
+<h4 id="System"><a href="#System" class="headerlink" title="System"></a>System</h4><ul>
+<li><p>adb root<br>获取 root 权限。</p>
+</li>
+<li><p>adb sideload</p>
+</li>
+<li><p>adb shell ps<br>打印进程状态。</p>
+</li>
+<li><p>adb shell top<br>展现上层 CPU 进程信息。</p>
+</li>
+<li><p>adb shell getprop<br>获取 Android 系统服务属性</p>
+</li>
+<li><p>adb shell setprop<br>设置服务属性。<br>以上部分转载自<br><a href="https://mp.weixin.qq.com/s/JjFnWY6qCJfKVp4VsXml-g" target="_blank" rel="external">https://mp.weixin.qq.com/s/JjFnWY6qCJfKVp4VsXml-g</a></p>
+</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/23/转-P12证书转BKS证书/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -539,6 +918,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
