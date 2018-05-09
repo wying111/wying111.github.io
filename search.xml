@@ -3,6 +3,40 @@
   
     
     <entry>
+      <title><![CDATA[Android 动态调试Smail的方法]]></title>
+      <url>/2018/05/09/Android-%E5%8A%A8%E6%80%81%E8%B0%83%E8%AF%95Smail%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<ol>
+<li>反编译apk成smail，将<code>smail</code>文件夹复制一份到<code>test</code>文件夹并重命名<code>smail</code>为<code>src</code></li>
+<li>找到apk的<code>包名</code>和<code>入口activity</code></li>
+<li><code>AndroidManifest.xml</code>中<code>application</code>节点加入<code>android:debuggable=&quot;true&quot;</code></li>
+<li>回编译apk，重新安装</li>
+<li>shell 输入<code>adb shell am start -D -n 包名/入口类名</code>,如果操作正确，此时手机会进入<code>debug</code>状态</li>
+<li>打开Android Device Monitor，查看进程前面有红包蜘蛛的三个端口  例如2568  8621/8700</li>
+<li>shell 输入<code>adb forward tcp:8700 jdwp:2568</code> 转发8700 端口 (这里 jdwp是自己Android Device Monitor中要调试app的Online值 )</li>
+<li>Android Studion导入<code>test</code>文件夹，一路next，并将根路径设置为<code>source root</code> </li>
+<li>配置远程调试的选项，选择<code>Run--&gt;Edit Configurations</code>并增加一个Remote调试的调试选项，端口选择:8700</li>
+<li>在Smali中下好断点，<code>Run--&gt;Debug&#39;smali&#39;</code>，这里的smali是我们之前配置好的调试选项</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> 逆向 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[adb命令]]></title>
       <url>/2018/05/04/adb%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<h4 id="查看Activity"><a href="#查看Activity" class="headerlink" title="查看Activity"></a>查看Activity</h4><p><code>1.  adb shell dumpsys activity activities | sed -En -e &#39;/Running activities/,/Run #0/p&#39;</code><br><code>2.  adb shell dumpsys activity | grep -i run</code><br><code>3.  adb shell dumpsys activity | grep &quot;mFoc&quot;</code></p>
