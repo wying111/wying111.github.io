@@ -37,7 +37,7 @@
     
     <title>
         
-            Android Handler源码浅析 | 
+            浅析Android中的inflate | 
         
         Happy&#39;s blog
     </title>
@@ -231,18 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Android Handler源码浅析 | Happy&#39;s blog">
+    <meta property="og:title" content="浅析Android中的inflate | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="Android"> 
 
     
-        <meta property="article:published_time" content="Wed Jun 28 2017 21:27:20 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Aug 25 2017 10:26:15 GMT+0800" />
+        <meta property="article:published_time" content="Wed May 30 2018 15:37:40 GMT+0800" />
+        <meta property="article:modified_time" content="Wed May 30 2018 15:38:21 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Android Handler源码浅析 | Happy&#39;s blog">
+    <meta name="twitter:title" content="浅析Android中的inflate | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -250,7 +250,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html",
-    "headline": "Android Handler源码浅析",
-    "datePublished": "Wed Jun 28 2017 21:27:20 GMT+0800",
-    "dateModified": "Fri Aug 25 2017 10:26:15 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html",
+    "headline": "浅析Android中的inflate",
+    "datePublished": "Wed May 30 2018 15:37:40 GMT+0800",
+    "dateModified": "Wed May 30 2018 15:38:21 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-Handler源码浅析"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Handler源码浅析</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析"><span class="post-toc-number">1.</span> <span class="post-toc-text">分析</span></a></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                Android Handler源码浅析
+                浅析Android中的inflate
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>ChangQin</strong>
-        <span>6月 28, 2017</span>
+        <span>5月 30, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -441,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android Handler源码浅析&url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=浅析Android中的inflate&url=http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android Handler源码浅析&url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html&via=ChangQin" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=浅析Android中的inflate&url=http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html&via=ChangQin" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -468,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/30/浅析Android中的inflate/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -493,49 +493,43 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="Android-Handler源码浅析"><a href="#Android-Handler源码浅析" class="headerlink" title="Android Handler源码浅析"></a>Android Handler源码浅析</h3><blockquote>
-<p>相关对象</p>
-</blockquote>
-<ol>
-<li>Handler可以看作CEO，负责消息的处理和发送，Handler发送消息给MessageQueue,，然后Looper取出其中的消息给Handler。</li>
-<li>Looper,Handler的管家，可以看作秘书，负责管理MessageQueue,她会不断的从MessageQueue中取出消息，交给Handler处理。</li>
-<li>MessageQueue是存放消息的队列，负责存放Handler发来的消息。</li>
-</ol>
+        <p>部分转载自<a href="https://blog.csdn.net/yanbober/article/details/45970721" target="_blank" rel="external">这里</a></p>
 <blockquote>
-<p>Looper部分源码讲解</p>
+<p>LayoutInflater.from(context).inflate(layout, root,attachToRoot);</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public static void prepare() &#123;</div><div class="line">        prepare(true);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private static void prepare(boolean quitAllowed) &#123;</div><div class="line">    if (sThreadLocal.get() != null) &#123;</div><div class="line">        throw new RuntimeException(&quot;Only one Looper may be created per thread&quot;);</div><div class="line">    &#125;</div><div class="line">    sThreadLocal.set(new Looper(quitAllowed));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static final ThreadLocal&lt;Looper&gt; sThreadLocal = new ThreadLocal&lt;Looper&gt;();</div></pre></td></tr></table></figure>
-<p>Looper实例化是在Looper.prepare()方法中。</p>
-<blockquote>
-<p>小插曲</p>
-</blockquote>
-<p>ThreadLocal是一个和多线程并发相关的类。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。</p>
-<p>ThreadLocal维护了一个Map集合，其中键为当前线程，值就是不同线程的变量。</p>
-<p>ThreadLocal中的方法不多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public T get() &#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    if (map != null) &#123;</div><div class="line">        ThreadLocalMap.Entry e = map.getEntry(this);</div><div class="line">        if (e != null)</div><div class="line">            return (T)e.value;</div><div class="line">    &#125;</div><div class="line">    return setInitialValue();</div><div class="line">&#125;</div><div class="line">public void set(T value) &#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    if (map != null)</div><div class="line">        map.set(this, value);</div><div class="line">    else</div><div class="line">        createMap(t, value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>set方法很容易理解，首先获取当前线程，再用当前线程当键来获取map集合，如果map为空，则重新创建一个map并设置值进去，否则的话，直接设置值进去。get同理。</p>
-<p>回到主题。所以Looper的prepare只能获取当前线程的Looper对象，并且如果已经存在一个Looper对象则会报异常，所以这也说明了一个线程中只能存在一个Lopper对象。并且prepare只能调用一次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">private Looper(boolean quitAllowed) &#123;</div><div class="line">    mQueue = new MessageQueue(quitAllowed);</div><div class="line">    mThread = Thread.currentThread();</div><div class="line">&#125;</div><div class="line">public static void loop() &#123;</div><div class="line">    final Looper me = myLooper();</div><div class="line">    //此处只展示了关键代码</div><div class="line">    final MessageQueue queue = me.mQueue;</div><div class="line"></div><div class="line">    for (;;) &#123;</div><div class="line">        Message msg = queue.next(); // might block</div><div class="line">        if (msg == null) &#123;</div><div class="line">            // No message indicates that the message queue is quitting.</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        try &#123;</div><div class="line">            msg.target.dispatchMessage(msg);</div><div class="line">        &#125; finally &#123;</div><div class="line">            if (traceTag != 0) &#123;</div><div class="line">                Trace.traceEnd(traceTag);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        msg.recycleUnchecked();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Looper中创建了一个MessageQueue，并且在Looper的loop方法中，开启无限循环去遍历MessageQueue，如果消息不为空，则将消息发送给Handler。这个msg.target其实就是Handler对象。</p>
-<p>我们一般都会重写Handler的handleMessage方法，其中缘由也在源码里。<br>我们不管sendEmptyMessage也好，postDelayed也罢，最终都会调用到一个方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) &#123;</div><div class="line">    msg.target = this;</div><div class="line">    if (mAsynchronous) &#123;</div><div class="line">        msg.setAsynchronous(true);</div><div class="line">    &#125;</div><div class="line">    return queue.enqueueMessage(msg, uptimeMillis);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>msg.target = this。这句话中的this就是Handler对象。<br>同时把消息放入MessageQueue中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public void dispatchMessage(Message msg) &#123;</div><div class="line">    if (msg.callback != null) &#123;</div><div class="line">        handleCallback(msg);</div><div class="line">    &#125; else &#123;</div><div class="line">        if (mCallback != null) &#123;</div><div class="line">            if (mCallback.handleMessage(msg)) &#123;</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        handleMessage(msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Looper的loop方法中，她把消息用dispatchMessage传了过来。在dispatchMessage中。优先级有三种。优先级最高的是message自己的callback，然后是Handler的callback，当两者都没有的时候，就由我们重写来处理。这也是我们最常用的一种方法。</p>
-<blockquote>
-<p>那么Looper是什么时候启动的呢?</p>
-</blockquote>
-<p>答案在ActivityThread中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">    //部分代码</div><div class="line">    Looper.prepareMainLooper();</div><div class="line"></div><div class="line">    ActivityThread thread = new ActivityThread();</div><div class="line">    thread.attach(false);</div><div class="line"></div><div class="line">    if (sMainThreadHandler == null) &#123;</div><div class="line">        sMainThreadHandler = thread.getHandler();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (false) &#123;</div><div class="line">        Looper.myLooper().setMessageLogging(new</div><div class="line">                LogPrinter(Log.DEBUG, &quot;ActivityThread&quot;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // End of event ActivityThreadMain.</div><div class="line">    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);</div><div class="line">    Looper.loop();</div><div class="line"></div><div class="line">    throw new RuntimeException(&quot;Main thread loop unexpectedly exited&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中Looper.prepareMainLooper()和Looper.prepare()等价。这个ActivityThread也就是我们所说的UI线程，Looper在UI线程启动的时候，就一直在后台默默工作了。</p>
-<blockquote>
-<p>思考，Handler怎么做到线程切换处理对象的。</p>
-</blockquote>
-<p>因为不同线程共享内存，Handler在A线程发送了一个消息，然后主线程的Looper在主线程把消息取了出来，同时交给了Handler，所以Handler一取一存就做到了线程切换。</p>
-<blockquote>
-<p>小结</p>
-</blockquote>
-<p>其实看源码本没有那么复杂，有时候根本不需要抽丝剥茧一条条代码看，代码量很多，难度确实是有的。但是我们只要有一个目标，有一条主线，只寻找最关键的代码，就能很快的理清它的脉络。</p>
+<p><code>LayoutInflater.inflate</code>一共有很多个重载。最终都会调用到以下这个方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">inflate</span><span class="params">(XmlPullParser parser, @Nullable ViewGroup root, <span class="keyword">boolean</span> attachToRoot)</span></span></div></pre></td></tr></table></figure></p>
+<p>先看例子<br>textview_layout</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;TextView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">  android:layout_width=&quot;100dp&quot;</div><div class="line">  android:layout_height=&quot;40dp&quot;</div><div class="line">  android:text=&quot;Text Test&quot;</div><div class="line">  android:background=&quot;@color/colorAccent&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>textview_layout_parent</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;LinearLayout</div><div class="line">  android:layout_height=&quot;wrap_content&quot;</div><div class="line">  android:layout_width=&quot;wrap_content&quot;</div><div class="line">  xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;   &lt;TextView xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">  android:layout_width=&quot;100dp&quot;</div><div class="line">  android:layout_height=&quot;40dp&quot;</div><div class="line">  android:text=&quot;Text Test&quot;</div><div class="line">  android:background=&quot;@color/colorAccent&quot;/&gt;   &lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<p>activity</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InflateAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> LayoutInflater mInflater = <span class="keyword">null</span>;   <span class="function"><span class="keyword">public</span> <span class="title">InflateAdapter</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        mInflater = LayoutInflater.from(context);</div><div class="line">  &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">8</span>;</div><div class="line">  &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">  &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">        <span class="comment">//说明：这里是测试inflate方法参数代码，不再考虑性能优化等TAG处理</span></div><div class="line">  <span class="keyword">return</span> getXmlToView(convertView, position, parent);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> View <span class="title">getXmlToView</span><span class="params">(View convertView, <span class="keyword">int</span> position, ViewGroup parent)</span> </span>&#123;</div><div class="line">        View[] viewList = &#123;</div><div class="line">                mInflater.inflate(R.layout.textview_layout, <span class="keyword">null</span>),</div><div class="line">  mInflater.inflate(R.layout.textview_layout, parent, <span class="keyword">false</span>),</div><div class="line">  <span class="comment">//mInflater.inflate(R.layout.textview_layout, parent, true),</span></div><div class="line">  mInflater.inflate(R.layout.textview_layout, <span class="keyword">null</span>, <span class="keyword">true</span>),</div><div class="line">  mInflater.inflate(R.layout.textview_layout, <span class="keyword">null</span>, <span class="keyword">false</span>),      mInflater.inflate(R.layout.textview_layout_parent, <span class="keyword">null</span>),</div><div class="line">  mInflater.inflate(R.layout.textview_layout_parent, parent, <span class="keyword">false</span>),</div><div class="line">  <span class="comment">//mInflater.inflate(R.layout.textview_layout_parent, parent, true),</span></div><div class="line">  mInflater.inflate(R.layout.textview_layout_parent, <span class="keyword">null</span>, <span class="keyword">true</span>),</div><div class="line">  mInflater.inflate(R.layout.textview_layout_parent, <span class="keyword">null</span>, <span class="keyword">false</span>),</div><div class="line">  &#125;;    <span class="comment">//会抛出Caused by: java.lang.UnsupportedOperationException: addView(View, LayoutParams) is not supported in AdapterView</span></div><div class="line">  convertView = viewList[position];   <span class="keyword">return</span> convertView;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>最终运行</p>
+<p><img src="http://p97o4wfou.bkt.clouddn.com/20180530152765088467470.png" alt="20180530152765088467470.png"></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">inflate</span><span class="params">(XmlPullParser parser, @Nullable ViewGroup root, <span class="keyword">boolean</span> attachToRoot)</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (mConstructorArgs) &#123;</div><div class="line">            Trace.traceBegin(Trace.TRACE_TAG_VIEW, <span class="string">"inflate"</span>);</div><div class="line"></div><div class="line">            <span class="keyword">final</span> Context inflaterContext = mContext;				   				</div><div class="line">			<span class="comment">//这里是丛XML解析属性</span></div><div class="line">			<span class="keyword">final</span> AttributeSet attrs = Xml.asAttributeSet(parser);</div><div class="line">            Context lastContext = (Context) mConstructorArgs[<span class="number">0</span>];</div><div class="line">            mConstructorArgs[<span class="number">0</span>] = inflaterContext;</div><div class="line">            View result = root;</div><div class="line"></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">// Look for the root node.</span></div><div class="line">                <span class="keyword">int</span> type;</div><div class="line">                <span class="keyword">while</span> ((type = parser.next()) != XmlPullParser.START_TAG &amp;&amp;</div><div class="line">                        type != XmlPullParser.END_DOCUMENT) &#123;</div><div class="line">                    <span class="comment">// Empty</span></div><div class="line">                &#125;				</div><div class="line">				<span class="comment">//如果不是根结点的话就抛出异常</span></div><div class="line">                <span class="keyword">if</span> (type != XmlPullParser.START_TAG) &#123;</div><div class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> InflateException(parser.getPositionDescription()</div><div class="line">                            + <span class="string">": No start tag found!"</span>);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">final</span> String name = parser.getName();</div><div class="line">				<span class="comment">//这里判断的是Merge标签。用Merge的时候根布局不能为null且attachToRoot不能为false</span></div><div class="line">                <span class="keyword">if</span> (TAG_MERGE.equals(name)) &#123;</div><div class="line">                    <span class="keyword">if</span> (root == <span class="keyword">null</span> || !attachToRoot) &#123;</div><div class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> InflateException(<span class="string">"&lt;merge /&gt; can be used only with a valid "</span></div><div class="line">                                + <span class="string">"ViewGroup root and attachToRoot=true"</span>);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    rInflate(parser, root, inflaterContext, attrs, <span class="keyword">false</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">// Temp is the root view that was found in the xml</span></div><div class="line">                    <span class="keyword">final</span> View temp = createViewFromTag(root, name, inflaterContext, attrs);</div><div class="line"></div><div class="line">                    ViewGroup.LayoutParams params = <span class="keyword">null</span>;</div><div class="line">			</div><div class="line">                    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">                        <span class="keyword">if</span> (DEBUG) &#123;</div><div class="line">                            System.out.println(<span class="string">"Creating params from root: "</span> +</div><div class="line">                                    root);</div><div class="line">                        &#125;</div><div class="line">                        <span class="comment">// Create layout params that match root, if supplied</span></div><div class="line">                        params = root.generateLayoutParams(attrs);</div><div class="line">						<span class="comment">//这里可以看出只有root不为null且attachToRoot为false的时候，temp才会设置它自己的LayoutParams</span></div><div class="line">                        <span class="keyword">if</span> (!attachToRoot) &#123;</div><div class="line">                            <span class="comment">// Set the layout params for temp if we are not</span></div><div class="line">                            <span class="comment">// attaching. (If we are, we use addView, below)</span></div><div class="line">                            temp.setLayoutParams(params);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="comment">// Inflate all children under temp against its context.</span></div><div class="line">                    rInflateChildren(parser, temp, attrs, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="comment">// We are supposed to attach all the views we found (int temp)</span></div><div class="line">                    <span class="comment">// to root. Do that now.</span></div><div class="line">					<span class="comment">//这里可以看出root不为null且attachToRoot为true的时候执行了一次addView</span></div><div class="line">                    <span class="keyword">if</span> (root != <span class="keyword">null</span> &amp;&amp; attachToRoot) &#123;</div><div class="line">                        root.addView(temp, params);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="comment">// Decide whether to return the root that was passed in or the</span></div><div class="line">                    <span class="comment">// top view found in xml.</span></div><div class="line">                    <span class="keyword">if</span> (root == <span class="keyword">null</span> || !attachToRoot) &#123;</div><div class="line">                        result = temp;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">			<span class="comment">//最终会把view返回</span></div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>从上面的源码分析我们可以看出inflate方法的参数含义：</p>
+<ul>
+<li><p>inflate(xmlId, null); 只创建temp的View，然后直接返回temp。</p>
+</li>
+<li><p>inflate(xmlId, parent); 创建temp的View，然后执行root.addView(temp, params);最后返回root。</p>
+</li>
+<li><p>inflate(xmlId, parent, false); 创建temp的View，然后执行temp.setLayoutParams(params);然后再返回temp。</p>
+</li>
+<li><p>inflate(xmlId, parent, true); 创建temp的View，然后执行root.addView(temp, params);最后返回root。</p>
+</li>
+<li><p>inflate(xmlId, null, false); 只创建temp的View，然后直接返回temp。</p>
+</li>
+<li><p>inflate(xmlId, null, true); 只创建temp的View，然后直接返回temp。</p>
+</li>
+<li><p><code>mInflater.inflate(R.layout.textview_layout, null)</code>不能正确处理我们设置的宽和高是因为layout_width，layout_height是相对了父级设置的，而此temp的getLayoutParams为null。</p>
+</li>
+<li><code>mInflater.inflate(R.layout.textview_layout, parent)</code>能正确显示我们设置的宽高是因为我们的View在设置setLayoutParams时<code>params = root.generateLayoutParams(attrs)</code>不为空。<br>Inflate(resId , parent,false ) 可以正确处理，因为temp.setLayoutParams(params);这个params正是root.generateLayoutParams(attrs);得到的。</li>
+<li><code>mInflater.inflate(R.layout.textview_layout, null, true)</code>与<code>mInflater.inflate(R.layout.textview_layout, null, false)</code>不能正确处理我们设置的宽和高是因为layout_width，layout_height是相对了父级设置的，而此temp的getLayoutParams为null。</li>
+<li><p>textview_layout_parent.xml作为item可以正确显示的原因是因为TextView具备上级ViewGroup，上级ViewGroup的layout_width，layout_height会失效，当前的TextView会有效而已。</p>
+<p><code>inflate(xmlId, parent)</code>和 <code>inflate(xmlId, parent，true)</code>是会直接崩溃的。原因是AdapterView源码中调用了root.addView(temp, params);而此时的root是我们的ListView，ListView为AdapterView的子类，所以我们看下AdapterView抽象类中addView源码即可明白为啥了，如下：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * This method is not supported and throws an UnsupportedOperationException when called. * * <span class="doctag">@param</span> child Ignored.</span></div><div class="line"><span class="comment"> * * <span class="doctag">@throws</span> UnsupportedOperationException Every time this method is invoked.</span></div><div class="line"><span class="comment"> */</span> </div><div class="line"><span class="meta">@Override</span> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addView</span><span class="params">(View child)</span> </span>&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException(<span class="string">"addView(View) is not supported in AdapterView"</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
     
@@ -556,7 +550,7 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/23/Glide缓存知识梳理/" id="post_nav-newer" class="prev-content">
+        <a href="/2018/05/30/由Dialog设置背景引发的思考/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -570,7 +564,7 @@
 
     <!-- Next Nav -->
     
-        <a href="/2017/05/19/Android-日常bug集锦/" id="post_nav-older" class="next-content">
+        <a href="/2018/05/29/ubuntu常用命令/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

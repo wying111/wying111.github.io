@@ -37,7 +37,7 @@
     
     <title>
         
-            Android Handler源码浅析 | 
+            由Dialog设置背景引发的思考 | 
         
         Happy&#39;s blog
     </title>
@@ -231,18 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Android Handler源码浅析 | Happy&#39;s blog">
+    <meta property="og:title" content="由Dialog设置背景引发的思考 | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
     <meta property="og:article:tag" content="Android"> 
 
     
-        <meta property="article:published_time" content="Wed Jun 28 2017 21:27:20 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Aug 25 2017 10:26:15 GMT+0800" />
+        <meta property="article:published_time" content="Wed May 30 2018 15:39:06 GMT+0800" />
+        <meta property="article:modified_time" content="Wed May 30 2018 15:39:45 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Android Handler源码浅析 | Happy&#39;s blog">
+    <meta name="twitter:title" content="由Dialog设置背景引发的思考 | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -250,7 +250,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -262,10 +262,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html",
-    "headline": "Android Handler源码浅析",
-    "datePublished": "Wed Jun 28 2017 21:27:20 GMT+0800",
-    "dateModified": "Fri Aug 25 2017 10:26:15 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html",
+    "headline": "由Dialog设置背景引发的思考",
+    "datePublished": "Wed May 30 2018 15:39:06 GMT+0800",
+    "dateModified": "Wed May 30 2018 15:39:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-Handler源码浅析"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android Handler源码浅析</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果展示"><span class="post-toc-number">1.</span> <span class="post-toc-text">效果展示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码分析"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
     </ul>
     
 
@@ -381,7 +381,7 @@
         
     
             <p class="article-headline-p">
-                Android Handler源码浅析
+                由Dialog设置背景引发的思考
             </p>
         </div>
 
@@ -400,7 +400,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>ChangQin</strong>
-        <span>6月 28, 2017</span>
+        <span>5月 30, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -441,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android Handler源码浅析&url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=由Dialog设置背景引发的思考&url=http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android Handler源码浅析&url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html&via=ChangQin" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=由Dialog设置背景引发的思考&url=http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html&via=ChangQin" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -468,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/06/28/Android-Handler源码浅析/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/05/30/由Dialog设置背景引发的思考/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -493,49 +493,37 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="Android-Handler源码浅析"><a href="#Android-Handler源码浅析" class="headerlink" title="Android Handler源码浅析"></a>Android Handler源码浅析</h3><blockquote>
-<p>相关对象</p>
-</blockquote>
-<ol>
-<li>Handler可以看作CEO，负责消息的处理和发送，Handler发送消息给MessageQueue,，然后Looper取出其中的消息给Handler。</li>
-<li>Looper,Handler的管家，可以看作秘书，负责管理MessageQueue,她会不断的从MessageQueue中取出消息，交给Handler处理。</li>
-<li>MessageQueue是存放消息的队列，负责存放Handler发来的消息。</li>
-</ol>
-<blockquote>
-<p>Looper部分源码讲解</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public static void prepare() &#123;</div><div class="line">        prepare(true);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private static void prepare(boolean quitAllowed) &#123;</div><div class="line">    if (sThreadLocal.get() != null) &#123;</div><div class="line">        throw new RuntimeException(&quot;Only one Looper may be created per thread&quot;);</div><div class="line">    &#125;</div><div class="line">    sThreadLocal.set(new Looper(quitAllowed));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">static final ThreadLocal&lt;Looper&gt; sThreadLocal = new ThreadLocal&lt;Looper&gt;();</div></pre></td></tr></table></figure>
-<p>Looper实例化是在Looper.prepare()方法中。</p>
-<blockquote>
-<p>小插曲</p>
-</blockquote>
-<p>ThreadLocal是一个和多线程并发相关的类。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。</p>
-<p>ThreadLocal维护了一个Map集合，其中键为当前线程，值就是不同线程的变量。</p>
-<p>ThreadLocal中的方法不多。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public T get() &#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    if (map != null) &#123;</div><div class="line">        ThreadLocalMap.Entry e = map.getEntry(this);</div><div class="line">        if (e != null)</div><div class="line">            return (T)e.value;</div><div class="line">    &#125;</div><div class="line">    return setInitialValue();</div><div class="line">&#125;</div><div class="line">public void set(T value) &#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    ThreadLocalMap map = getMap(t);</div><div class="line">    if (map != null)</div><div class="line">        map.set(this, value);</div><div class="line">    else</div><div class="line">        createMap(t, value);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>set方法很容易理解，首先获取当前线程，再用当前线程当键来获取map集合，如果map为空，则重新创建一个map并设置值进去，否则的话，直接设置值进去。get同理。</p>
-<p>回到主题。所以Looper的prepare只能获取当前线程的Looper对象，并且如果已经存在一个Looper对象则会报异常，所以这也说明了一个线程中只能存在一个Lopper对象。并且prepare只能调用一次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">private Looper(boolean quitAllowed) &#123;</div><div class="line">    mQueue = new MessageQueue(quitAllowed);</div><div class="line">    mThread = Thread.currentThread();</div><div class="line">&#125;</div><div class="line">public static void loop() &#123;</div><div class="line">    final Looper me = myLooper();</div><div class="line">    //此处只展示了关键代码</div><div class="line">    final MessageQueue queue = me.mQueue;</div><div class="line"></div><div class="line">    for (;;) &#123;</div><div class="line">        Message msg = queue.next(); // might block</div><div class="line">        if (msg == null) &#123;</div><div class="line">            // No message indicates that the message queue is quitting.</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        try &#123;</div><div class="line">            msg.target.dispatchMessage(msg);</div><div class="line">        &#125; finally &#123;</div><div class="line">            if (traceTag != 0) &#123;</div><div class="line">                Trace.traceEnd(traceTag);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        msg.recycleUnchecked();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Looper中创建了一个MessageQueue，并且在Looper的loop方法中，开启无限循环去遍历MessageQueue，如果消息不为空，则将消息发送给Handler。这个msg.target其实就是Handler对象。</p>
-<p>我们一般都会重写Handler的handleMessage方法，其中缘由也在源码里。<br>我们不管sendEmptyMessage也好，postDelayed也罢，最终都会调用到一个方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) &#123;</div><div class="line">    msg.target = this;</div><div class="line">    if (mAsynchronous) &#123;</div><div class="line">        msg.setAsynchronous(true);</div><div class="line">    &#125;</div><div class="line">    return queue.enqueueMessage(msg, uptimeMillis);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>msg.target = this。这句话中的this就是Handler对象。<br>同时把消息放入MessageQueue中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public void dispatchMessage(Message msg) &#123;</div><div class="line">    if (msg.callback != null) &#123;</div><div class="line">        handleCallback(msg);</div><div class="line">    &#125; else &#123;</div><div class="line">        if (mCallback != null) &#123;</div><div class="line">            if (mCallback.handleMessage(msg)) &#123;</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        handleMessage(msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Looper的loop方法中，她把消息用dispatchMessage传了过来。在dispatchMessage中。优先级有三种。优先级最高的是message自己的callback，然后是Handler的callback，当两者都没有的时候，就由我们重写来处理。这也是我们最常用的一种方法。</p>
-<blockquote>
-<p>那么Looper是什么时候启动的呢?</p>
-</blockquote>
-<p>答案在ActivityThread中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public static void main(String[] args) &#123;</div><div class="line">    //部分代码</div><div class="line">    Looper.prepareMainLooper();</div><div class="line"></div><div class="line">    ActivityThread thread = new ActivityThread();</div><div class="line">    thread.attach(false);</div><div class="line"></div><div class="line">    if (sMainThreadHandler == null) &#123;</div><div class="line">        sMainThreadHandler = thread.getHandler();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (false) &#123;</div><div class="line">        Looper.myLooper().setMessageLogging(new</div><div class="line">                LogPrinter(Log.DEBUG, &quot;ActivityThread&quot;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // End of event ActivityThreadMain.</div><div class="line">    Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);</div><div class="line">    Looper.loop();</div><div class="line"></div><div class="line">    throw new RuntimeException(&quot;Main thread loop unexpectedly exited&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>其中Looper.prepareMainLooper()和Looper.prepare()等价。这个ActivityThread也就是我们所说的UI线程，Looper在UI线程启动的时候，就一直在后台默默工作了。</p>
-<blockquote>
-<p>思考，Handler怎么做到线程切换处理对象的。</p>
-</blockquote>
-<p>因为不同线程共享内存，Handler在A线程发送了一个消息，然后主线程的Looper在主线程把消息取了出来，同时交给了Handler，所以Handler一取一存就做到了线程切换。</p>
-<blockquote>
-<p>小结</p>
-</blockquote>
-<p>其实看源码本没有那么复杂，有时候根本不需要抽丝剥茧一条条代码看，代码量很多，难度确实是有的。但是我们只要有一个目标，有一条主线，只寻找最关键的代码，就能很快的理清它的脉络。</p>
+        <p>一般写Dialog的时候，都会设置宽度为屏幕的宽度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Window window = getDialog().getWindow(); WindowManager.LayoutParams params = window.getAttributes();</div><div class="line">params.gravity = Gravity.BOTTOM;</div><div class="line">params.width = WindowManager.LayoutParams.MATCH_PARENT; window.setAttributes(params);</div></pre></td></tr></table></figure></p>
+<p>但是有时候会出现一些奇怪的问题</p>
+<p>layout</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;LinearLayout</div><div class="line">  xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;wrap_content&quot;</div><div class="line">  android:orientation=&quot;vertical&quot;&gt;   &lt;LinearLayout  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;wrap_content&quot;</div><div class="line">  android:orientation=&quot;vertical&quot;&gt;</div><div class="line"> &lt;TextView  android:id=&quot;@+id/menu1&quot;</div><div class="line">  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;50dp&quot;</div><div class="line">  android:gravity=&quot;center&quot;</div><div class="line">  android:padding=&quot;15dp&quot;</div><div class="line">  android:text=&quot;重新登录&quot;</div><div class="line">  android:textColor=&quot;#fa0000&quot;</div><div class="line">  android:background=&quot;@drawable/seletcor_top_bg&quot;</div><div class="line">  /&gt;</div><div class="line"> &lt;View  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;1dp&quot;</div><div class="line">  android:background=&quot;#f5f4f4&quot;/&gt;</div><div class="line"> &lt;TextView  android:id=&quot;@+id/menu2&quot;</div><div class="line">  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;50dp&quot;</div><div class="line">  android:gravity=&quot;center&quot;</div><div class="line">  android:padding=&quot;15dp&quot;</div><div class="line">  android:text=&quot;退出&quot;</div><div class="line">  android:textColor=&quot;#2763b6&quot;</div><div class="line">  android:background=&quot;@drawable/seletcor_bottom_bg&quot;</div><div class="line">  /&gt;</div><div class="line"> &lt;/LinearLayout&gt;   &lt;Button  android:id=&quot;@+id/btn_cancel&quot;</div><div class="line">  android:layout_width=&quot;match_parent&quot;</div><div class="line">  android:layout_height=&quot;50dp&quot;</div><div class="line">  android:layout_marginTop=&quot;15dp&quot;</div><div class="line">  android:background=&quot;@drawable/seletcor_round_bg&quot;</div><div class="line">  android:text=&quot;取消&quot;</div><div class="line">  /&gt; &lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p>按照上面的代码写的时候，效果是这样的。</p>
+<p><img src="http://p97o4wfou.bkt.clouddn.com/20180530152766370374459.png" alt="20180530152766370374459.png"></p>
+<p>这不是我们想要的效果。</p>
+<p>当我们多设置一步 <strong>A</strong><br><code>window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));</code><br>它会去除所有的<code>padding</code><br>效果是这样的。</p>
+<p><img src="http://p97o4wfou.bkt.clouddn.com/20180530152766382094867.png" alt="20180530152766382094867.png"></p>
+<p>这个也不是我们想要的效果</p>
+<p>当我们多设置一步 <strong>B</strong><br><code>window.getDecorView().setBackground(new ColorDrawable(Color.TRANSPARENT));</code><br>效果是这样的。</p>
+<p><img src="http://p97o4wfou.bkt.clouddn.com/20180530152766397087558.png" alt="20180530152766397087558.png"></p>
+<p>看起来符合我们的要求，但是这个边距实际上是系统提供的，我们不能自己设置。</p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><ul>
+<li><code>window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));</code>为什么会去除<code>padding</code>?</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setBackgroundDrawable</span><span class="params">(Drawable drawable)</span></span>;</div></pre></td></tr></table></figure>
+<p>这个方法是个抽象方法，它的唯一实现是<code>PhoneWindow</code>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setBackgroundDrawable</span><span class="params">(Drawable drawable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (drawable != mBackgroundDrawable || mBackgroundResource != <span class="number">0</span>) &#123;</div><div class="line">        mBackgroundResource = <span class="number">0</span>;</div><div class="line">  mBackgroundDrawable = drawable;</div><div class="line"> <span class="keyword">if</span> (mDecor != <span class="keyword">null</span>) &#123;</div><div class="line">            mDecor.setWindowBackground(drawable);</div><div class="line">  &#125;</div><div class="line">        <span class="keyword">if</span> (mBackgroundFallbackResource != <span class="number">0</span>) &#123;</div><div class="line">            mDecor.setBackgroundFallback(drawable != <span class="keyword">null</span> ? <span class="number">0</span> : mBackgroundFallbackResource);</div><div class="line">  &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里主要看<code>mDecor.setWindowBackground(drawable);</code>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWindowBackground</span><span class="params">(Drawable drawable)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (getBackground() != drawable) &#123;</div><div class="line">        setBackgroundDrawable(drawable);</div><div class="line"> <span class="keyword">if</span> (drawable != <span class="keyword">null</span>) &#123;</div><div class="line">            mResizingBackgroundDrawable = enforceNonTranslucentBackground(drawable,</div><div class="line">  mWindow.isTranslucent() || mWindow.isShowingWallpaper());</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mResizingBackgroundDrawable = getResizingBackgroundDrawable(</div><div class="line">                    getContext(), <span class="number">0</span>, mWindow.mBackgroundFallbackResource,</div><div class="line">  mWindow.isTranslucent() || mWindow.isShowingWallpaper());</div><div class="line">  &#125;</div><div class="line">        <span class="keyword">if</span> (mResizingBackgroundDrawable != <span class="keyword">null</span>) &#123;</div><div class="line">            mResizingBackgroundDrawable.getPadding(mBackgroundPadding);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">            mBackgroundPadding.setEmpty();</div><div class="line">  &#125;</div><div class="line">        drawableChanged();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>setBackgroundDrawable(drawable);</code>方法会进入<code>View</code>的<code>setBackgroundDrawable</code>方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (background != <span class="keyword">null</span>) &#123;</div><div class="line">    Rect padding = sThreadLocal.get();</div><div class="line"> <span class="keyword">if</span> (padding == <span class="keyword">null</span>) &#123;</div><div class="line">        padding = <span class="keyword">new</span> Rect();</div><div class="line">  sThreadLocal.set(padding);</div><div class="line">  &#125;</div><div class="line">    resetResolvedDrawablesInternal();</div><div class="line">  background.setLayoutDirection(getLayoutDirection());</div><div class="line"> <span class="keyword">if</span> (background.getPadding(padding)) &#123;</div><div class="line">        resetResolvedPaddingInternal();</div><div class="line"> <span class="keyword">switch</span> (background.getLayoutDirection()) &#123;</div><div class="line">            <span class="keyword">case</span> LAYOUT_DIRECTION_RTL:</div><div class="line">                mUserPaddingLeftInitial = padding.right;</div><div class="line">  mUserPaddingRightInitial = padding.left;</div><div class="line">  internalSetPadding(padding.right, padding.top, padding.left, padding.bottom);</div><div class="line"> <span class="keyword">break</span>; <span class="keyword">case</span> LAYOUT_DIRECTION_LTR:</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                mUserPaddingLeftInitial = padding.left;</div><div class="line">  mUserPaddingRightInitial = padding.right;</div><div class="line">  internalSetPadding(padding.left, padding.top, padding.right, padding.bottom);</div><div class="line">  &#125;</div><div class="line">        mLeftPaddingDefined = <span class="keyword">false</span>;</div><div class="line">  mRightPaddingDefined = <span class="keyword">false</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中<code>background.getPadding(padding)</code>这句话很有意思。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Return in padding the insets suggested by this Drawable for placing * content inside the drawable's bounds. Positive values move toward the * center of the Drawable (set Rect.inset). * * <span class="doctag">@return</span> true if this drawable actually has a padding, else false. When false is returned,</span></div><div class="line"><span class="comment"> * the padding is always set to 0. */</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getPadding</span><span class="params">(@NonNull Rect padding)</span> </span>&#123;</div><div class="line">    padding.set(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line"> <span class="keyword">return</span> <span class="keyword">false</span>; &#125;</div></pre></td></tr></table></figure>
+<p>当它的参数有值的时候，返回的是true,当它返回false的时候，padding都会被设置为0。</p>
+<p>因为我们传入的是<code>ColorDrawable</code>，它没有重写这个方法，所以它返回的永远是false。方法里面不执行。<br>回到<code>DecorView</code>的<code>setWindowBackground</code>方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (mResizingBackgroundDrawable != <span class="keyword">null</span>) &#123;</div><div class="line">这句话会重置mBackgroundPadding为<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> </div><div class="line">    mResizingBackgroundDrawable.getPadding(mBackgroundPadding); &#125; <span class="keyword">else</span> &#123;</div><div class="line">    mBackgroundPadding.setEmpty(); &#125;</div><div class="line">drawableChanged();</div></pre></td></tr></table></figure></p>
+<p>而<code>drawableChanged</code>会重新设置<code>padding</code>，所以<code>window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));</code>会将默认的padding清0。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawableChanged</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mChanging) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    setPadding(mFramePadding.left + mBackgroundPadding.left,</div><div class="line">  mFramePadding.top + mBackgroundPadding.top,</div><div class="line">  mFramePadding.right + mBackgroundPadding.right,</div><div class="line">  mFramePadding.bottom + mBackgroundPadding.bottom);</div><div class="line">  requestLayout();</div><div class="line">  invalidate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>为什么<code>window.getDecorView().setBackground(new ColorDrawable(Color.TRANSPARENT));</code>会保留<code>padding</code>?</li>
+</ul>
+<p>也很好理解了。因为它实际上直接调用了<code>View</code>的<code>setBackgroundDrawable</code>方法。根据之前的逻辑，到了<code>if (background.getPadding(padding))</code>这一步它是不会重新设置<code>padding</code>的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当同时设置<code>View</code>的<code>padding</code>和<code>背景</code>的时候。调用顺序很重要。</p>
 
         
     
@@ -556,21 +544,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/23/Glide缓存知识梳理/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/05/19/Android-日常bug集锦/" id="post_nav-older" class="next-content">
+        <a href="/2018/05/30/浅析Android中的inflate/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
