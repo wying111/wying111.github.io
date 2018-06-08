@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title><![CDATA[Android的简单国际化]]></title>
+      <url>/2018/06/08/Android%E7%9A%84%E7%AE%80%E5%8D%95%E5%9B%BD%E9%99%85%E5%8C%96/</url>
+      <content type="html"><![CDATA[<h3 id="1-新建资源文件夹"><a href="#1-新建资源文件夹" class="headerlink" title="1. 新建资源文件夹"></a>1. 新建资源文件夹</h3><p><img src="http://p97o4wfou.bkt.clouddn.com/20180608152844733060654.png" alt="20180608152844733060654.png"></p>
+<p><img src="http://p97o4wfou.bkt.clouddn.com/20180608152844739744143.png" alt="20180608152844739744143.png"></p>
+<h3 id="2-拷贝strings-xml到新的目录下"><a href="#2-拷贝strings-xml到新的目录下" class="headerlink" title="2. 拷贝strings.xml到新的目录下"></a>2. 拷贝<code>strings.xml</code>到新的目录下</h3><h3 id="3-编写不同的语言文件"><a href="#3-编写不同的语言文件" class="headerlink" title="3. 编写不同的语言文件"></a>3. 编写不同的语言文件</h3><h3 id="4-在Application中进行切换"><a href="#4-在Application中进行切换" class="headerlink" title="4. 在Application中进行切换"></a>4. 在<code>Application</code>中进行切换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initLocaleLanguage</span><span class="params">()</span> </span>&#123;</div><div class="line">    Resources resources = get().getResources();</div><div class="line">  Configuration configuration = resources.getConfiguration();</div><div class="line">  configuration.locale = Locale.getDefault();</div><div class="line">  resources.updateConfiguration(configuration, resources.getDisplayMetrics());<span class="comment">//更新配置 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> international </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[由Dialog设置背景引发的思考]]></title>
       <url>/2018/05/30/%E7%94%B1Dialog%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/</url>
       <content type="html"><![CDATA[<p>一般写Dialog的时候，都会设置宽度为屏幕的宽度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Window window = getDialog().getWindow(); WindowManager.LayoutParams params = window.getAttributes();</div><div class="line">params.gravity = Gravity.BOTTOM;</div><div class="line">params.width = WindowManager.LayoutParams.MATCH_PARENT; window.setAttributes(params);</div></pre></td></tr></table></figure></p>
