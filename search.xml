@@ -3,6 +3,26 @@
   
     
     <entry>
+      <title><![CDATA[Android原生的夜间模式]]></title>
+      <url>/2018/06/08/Android%E5%8E%9F%E7%94%9F%E7%9A%84%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android的简单国际化]]></title>
       <url>/2018/06/08/Android%E7%9A%84%E7%AE%80%E5%8D%95%E5%9B%BD%E9%99%85%E5%8C%96/</url>
       <content type="html"><![CDATA[<h3 id="1-新建资源文件夹"><a href="#1-新建资源文件夹" class="headerlink" title="1. 新建资源文件夹"></a>1. 新建资源文件夹</h3><p><img src="http://p97o4wfou.bkt.clouddn.com/20180608152844733060654.png" alt="20180608152844733060654.png"></p>
@@ -3588,14 +3608,6 @@ option为可选参数，如果不加的话,默认会测试所有的APP。
     <entry>
       <title><![CDATA[Android中键盘的一些小tip]]></title>
       <url>/2017/05/13/Android%E4%B8%AD%E9%94%AE%E7%9B%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8Ftip/</url>
-      <content type="html"></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android原生的夜间模式]]></title>
-      <url>/2017/04/28/Android%E5%8E%9F%E7%94%9F%E7%9A%84%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"></content>
       
         
