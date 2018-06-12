@@ -3,6 +3,62 @@
   
     
     <entry>
+      <title><![CDATA[Android中的MultiDex]]></title>
+      <url>/2018/06/12/Android%E4%B8%AD%E7%9A%84MultiDex/</url>
+      <content type="html"><![CDATA[<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>在安卓开发中，当开发到一定的版本，apk有可能会遇到64K方法问题。指的是Android中的可执行文件.dex中的Java方法引用超过65536。</p>
+<h3 id="2-使用MultiDex解决64K限制问题"><a href="#2-使用MultiDex解决64K限制问题" class="headerlink" title="2. 使用MultiDex解决64K限制问题"></a>2. 使用MultiDex解决64K限制问题</h3><ul>
+<li><p>Android5.0之前，系统使用的是Dalvik虚拟机来执行应用。默认情况下，Dalvik为每个apk只生成一个classes.dex文件，为了规避单个.dex文件方法个数超过64K的问题，我们需要拆分这个单一的dex文件，拆分后可能出现classes.dex,classes2.dex等多个.dex文件。应用启动的时候会先加载classes.dex文件，我们称之为主dex文件。</p>
+</li>
+<li><p>Android5.0之后，Android开始使用ART虚拟机来代替Dalvik虚拟机，ART天然支持从apk文件中加载多个.dex文件，在应用安装期间，它会执行一个预编译操作。将所有的dex编译成一个单一的.oat文件，在应用运行是去加载这个.oat文件，而不是一个一个的加载.dex文件。</p>
+</li>
+</ul>
+<h3 id="3-规避方法"><a href="#3-规避方法" class="headerlink" title="3. 规避方法"></a>3. 规避方法</h3><ul>
+<li>检查引用的依赖</li>
+<li>使用Proguard，移除没有使用的类、字段、方法和属性</li>
+</ul>
+<h3 id="4-配置"><a href="#4-配置" class="headerlink" title="4. 配置"></a>4. 配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">  defaultConfig &#123;</div><div class="line">        multiDexEnabled true</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">  implementation &apos;com.android.support:multidex:1.0.3&apos; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>引入MultiDexApplication</p>
+<p>三种方法</p>
+<ul>
+<li>配置当前项目的清单文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;application</div><div class="line">  android:name=&quot;android.support.multidex.MultiDexApplication&quot;</div><div class="line">&lt;/application&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>当前的Application继承MultiDexApplication</p>
+</li>
+<li><p>在attachBaseContext方法中初始化MultiDex</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">attachBaseContext</span><span class="params">(Context base)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.attachBaseContext(base);</div><div class="line">  MultiDex.install(<span class="keyword">this</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-局限性"><a href="#5-局限性" class="headerlink" title="5. 局限性"></a>5. 局限性</h3><p>前面我们说过, MultiDex Support Library只是一个不得已而为之的方案,它本身并不是完<br>美的,因此将它集成到项目中,需要经过完整的测试才能上线,可能会出现应用性能下降等问题, MultiDex Support Library的局限性如下。</p>
+<ul>
+<li><p>应用首次启动时 Dalvik虚拟机会对所有的.dex文件执行 dexopt操作,生成ODEX文<br>件,这个过程很复杂且非常耗时,如果应用的从dex文件太大,可能会导致出现ANR。</p>
+</li>
+<li><p>在 Android4.0( API level14)之前的系统上,由于 Dalvik linearalloc的bug(见Isse225861),使用 Multidex的应用可能启动失败。如果你的应用还支持低于 API level14的系统版本时,那么在上线之前需要针在这些低版本系统经过严格充分的测试,否则用户可能会在启动你的APP时出现错误。理论上,使用 Proguard的压缩功能可以减少或者消除这些潜在的问题。当然,目前低于 Android4.0的系统使用量已经很少了,建议直接将应用的 minSdkversion设置为14,这样问题也就不存在了。</p>
+</li>
+<li><p>由于 Dalvik的线性内存分配器 linearalloc的限制(见Isue7803532),使用 MultiDex的<br>应用在出现很大的内存分配时,可能会导致应用崩溃。根本原因是 Dalvik虚拟机用来<br>加载类的堆内存大小被硬编码了, Android2.3以下是5M, Android2.3是8M,这个内存<br>分配的限制在 Android4.0( API level14)已经增加到了16M,但是在 Android5.0(APIlevel21)之前的系统上运行的APP,还是有可能会超出这个限制,从而导致崩溃。当然 Android5.0开始由于使用了ART虚拟机,因此不再存在 linear Alloc的问题。当引入 Multidex机,时,必然会存在主dex文件和从dex文件,应用启动所需要的类必须放到主dex文件中，否则会出现NoClassDefFoundError的错误。Android构建工具自动帮我们]处理了Android系统相关的依赖,但对又于应用自己引入的第三方函数库,如果还依赖其他的一些东西,例如通过反射调用Java类,或者调用NDK层代码的Java方法,这些可能就不会被放到主dex文件中,如果在应用启动时需要用到,那么必然出现问题。</p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> MultiDex </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android原生的夜间模式]]></title>
       <url>/2018/06/08/Android%E5%8E%9F%E7%94%9F%E7%9A%84%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"></content>
