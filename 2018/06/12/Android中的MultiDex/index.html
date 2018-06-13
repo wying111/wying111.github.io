@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Tue Jun 12 2018 20:57:45 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Jun 12 2018 21:37:38 GMT+0800" />
+        <meta property="article:modified_time" content="Wed Jun 13 2018 14:03:04 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/12/Android中的MultiDex/index.html",
     "headline": "Android中的MultiDex",
     "datePublished": "Tue Jun 12 2018 20:57:45 GMT+0800",
-    "dateModified": "Tue Jun 12 2018 21:37:38 GMT+0800",
+    "dateModified": "Wed Jun 13 2018 14:03:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -515,16 +515,16 @@
 <li><p>当前的Application继承MultiDexApplication</p>
 </li>
 <li><p>在attachBaseContext方法中初始化MultiDex</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">attachBaseContext</span><span class="params">(Context base)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.attachBaseContext(base);</div><div class="line">  MultiDex.install(<span class="keyword">this</span>); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override protected void attachBaseContext(Context base) &#123;</div><div class="line">    super.attachBaseContext(base);</div><div class="line">  MultiDex.install(this); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="5-局限性"><a href="#5-局限性" class="headerlink" title="5. 局限性"></a>5. 局限性</h3><p>前面我们说过, MultiDex Support Library只是一个不得已而为之的方案,它本身并不是完<br>美的,因此将它集成到项目中,需要经过完整的测试才能上线,可能会出现应用性能下降等问题, MultiDex Support Library的局限性如下。</p>
+<h3 id="5-局限性"><a href="#5-局限性" class="headerlink" title="5. 局限性"></a>5. 局限性</h3><p>前面我们说过, MultiDex Support Library只是一个不得已而为之的方案,它本身并不是完美的,因此将它集成到项目中,需要经过完整的测试才能上线,可能会出现应用性能下降等问题, MultiDex Support Library的局限性如下。</p>
 <ul>
-<li><p>应用首次启动时 Dalvik虚拟机会对所有的.dex文件执行 dexopt操作,生成ODEX文<br>件,这个过程很复杂且非常耗时,如果应用的从dex文件太大,可能会导致出现ANR。</p>
+<li><p>应用首次启动时 Dalvik虚拟机会对所有的.dex文件执行 dexopt操作,生成ODEX文件,这个过程很复杂且非常耗时,如果应用的从dex文件太大,可能会导致出现ANR。</p>
 </li>
 <li><p>在 Android4.0( API level14)之前的系统上,由于 Dalvik linearalloc的bug(见Isse225861),使用 Multidex的应用可能启动失败。如果你的应用还支持低于 API level14的系统版本时,那么在上线之前需要针在这些低版本系统经过严格充分的测试,否则用户可能会在启动你的APP时出现错误。理论上,使用 Proguard的压缩功能可以减少或者消除这些潜在的问题。当然,目前低于 Android4.0的系统使用量已经很少了,建议直接将应用的 minSdkversion设置为14,这样问题也就不存在了。</p>
 </li>
-<li><p>由于 Dalvik的线性内存分配器 linearalloc的限制(见Isue7803532),使用 MultiDex的<br>应用在出现很大的内存分配时,可能会导致应用崩溃。根本原因是 Dalvik虚拟机用来<br>加载类的堆内存大小被硬编码了, Android2.3以下是5M, Android2.3是8M,这个内存<br>分配的限制在 Android4.0( API level14)已经增加到了16M,但是在 Android5.0(APIlevel21)之前的系统上运行的APP,还是有可能会超出这个限制,从而导致崩溃。当然 Android5.0开始由于使用了ART虚拟机,因此不再存在 linear Alloc的问题。当引入 Multidex机,时,必然会存在主dex文件和从dex文件,应用启动所需要的类必须放到主dex文件中，否则会出现NoClassDefFoundError的错误。Android构建工具自动帮我们]处理了Android系统相关的依赖,但对又于应用自己引入的第三方函数库,如果还依赖其他的一些东西,例如通过反射调用Java类,或者调用NDK层代码的Java方法,这些可能就不会被放到主dex文件中,如果在应用启动时需要用到,那么必然出现问题。</p>
+<li><p>由于 Dalvik的线性内存分配器 linearalloc的限制(见Isue7803532),使用 MultiDex的应用在出现很大的内存分配时,可能会导致应用崩溃。根本原因是 Dalvik虚拟机用来加载类的堆内存大小被硬编码了, Android2.3以下是5M, Android2.3是8M,这个内存<br>分配的限制在 Android4.0( API level14)已经增加到了16M,但是在 Android5.0(APIlevel21)之前的系统上运行的APP,还是有可能会超出这个限制,从而导致崩溃。当然 Android5.0开始由于使用了ART虚拟机,因此不再存在 linear Alloc的问题。当引入 Multidex机,时,必然会存在主dex文件和从dex文件,应用启动所需要的类必须放到主dex文件中，否则会出现NoClassDefFoundError的错误。Android构建工具自动帮我们]处理了Android系统相关的依赖,但对又于应用自己引入的第三方函数库,如果还依赖其他的一些东西,例如通过反射调用Java类,或者调用NDK层代码的Java方法,这些可能就不会被放到主dex文件中,如果在应用启动时需要用到,那么必然出现问题。</p>
 </li>
 </ul>
 
