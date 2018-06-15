@@ -3,6 +3,59 @@
   
     
     <entry>
+      <title><![CDATA[Android中的长按快捷方式实现]]></title>
+      <url>/2018/06/15/Android%E4%B8%AD%E7%9A%84%E9%95%BF%E6%8C%89%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0/</url>
+      <content type="html"><![CDATA[<h4 id="快捷方式"><a href="#快捷方式" class="headerlink" title="快捷方式"></a>快捷方式</h4><blockquote>
+<p> Android 7.1 (API level 25)以上才支持</p>
+</blockquote>
+<h3 id="1-三种类型"><a href="#1-三种类型" class="headerlink" title="1. 三种类型"></a>1. 三种类型</h3><ul>
+<li>静态类型。这样实现的话当需要更新快捷方式的时候必须更新整个APP</li>
+<li>动态类型。这样可以在APP运行的时候利用<code>ShortcutManager</code>进行添加、更新或移除</li>
+<li>桌面类型。这种也是能在运行时添加，也是利用<code>ShortcutManager</code>进行操作。但是需要用户同意才行</li>
+</ul>
+<h3 id="2-静态快捷方式的使用"><a href="#2-静态快捷方式的使用" class="headerlink" title="2. 静态快捷方式的使用"></a>2. 静态快捷方式的使用</h3><h4 id="1-在AndroidManifest-xml中找到主Activity。即包含android-intent-action-MAIN和android-intent-category-LAUNCHER的。"><a href="#1-在AndroidManifest-xml中找到主Activity。即包含android-intent-action-MAIN和android-intent-category-LAUNCHER的。" class="headerlink" title="1. 在AndroidManifest.xml中找到主Activity。即包含android.intent.action.MAIN和android.intent.category.LAUNCHER的。"></a>1. 在<code>AndroidManifest.xml</code>中找到主<code>Activity</code>。即包含<code>android.intent.action.MAIN</code>和<code>android.intent.category.LAUNCHER</code>的。</h4><h4 id="2-添加-lt-meta-data-gt-节点"><a href="#2-添加-lt-meta-data-gt-节点" class="headerlink" title="2. 添加&lt;meta-data&gt;节点"></a>2. 添加<code>&lt;meta-data&gt;</code>节点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">  package=&quot;com.changqin.androidfuturejava&quot;&gt;   &lt;application  android:name=&quot;.App&quot;</div><div class="line">  android:allowBackup=&quot;true&quot;</div><div class="line">  android:icon=&quot;@mipmap/ic_launcher&quot;</div><div class="line">  android:label=&quot;@string/app_name&quot;</div><div class="line">  android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;</div><div class="line">  android:supportsRtl=&quot;true&quot;</div><div class="line">  android:theme=&quot;@style/AppTheme&quot;&gt;</div><div class="line"> &lt;activity android:name=&quot;.MainActivity&quot;&gt;</div><div class="line"> &lt;intent-filter&gt; &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;   &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;</div><div class="line"> &lt;/intent-filter&gt; &lt;meta-data android:name=&quot;android.app.shortcuts&quot;</div><div class="line">  android:resource=&quot;@xml/shortcuts&quot; /&gt;</div><div class="line"> &lt;/activity&gt; </div><div class="line">&lt;/manifest&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-创建res-xml-shortcuts-xml"><a href="#3-创建res-xml-shortcuts-xml" class="headerlink" title="3. 创建res/xml/shortcuts.xml"></a>3. 创建<code>res/xml/shortcuts.xml</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;shortcuts xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line"> &lt;shortcut  android:shortcutId=&quot;compose&quot;</div><div class="line">  android:enabled=&quot;true&quot;</div><div class="line">  android:icon=&quot;@drawable/shortcuts_add&quot;</div><div class="line">  android:shortcutShortLabel=&quot;@string/test1&quot;</div><div class="line">  android:shortcutLongLabel=&quot;@string/test2&quot;</div><div class="line">  android:shortcutDisabledMessage=&quot;@string/test3&quot;&gt;</div><div class="line"> &lt;intent  android:action=&quot;android.intent.action.VIEW&quot;</div><div class="line">  android:targetPackage=&quot;com.changqin.androidfuturejava&quot;</div><div class="line">  android:targetClass=&quot;com.changqin.androidfuturejava.shortcut.ShortTestActivity&quot; /&gt;</div><div class="line">  &lt;!-- If your shortcut is associated with multiple intents, include them</div><div class="line"> here. The last intent in the list determines what the user sees when they launch this shortcut. --&gt;  &lt;categories android:name=&quot;android.shortcut.conversation&quot; /&gt;</div><div class="line"> &lt;/shortcut&gt;  </div><div class="line">&lt;!-- Specify more shortcuts here. --&gt; &lt;/shortcuts&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>shortcutShortLabel</code>指的是快捷方式的<code>简明短语</code>。</li>
+<li><code>shortcutLongLabel</code>指的是<code>扩展短语</code>，如果有足够的空间，APP将显示这个值而不是<code>shortcutShortLabel</code>。</li>
+<li><code>shortcutDisabledMessage</code>指的是当用户试图启动禁用的快捷方式时，APP中出现的消息。这个消息应该向用户解释为什么现在禁用了快捷方式。如果<code>android:enabled</code>是<code>true</code>，则该属性的值没有影响。</li>
+<li><code>android:shortcutShortLabel</code>、<code>android:shortcutLongLabel</code>和<code>android:shortcutDisabledMessage</code>必须使用<code>@string/shortcut_short_label</code>格式</li>
+</ul>
+<p>正常显示的快捷方式<br><img src="http://p97o4wfou.bkt.clouddn.com//20180615144615.png" alt=""></p>
+<h3 id="3-使用动态快捷方式"><a href="#3-使用动态快捷方式" class="headerlink" title="3. 使用动态快捷方式"></a>3. 使用动态快捷方式</h3><p>动态快捷方式应该为应用程序中特定的、上下文敏感的操作提供<code>actions</code>。这些<code>actions</code>可以在应用程序的使用之间进行更改，甚至在应用程序运行时也可以进行更改。<br><code>ShortcutManager</code>允许我们在动态快捷方式中做以下操作</p>
+<ul>
+<li><strong>添加</strong>: 使用<code>setDynamicShortcuts()</code>来重新添加整个快捷方列表</li>
+<li><strong>更新</strong> 使用<code>updateShortcuts()</code>来更新</li>
+<li><strong>移除</strong> 使用<code>removeDynamicShortcuts()</code>来移除一组，或者使用<code>removeAllDynamicShortcuts()</code>来移除所有的快捷方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@TargetApi(Build.VERSION_CODES.N_MR1)</div><div class="line">public void addShort(View view) &#123;</div><div class="line">    ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);</div><div class="line">  ShortcutInfo shortcut = new ShortcutInfo.Builder(this, &quot;id1&quot;)</div><div class="line">            .setShortLabel(&quot;Web site&quot;)</div><div class="line">            .setLongLabel(&quot;Open the web site&quot;)</div><div class="line">            .setIcon(Icon.createWithResource(this, R.drawable.ic_add_white_24dp))</div><div class="line">            .setIntent(new Intent(Intent.ACTION_VIEW,</div><div class="line">  Uri.parse(&quot;https://changqin.win&quot;)))</div><div class="line">            .build();    shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut));    Toast.makeText(this,&quot;add success&quot;,Toast.LENGTH_SHORT).show(); &#125;</div></pre></td></tr></table></figure>
+<h3 id="4-使用桌面快捷方式"><a href="#4-使用桌面快捷方式" class="headerlink" title="4. 使用桌面快捷方式"></a>4. 使用桌面快捷方式</h3><p>在Android 8.0 (API level 26)或以上，我们可以创建桌面快捷方式。不同于前两者，桌面快捷方式允许有自己独立的icon。</p>
+<p>创建步骤</p>
+<ol>
+<li>使用<code>isRequestPinShortcutSupported()</code>来验证设备是否支持在APP上创建快捷方式。</li>
+<li>创建<code>ShortcutInfo</code>对象。<br> a. 如果对象已存在，只需创建包含<code>ID</code>的对象即可。系统自动查找与快捷方式相关的所有信息。<br> b. 如果是一个新的对象，那么创建的时候必须包含<code>ID</code>、<code>intent</code>和<code>short label</code></li>
+<li>调用<code>requestPinShortcut()</code>请求添加桌面快捷方式。在此期间，可以通过<code>PendingIntent</code>对象来监听快捷方式是否添加成功。ps: 如果用户不允许添加，是不会收到回调的。当快捷方式添加成功后，可以用<code>updateShortcuts()</code>来更新。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@RequiresApi(api = Build.VERSION_CODES.O)</div><div class="line">public void addDesktopShort(View view) &#123;</div><div class="line">    if (mShortcutManager.isRequestPinShortcutSupported()) &#123;</div><div class="line">        // Assumes there&apos;s already a shortcut with the ID &quot;my-shortcut&quot;.</div><div class="line"> // The shortcut must be enabled.  ShortcutInfo pinShortcutInfo =</div><div class="line">                new ShortcutInfo.Builder(this, &quot;my-shortcut&quot;)</div><div class="line">                        .build();    // Create the PendingIntent object only if your app needs to be notified</div><div class="line"> // that the user allowed the shortcut to be pinned. Note that, if the // pinning operation fails, your app isn&apos;t notified. We assume here that the // app has implemented a method called createShortcutResultIntent() that // returns a broadcast intent.  Intent pinnedShortcutCallbackIntent =</div><div class="line">                mShortcutManager.createShortcutResultIntent(pinShortcutInfo);    // Configure the intent so that your app&apos;s broadcast receiver gets</div><div class="line"> // the callback successfully.  PendingIntent successCallback = PendingIntent.getBroadcast(this, 0,</div><div class="line">  pinnedShortcutCallbackIntent, 0);    mShortcutManager.requestPinShortcut(pinShortcutInfo,</div><div class="line">  successCallback.getIntentSender());</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://p97o4wfou.bkt.clouddn.com//20180615153135.png" alt=""></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android 快捷方式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android中的MultiDex]]></title>
       <url>/2018/06/12/Android%E4%B8%AD%E7%9A%84MultiDex/</url>
       <content type="html"><![CDATA[<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>在安卓开发中，当开发到一定的版本，apk有可能会遇到64K方法问题。指的是Android中的可执行文件.dex中的Java方法引用超过65536。</p>
