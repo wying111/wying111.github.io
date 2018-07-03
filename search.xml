@@ -3,6 +3,68 @@
   
     
     <entry>
+      <title><![CDATA[Kotlin学习之类的继承]]></title>
+      <url>/2018/06/23/Kotlin%E5%AD%A6%E4%B9%A0%E4%B9%8B%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/</url>
+      <content type="html"><![CDATA[<h3 id="1-Kotlin使用了-来代替Jave中的extend和implements。Kotlin和java一样，单继承多接口。"><a href="#1-Kotlin使用了-来代替Jave中的extend和implements。Kotlin和java一样，单继承多接口。" class="headerlink" title="1. Kotlin使用了:来代替Jave中的extend和implements。Kotlin和java一样，单继承多接口。"></a>1. Kotlin使用了<code>:</code>来代替Jave中的<code>extend</code>和<code>implements</code>。Kotlin和java一样，单继承多接口。</h3><h3 id="2-Kotlin可以在接口中添加带默认实现的方法"><a href="#2-Kotlin可以在接口中添加带默认实现的方法" class="headerlink" title="2. Kotlin可以在接口中添加带默认实现的方法"></a>2. Kotlin可以在接口中添加带默认实现的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">interface Clickable &#123;</div><div class="line">    fun click()</div><div class="line">    fun showOff() = println(&quot;I&apos;m clickable!&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现这个接口后可以重写出可以直接省略</p>
+<h3 id="3-调用继承自接口方法的实现"><a href="#3-调用继承自接口方法的实现" class="headerlink" title="3. 调用继承自接口方法的实现"></a>3. 调用继承自接口方法的实现</h3><p>如果有两个接口有一个共同的方法，有一个类同时实现了这两个接口。那么这个方法默认不会调用任何接口的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">interface Focusable &#123;</div><div class="line">    fun setFocus(b: Boolean) = println(&quot;I $&#123;if (b) &quot;got&quot; else &quot;lose&quot;&#125; focus.&quot;)</div><div class="line">    fun showOff() = println(&quot;I&apos;m foucusable!&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> Kotlin </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Kotlin </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[JetPack之lifecycles]]></title>
+      <url>/2018/06/19/JetPack%E4%B9%8Blifecycles/</url>
+      <content type="html"><![CDATA[<p> 一般写组件的时候，例如一个获取位置的小组件，我们会这么写。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class MyActivity extends AppCompatActivity &#123;</div><div class="line">    private MyLocationListener myLocationListener;   public void onCreate(...) &#123;</div><div class="line">        myLocationListener = new MyLocationListener(this, location -&gt; &#123;</div><div class="line">            // update UI</div><div class="line">  &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">  public void onStart() &#123;</div><div class="line">        super.onStart();</div><div class="line">  Util.checkUserStatus(result -&gt; &#123;</div><div class="line">            // what if this callback is invoked AFTER activity is stopped?</div><div class="line">  if (result) &#123;</div><div class="line">                myLocationListener.start();</div><div class="line">  &#125;</div><div class="line">        &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">  public void onStop() &#123;</div><div class="line">        super.onStop();</div><div class="line">  myLocationListener.stop();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们会在<code>onStart</code>或<code>onResume</code>的时候注入监听，在<code>onPause</code>或<code>onDestory</code>的时候移除监听。如果我们有很多这样的小组件，维护起来很是麻烦。而且如果要在<br><code>onStart</code>的时候做配置回调，那么有可能<code>onStop</code>比<code>onStart</code>会提前结束。这样就更麻烦了。</p>
+<h3 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h3><p>Lifecycle是一个持有其他组件(例如<code>activity</code>和<code>fragment</code>)的生命周期信息状态的一个类，它允许其他对象观察这个状态。</p>
+<p>它有两个主要的成员和生命周期状态有联系。</p>
+<ul>
+<li><p><code>Event</code>。这个生命周期事件从<code>framework</code>和<code>Lifecycle</code>进行派发。这些事件对应<code>activity</code>和<code>fragment</code>中的生命周期回调。</p>
+</li>
+<li><p><code>State</code>。生命周期对象组件的当前状态。</p>
+</li>
+</ul>
+<p><img src="http://p97o4wfou.bkt.clouddn.com//20180619154207.png" alt=""></p>
+<p>一个类可以通过向其方法添加注解来监视组件的生命周期状态。然后，通过调用<code>Lifecycle</code>类的<code>addObserver()</code>方法来添加一个观察者。下面是示例代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class MyObserver implements LifecycleObserver &#123;</div><div class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)</div><div class="line">    public void connectListener() &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)</div><div class="line">    public void disconnectListener() &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myLifecycleOwner.getLifecycle().addObserver(new MyObserver());</div></pre></td></tr></table></figure>
+<p>在上面的示例中，<code>myLifecycleOwner</code>对象实现了<code>LifecycleOwner</code>接口。</p>
+<h3 id="LifecycleOwner"><a href="#LifecycleOwner" class="headerlink" title="LifecycleOwner"></a>LifecycleOwner</h3><p>`Lifecycle``可以查看当前对象的生命周期。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if  (lifecycle.getCurrentState().isAtLeast(STARTED))  &#123; </div><div class="line"> // do something</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>Fragment</code>和<code>Activitie</code>在<code>Support Library</code><strong>26.1.0</strong>之后就已经实现了<code>LifecycleOwner</code>接口。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Arch </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android中的长按快捷方式实现]]></title>
       <url>/2018/06/15/Android%E4%B8%AD%E7%9A%84%E9%95%BF%E6%8C%89%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0/</url>
       <content type="html"><![CDATA[<h4 id="快捷方式"><a href="#快捷方式" class="headerlink" title="快捷方式"></a>快捷方式</h4><blockquote>
