@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 06 2018 11:04:45 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Sep 07 2018 09:59:51 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Sep 07 2018 10:10:15 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/06/Android中图片大小知识总结/index.html",
     "headline": "Android中图片大小知识总结",
     "datePublished": "Thu Sep 06 2018 11:04:45 GMT+0800",
-    "dateModified": "Fri Sep 07 2018 09:59:51 GMT+0800",
+    "dateModified": "Fri Sep 07 2018 10:10:15 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -349,7 +349,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android中屏幕密度的相关概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android中屏幕密度的相关概念</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android中屏幕密度的相关概念"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android中屏幕密度的相关概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分析源码"><span class="post-toc-number">2.</span> <span class="post-toc-text">分析源码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol>
     </ul>
     
 
@@ -524,7 +524,7 @@
 </tr>
 </tbody>
 </table>
-<ol>
+<h3 id="分析源码"><a href="#分析源码" class="headerlink" title="分析源码"></a>分析源码</h3><ol>
 <li>加载一张640 * 427  310KB的png图片，图片放drawable-hdpi目录下。<br>模拟器参数<br>density: 2.625<br>densityDpi: 420<br>byteCount: 3346560<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Bitmap qingye = BitmapFactory.decodeResource(getResources(), R.drawable.friend_small);</div><div class="line">Log.e(TAG, &quot;getByteCount= &quot; + qingye.getByteCount());</div></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -546,6 +546,13 @@
 <p>我们最应该关心的是什么呢？是 inDensity 和 inTargetDensity，这两个值与下面 cpp 文件里面的 density 和 targetDensity 相对应。重复一下，inDensity 就是原始资源的 density，inTargetDensity 就是屏幕的 density。</p>
 <p>在<code>BitmapFactory.cpp</code>的<code>doDecode</code>方法中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">if (env - &gt; GetBooleanField(options, gOptions_scaledFieldID)) &#123;</div><div class="line">    const int density = env - &gt; GetIntField(options, gOptions_densityFieldID);</div><div class="line">    const int targetDensity = env - &gt; GetIntField(options, gOptions_targetDensityFieldID);</div><div class="line">    const int screenDensity = env - &gt; GetIntField(options, gOptions_screenDensityFieldID);</div><div class="line">    if (density != 0 &amp;&amp; targetDensity != 0 &amp;&amp; density != screenDensity) &#123;</div><div class="line">        scale = (float) targetDensity / density;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">...</div><div class="line">//这里这个deodingBitmap就是解码出来的bitmap，大小是图片原始的大小</div><div class="line"> int scaledWidth = decodingBitmap.width();</div><div class="line"> int scaledHeight = decodingBitmap.height();</div><div class="line"></div><div class="line"> if (willScale &amp;&amp; decodeMode != SkImageDecoder::kDecodeBounds_Mode) &#123;</div><div class="line">     scaledWidth = int(scaledWidth * scale + 0.5 f);</div><div class="line">     scaledHeight = int(scaledHeight * scale + 0.5 f);</div><div class="line"> &#125;</div><div class="line">...</div><div class="line">if (willScale) &#123;</div><div class="line">    // This is weird so let me explain: we could use the scale parameter</div><div class="line">    // directly, but for historical reasons this is how the corresponding</div><div class="line">    // Dalvik code has always behaved. We simply recreate the behavior here.</div><div class="line">    // The result is slightly different from simply using scale because of</div><div class="line">    // the 0.5f rounding bias applied when computing the target image size</div><div class="line">    const float sx = scaledWidth / float(decodingBitmap.width());</div><div class="line">    const float sy = scaledHeight / float(decodingBitmap.height());</div><div class="line"></div><div class="line">    // TODO: avoid copying when scaled size equals decodingBitmap size</div><div class="line">    SkColorType colorType = colorTypeForScaledOutput(decodingBitmap.colorType());</div><div class="line">    // FIXME: If the alphaType is kUnpremul and the image has alpha, the</div><div class="line">    // colors may not be correct, since Skia does not yet support drawing</div><div class="line">    // to/from unpremultiplied bitmaps.</div><div class="line">    outputBitmap - &gt; setInfo(SkImageInfo::Make(scaledWidth, scaledHeight,</div><div class="line">        colorType, decodingBitmap.alphaType()));</div><div class="line">    if (!outputBitmap - &gt; allocPixels(outputAllocator, NULL)) &#123;</div><div class="line">        return nullObjectReturn(&quot;allocation failed for scaled bitmap&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // If outputBitmap&apos;s pixels are newly allocated by Java, there is no need</div><div class="line">    // to erase to 0, since the pixels were initialized to 0.</div><div class="line">    if (outputAllocator != &amp; javaAllocator) &#123;</div><div class="line">        outputBitmap - &gt; eraseColor(0);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    SkPaint paint;</div><div class="line">    paint.setFilterLevel(SkPaint::kLow_FilterLevel);</div><div class="line"></div><div class="line">    SkCanvas canvas( * outputBitmap);</div><div class="line">    canvas.scale(sx, sy);</div><div class="line">    canvas.drawBitmap(decodingBitmap, 0.0 f, 0.0 f, &amp; paint);</div><div class="line">&#125; else &#123;</div><div class="line">    outputBitmap - &gt; swap(decodingBitmap);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>scale = (float) targetDensity / density;<br>在这个例子中，scale = 420 / 240 = 1.75<br>所以byteCount = 640 * 427 * 1.75 * 1.75 * 4 = 3347680 约等于3346560<br>因为scaledWidth还有0.5f的精度，所以加上精度<br>640 * 1.75 + 0.5 = 1120<br>427 * 1.75 + 0.5 = 747<br>1120 * 747 * 4 = <strong>3346560</strong></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Android加载一张图片的大小与下列情况有关</p>
+<ul>
+<li>色彩格式，如果是 ARGB8888 那么就是一个像素4个字节，如果是 RGB565 那就是2个字节</li>
+<li>原始文件存放的资源目录hdpi还是其他</li>
+<li>目标屏幕的密度</li>
+</ul>
+<p>总结转载自<a href="https://juejin.im/entry/56f23e001532bc00507e1c64" target="_blank" rel="external">这里</a></p>
 
         
     
