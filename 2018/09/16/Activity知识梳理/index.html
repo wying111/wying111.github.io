@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Sun Sep 16 2018 11:52:31 GMT+0800" />
-        <meta property="article:modified_time" content="Sun Sep 16 2018 11:55:17 GMT+0800" />
+        <meta property="article:modified_time" content="Sun Sep 16 2018 11:55:46 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/16/Activity知识梳理/index.html",
     "headline": "Activity知识梳理",
     "datePublished": "Sun Sep 16 2018 11:52:31 GMT+0800",
-    "dateModified": "Sun Sep 16 2018 11:55:17 GMT+0800",
+    "dateModified": "Sun Sep 16 2018 11:55:46 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -535,7 +535,9 @@
 <h4 id="Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"><a href="#Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？" class="headerlink" title="Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"></a>Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？</h4><p>A: Activity被回收后可以在onCreate中的Bundle中判断是否有值来恢复数据。也可以在onRestoreInstanceState中恢复。</p>
 <h4 id="Q-说下Activity的四种启动模式？"><a href="#Q-说下Activity的四种启动模式？" class="headerlink" title="Q:说下Activity的四种启动模式？"></a>Q:说下Activity的四种启动模式？</h4><p>(adb shell dumpsys activity 可以查看栈中的Activity)</p>
 <h4 id="Q-谈谈singleTop和singleTask的区别以及应用场景"><a href="#Q-谈谈singleTop和singleTask的区别以及应用场景" class="headerlink" title="Q:谈谈singleTop和singleTask的区别以及应用场景"></a>Q:谈谈singleTop和singleTask的区别以及应用场景</h4><h5 id="singleTop"><a href="#singleTop" class="headerlink" title="singleTop"></a>singleTop</h5><ul>
-<li>处理通知<h5 id="singleTask"><a href="#singleTask" class="headerlink" title="singleTask"></a>singleTask</h5></li>
+<li>处理通知</li>
+</ul>
+<h5 id="singleTask"><a href="#singleTask" class="headerlink" title="singleTask"></a>singleTask</h5><ul>
 <li>浏览器</li>
 <li>微信小程序</li>
 </ul>
@@ -545,7 +547,9 @@
 </ul>
 <h4 id="Q-了解哪些Activity启动模式的标记位？"><a href="#Q-了解哪些Activity启动模式的标记位？" class="headerlink" title="Q:了解哪些Activity启动模式的标记位？"></a>Q:了解哪些Activity启动模式的标记位？</h4><h5 id="设定Activity启动模式的标记位"><a href="#设定Activity启动模式的标记位" class="headerlink" title="设定Activity启动模式的标记位"></a>设定Activity启动模式的标记位</h5><ul>
 <li><a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_SINGLE_TOP" target="_blank" rel="external">FLAG_ACTIVITY_SINGLE_TOP</a></li>
-<li><a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK" target="_blank" rel="external">FLAG_ACTIVITY_NEW_TASK</a><h5 id="设定Activity运行状态的标记位"><a href="#设定Activity运行状态的标记位" class="headerlink" title="设定Activity运行状态的标记位"></a>设定Activity运行状态的标记位</h5></li>
+<li><a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK" target="_blank" rel="external">FLAG_ACTIVITY_NEW_TASK</a></li>
+</ul>
+<h5 id="设定Activity运行状态的标记位"><a href="#设定Activity运行状态的标记位" class="headerlink" title="设定Activity运行状态的标记位"></a>设定Activity运行状态的标记位</h5><ul>
 <li><a href="https://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_CLEAR_TOP" target="_blank" rel="external">FLAG_ACTIVITY_CLEAR_TOP</a></li>
 </ul>
 <h4 id="Q-如何启动其他应用的Activity？"><a href="#Q-如何启动其他应用的Activity？" class="headerlink" title="Q:如何启动其他应用的Activity？"></a>Q:如何启动其他应用的Activity？</h4><p>用隐式意图启动Activity</p>
