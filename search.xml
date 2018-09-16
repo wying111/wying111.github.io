@@ -34,7 +34,9 @@
 <li>Home键</li>
 <li>Menu键</li>
 <li>锁屏</li>
-<li>用户旋转屏幕(<code>API&gt;13且没有设置orientation|screenSize</code>)。<h5 id="不会触发的情况"><a href="#不会触发的情况" class="headerlink" title="不会触发的情况"></a>不会触发的情况</h5></li>
+<li>用户旋转屏幕(<code>API&gt;13且没有设置orientation|screenSize</code>)。</li>
+</ul>
+<h5 id="不会触发的情况"><a href="#不会触发的情况" class="headerlink" title="不会触发的情况"></a>不会触发的情况</h5><ul>
 <li>用户按Back键不会触发，</li>
 </ul>
 <p><code>onRestoreInstanceState</code>不一定会和<code>onSaveInstanceState</code>成对出现。</p>
