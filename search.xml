@@ -3,6 +3,66 @@
   
     
     <entry>
+      <title><![CDATA[Service知识梳理]]></title>
+      <url>/2018/09/17/Service%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
+      <content type="html"><![CDATA[<h4 id="startService"><a href="#startService" class="headerlink" title="startService"></a>startService</h4><p>startService第一次启动会调用<code>onCreate</code>,<code>onCreate</code>只会在创建的时候调用一次，之后多次启动会多次调用<code>onStartCommand</code>。<code>stopService</code>会停止Service，多次调用<code>stopService</code>不会报错。</p>
+<h4 id="bindService"><a href="#bindService" class="headerlink" title="bindService"></a>bindService</h4><p>bindService第一次启动会依次调用<code>onCreate</code>-&gt;<code>onBind</code>-&gt;<code>onServiceConnected</code>。多次调用<code>bindService</code>， <code>onBind</code>和<code>onServiceConnected</code>都不会多次回调。</p>
+<h4 id="startCommand"><a href="#startCommand" class="headerlink" title="startCommand"></a>startCommand</h4><p>onStartCommand() 方法必须返回整型数。整型数是一个值，用于描述系统应该如何在服务终止的情况下继续运行服务（如上所述，IntentService 的默认实现将为您处理这种情况，不过您可以对其进行修改）。从 onStartCommand() 返回的值必须是以下常量之一：</p>
+<ul>
+<li>START_NOT_STICKY<br>如果系统在 onStartCommand() 返回后终止服务，则除非有挂起 Intent 要传递，否则系统不会重建服务。这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务。</li>
+<li>START_STICKY<br>如果系统在 onStartCommand() 返回后终止服务，则会重建服务并调用 onStartCommand()，但不会重新传递最后一个 Intent。相反，除非有挂起 Intent 要启动服务（在这种情况下，将传递这些 Intent ），否则系统会通过空 Intent 调用 onStartCommand()。这适用于不执行命令、但无限期运行并等待作业的媒体播放器（或类似服务）。</li>
+<li>START_REDELIVER_INTENT<br>如果系统在 onStartCommand() 返回后终止服务，则会重建服务，并通过传递给服务的最后一个 Intent 调用 onStartCommand()。任何挂起 Intent 均依次传递。这适用于主动执行应该立即恢复的作业（例如下载文件）的服务。</li>
+</ul>
+<p>服务在其托管进程的主线程中运行的</p>
+<h4 id="Q-谈一谈Service的生命周期？"><a href="#Q-谈一谈Service的生命周期？" class="headerlink" title="Q:谈一谈Service的生命周期？"></a>Q:谈一谈Service的生命周期？</h4><p><img src="http://p97o4wfou.bkt.clouddn.com//20180917123329.png" alt=""></p>
+<h4 id="Q-Service的两种启动方式？区别在哪？"><a href="#Q-Service的两种启动方式？区别在哪？" class="headerlink" title="Q:Service的两种启动方式？区别在哪？"></a>Q:Service的两种启动方式？区别在哪？</h4><h5 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h5><ul>
+<li>开启服务的组件退出之后，服务还是可以在后台长期运行的。其他组件可以调用stopService(Intent)或者自身调用stopSelf停止</li>
+<li>组件不能调用服务里面的方法</li>
+</ul>
+<h5 id="绑定"><a href="#绑定" class="headerlink" title="绑定"></a>绑定</h5><ul>
+<li>组件销毁后服务自动被销毁，如果一个Service被多个组件绑定，只有所有的组件被销毁这个服务才会销毁</li>
+<li>组件可以调用服务里面的方法</li>
+</ul>
+<h4 id="Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？"><a href="#Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？" class="headerlink" title="Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？"></a>Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？</h4><p>同时调用<code>stopService</code>和<code>unBindService</code>才可以回调<code>onDestory</code></p>
+<h4 id="Q-Service如何和Activity进行通信？"><a href="#Q-Service如何和Activity进行通信？" class="headerlink" title="Q:Service如何和Activity进行通信？"></a>Q:Service如何和Activity进行通信？</h4><ul>
+<li>使用<code>Intent</code>，<code>onStartCommand</code>时候传入的<code>Intent</code></li>
+<li><code>BroadcastReceiver</code>,Service发送，Activity接收</li>
+<li>接口回调</li>
+<li>共享硬盘存储，共享内存</li>
+<li><code>ServiceConnection</code></li>
+</ul>
+<h4 id="Q-用过哪些系统Service？"><a href="#Q-用过哪些系统Service？" class="headerlink" title="Q:用过哪些系统Service？"></a>Q:用过哪些系统Service？</h4><p>获取系统Service一般用<code>getSystemService</code>方法。常见的Service有</p>
+<ul>
+<li>LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);</li>
+<li>ActivityManagerService</li>
+<li>PackageManagerService</li>
+<li>WindowManagerService<br>参考<a href="https://blog.csdn.net/dongxianfei/article/details/53290643" target="_blank" rel="external">这里</a></li>
+</ul>
+<h4 id="Q-是否能在Service进行耗时操作？如果非要可以怎么做？"><a href="#Q-是否能在Service进行耗时操作？如果非要可以怎么做？" class="headerlink" title="Q:是否能在Service进行耗时操作？如果非要可以怎么做？"></a>Q:是否能在Service进行耗时操作？如果非要可以怎么做？</h4><p>不能。因为服务在其托管进程的主线程中运行，它既<strong>不</strong>创建自己的线程，也<strong>不</strong>在单独的进程中运行（除非另行指定）。它不可以做密集耗时的操作。如果非要做的话，可以启动一个新的线程来工作。</p>
+<h4 id="Q-前台服务是什么？和普通服务的不同？如何去开启一个前台服务？"><a href="#Q-前台服务是什么？和普通服务的不同？如何去开启一个前台服务？" class="headerlink" title="Q:前台服务是什么？和普通服务的不同？如何去开启一个前台服务？"></a>Q:前台服务是什么？和普通服务的不同？如何去开启一个前台服务？</h4><ul>
+<li>前台服务被认为是用户主动意识到的一种服务，因此在内存不足时，系统也不会考虑将其终止。 前台服务必须为状态栏提供通知，放在“正在进行”标题下方，这意味着除非服务停止或从前台移除，否则不能清除通知。</li>
+<li>要请求让服务运行于前台，请调用 <code>startForeground()</code>。此方法采用两个参数：唯一标识通知的整型数和状态栏的 Notification。</li>
+</ul>
+<h4 id="Q-AlarmManager能实现定时的原理？"><a href="#Q-AlarmManager能实现定时的原理？" class="headerlink" title="Q:AlarmManager能实现定时的原理？"></a>Q:AlarmManager能实现定时的原理？</h4>]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Service </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Activity知识梳理]]></title>
       <url>/2018/09/16/Activity%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
       <content type="html"><![CDATA[<h1 id="Activity知识梳理"><a href="#Activity知识梳理" class="headerlink" title="Activity知识梳理"></a>Activity知识梳理</h1><h2 id="1-Activity生命周期"><a href="#1-Activity生命周期" class="headerlink" title="1.  Activity生命周期"></a>1.  Activity生命周期</h2><p>大部分Copy总结自<a href="https://www.cnblogs.com/lwbqqyumidi/p/3769113.html" target="_blank" rel="external">这个博客</a>和<a href="https://developer.android.com/reference/android/app/Activity" target="_blank" rel="external">官方</a></p>
