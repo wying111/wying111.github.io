@@ -6,7 +6,7 @@
       <title><![CDATA[Service知识梳理]]></title>
       <url>/2018/09/17/Service%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
       <content type="html"><![CDATA[<h4 id="startService"><a href="#startService" class="headerlink" title="startService"></a>startService</h4><p>startService第一次启动会调用<code>onCreate</code>,<code>onCreate</code>只会在创建的时候调用一次，之后多次启动会多次调用<code>onStartCommand</code>。<code>stopService</code>会停止Service，多次调用<code>stopService</code>不会报错。</p>
-<h4 id="bindService"><a href="#bindService" class="headerlink" title="bindService"></a>bindService</h4><p>bindService第一次启动会依次调用<code>onCreate</code>-&gt;<code>onBind</code>-&gt;<code>onServiceConnected</code>。多次调用<code>bindService</code>， <code>onBind</code>和<code>onServiceConnected</code>都不会多次回调。</p>
+<h4 id="bindService"><a href="#bindService" class="headerlink" title="bindService"></a>bindService</h4><p>bindService第一次启动会依次调用<code>onCreate</code>-&gt;<code>onBind</code>-&gt;<code>onServiceConnected</code>。多次调用<code>bindService</code>， <code>onBind</code>和<code>onServiceConnected</code>都不会多次回调。多次调用<code>unBindService</code>会报错。</p>
 <h4 id="startCommand"><a href="#startCommand" class="headerlink" title="startCommand"></a>startCommand</h4><p>onStartCommand() 方法必须返回整型数。整型数是一个值，用于描述系统应该如何在服务终止的情况下继续运行服务（如上所述，IntentService 的默认实现将为您处理这种情况，不过您可以对其进行修改）。从 onStartCommand() 返回的值必须是以下常量之一：</p>
 <ul>
 <li>START_NOT_STICKY<br>如果系统在 onStartCommand() 返回后终止服务，则除非有挂起 Intent 要传递，否则系统不会重建服务。这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务。</li>
@@ -23,7 +23,7 @@
 <li>组件销毁后服务自动被销毁，如果一个Service被多个组件绑定，只有所有的组件被销毁这个服务才会销毁</li>
 <li>组件可以调用服务里面的方法</li>
 </ul>
-<h4 id="Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？"><a href="#Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？" class="headerlink" title="Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？"></a>Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？</h4><p>同时调用<code>stopService</code>和<code>unBindService</code>才可以回调<code>onDestory</code></p>
+<h4 id="Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？"><a href="#Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？" class="headerlink" title="Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？"></a>Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？</h4><p>同时调用<code>stopService</code>和<code>unbindService</code>才可以回调<code>onDestory</code></p>
 <h4 id="Q-Service如何和Activity进行通信？"><a href="#Q-Service如何和Activity进行通信？" class="headerlink" title="Q:Service如何和Activity进行通信？"></a>Q:Service如何和Activity进行通信？</h4><ul>
 <li>使用<code>Intent</code>，<code>onStartCommand</code>时候传入的<code>Intent</code></li>
 <li><code>BroadcastReceiver</code>,Service发送，Activity接收</li>
@@ -43,7 +43,14 @@
 <li>前台服务被认为是用户主动意识到的一种服务，因此在内存不足时，系统也不会考虑将其终止。 前台服务必须为状态栏提供通知，放在“正在进行”标题下方，这意味着除非服务停止或从前台移除，否则不能清除通知。</li>
 <li>要请求让服务运行于前台，请调用 <code>startForeground()</code>。此方法采用两个参数：唯一标识通知的整型数和状态栏的 Notification。</li>
 </ul>
-<h4 id="Q-AlarmManager能实现定时的原理？"><a href="#Q-AlarmManager能实现定时的原理？" class="headerlink" title="Q:AlarmManager能实现定时的原理？"></a>Q:AlarmManager能实现定时的原理？</h4>]]></content>
+<h4 id="Q-AlarmManager能实现定时的原理？"><a href="#Q-AlarmManager能实现定时的原理？" class="headerlink" title="Q:AlarmManager能实现定时的原理？"></a>Q:AlarmManager能实现定时的原理？</h4><h4 id="Q-是否了解ActivityManagerService，谈谈它发挥什么作用？"><a href="#Q-是否了解ActivityManagerService，谈谈它发挥什么作用？" class="headerlink" title="Q:是否了解ActivityManagerService，谈谈它发挥什么作用？"></a>Q:是否了解ActivityManagerService，谈谈它发挥什么作用？</h4><h4 id="Q-如何保证Service不被杀死？"><a href="#Q-如何保证Service不被杀死？" class="headerlink" title="Q:如何保证Service不被杀死？"></a>Q:如何保证Service不被杀死？</h4><ul>
+<li>相互唤起，需要借助其他APP</li>
+<li>service 相互使用广播唤起 (鸡肋)</li>
+<li>和手机商合作 (最高效)</li>
+<li>设置 service 等级，priority (鸡肋)</li>
+<li>onStartCommand方法，返回 START_STICKY，内存充足的时候会重启 (鸡肋)</li>
+</ul>
+]]></content>
       
         <categories>
             
