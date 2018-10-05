@@ -3,6 +3,168 @@
   
     
     <entry>
+      <title><![CDATA[Android面试总结(一)]]></title>
+      <url>/2018/09/20/Android%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-%E4%B8%80/</url>
+      <content type="html"><![CDATA[<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><h5 id="Q-Android中提供哪些数据持久存储的方法？"><a href="#Q-Android中提供哪些数据持久存储的方法？" class="headerlink" title="Q:Android中提供哪些数据持久存储的方法？"></a>Q:Android中提供哪些数据持久存储的方法？</h5><ul>
+<li>SharePreference</li>
+<li>SQLite</li>
+<li>File</li>
+<li>Content provider</li>
+<li>网络<h5 id="Q-Java中的I-O流读写怎么做？"><a href="#Q-Java中的I-O流读写怎么做？" class="headerlink" title="Q:Java中的I/O流读写怎么做？"></a>Q:Java中的I/O流读写怎么做？</h5></li>
+</ul>
+<h5 id="Q-SharePreferences适用情形？使用中需要注意什么？"><a href="#Q-SharePreferences适用情形？使用中需要注意什么？" class="headerlink" title="Q:SharePreferences适用情形？使用中需要注意什么？"></a>Q:SharePreferences适用情形？使用中需要注意什么？</h5><p>少量的配置类标记数据，避免复杂的前置操作</p>
+<h5 id="Q-了解SQLite中的事务处理吗？是如何做的？"><a href="#Q-了解SQLite中的事务处理吗？是如何做的？" class="headerlink" title="Q:了解SQLite中的事务处理吗？是如何做的？"></a>Q:了解SQLite中的事务处理吗？是如何做的？</h5><p>使用SQLiteDatabase的<code>beginTransaction()</code>方法可以以独占模式开启一个事务，程序执行到<code>endTransaction()</code>方法时会检查事务的标志是否为成功，如果之前调用了<code>setTransactionSuccessful()</code>方法设置事务的标志为成功则提交事务，否则回滚事务。多用于大量数据操作时，能明显减少耗时。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SQLiteDatabase db = helper.getWritableDatabase(); db.beginTransaction();//开启事务 try &#123;</div><div class="line">    db.execSQL();</div><div class="line">  db.setTransactionSuccessful();//事务正确结束，如果此方法不执行，则所有的数据增删改操作都会回滚 &#125; catch (Exception e) &#123;</div><div class="line">    //处理异常 &#125; finally &#123;</div><div class="line">    db.endTransaction();//关闭事务 &#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Q-使用SQLite做批量操作有什么好的方法吗？"><a href="#Q-使用SQLite做批量操作有什么好的方法吗？" class="headerlink" title="Q:使用SQLite做批量操作有什么好的方法吗？"></a>Q:使用SQLite做批量操作有什么好的方法吗？</h5><p>用事务处理进行优化。在数据库操作时，如果当前没有显式事务，SQLite会默认启动一个隐式事务。隐式事务只持续在数据库操作的持续时间内，然后结束。如果数据库操作成功，则提交其更改。在批量操作的时候不开启事务会创建许多隐式事务，非常耗时。</p>
+<h5 id="Q-如果现在要删除SQLite中表的一个字段如何做？"><a href="#Q-如果现在要删除SQLite中表的一个字段如何做？" class="headerlink" title="Q:如果现在要删除SQLite中表的一个字段如何做？"></a>Q:如果现在要删除SQLite中表的一个字段如何做？</h5><p>SQLite不支持<code>drop column</code>。<br>步骤</p>
+<ol>
+<li>创建删除了某个字段的临时表</li>
+<li>迁移数据</li>
+<li>删除旧表</li>
+</ol>
+<h5 id="Q-使用SQLite时会有哪些优化操作"><a href="#Q-使用SQLite时会有哪些优化操作" class="headerlink" title="Q:使用SQLite时会有哪些优化操作?"></a>Q:使用SQLite时会有哪些优化操作?</h5><ul>
+<li>批量操作时使用事务</li>
+</ul>
+<h4 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h4><h5 id="Q-Android中进程和线程的关系？区别？"><a href="#Q-Android中进程和线程的关系？区别？" class="headerlink" title="Q:Android中进程和线程的关系？区别？"></a>Q:Android中进程和线程的关系？区别？</h5><p>线程是CPU调度的最小单元，同时也是一种有限的系统资源。进程一般指一个执行单元，在Android中指一个应用。一个进程可以包含多个线程，因此进程和线程是包含和被包含的关系。</p>
+<h5 id="Q-为何需要进行IPC？多进程通信可能会出现什么问题？"><a href="#Q-为何需要进行IPC？多进程通信可能会出现什么问题？" class="headerlink" title="Q:为何需要进行IPC？多进程通信可能会出现什么问题？"></a>Q:为何需要进行IPC？多进程通信可能会出现什么问题？</h5><ul>
+<li>一个进程Android分配的内存有限,早些Android版本一个进程只分配16M,如果一个应用太大,那么一个进程就无法满足。</li>
+<li>守护进程:防止进程被kill</li>
+<li>当前应用需要向其他应用获取数据。由于是两个应用,即两个进程。</li>
+</ul>
+<p>可能出现的问题</p>
+<ol>
+<li>静态成员和单例模式完全失效</li>
+<li>线程同步机制完全失效</li>
+<li>SharedPreference的可靠性下降</li>
+<li>Application会多次创建</li>
+</ol>
+<h5 id="Q-什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？"><a href="#Q-什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？" class="headerlink" title="Q:什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？"></a>Q:什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？</h5><p>序列化是将对象持久化到存储设备上或者通过网络传输给其它客户端。</p>
+<p>Serializable &amp; Parcelable</p>
+<ul>
+<li>相同点：<ul>
+<li>两者都可以进行序列化与反序列化；</li>
+</ul>
+</li>
+<li>不同点：<ul>
+<li>Serializable 的数据最后是存放在硬盘上的，那么读的时候也是 I/O 操作，而 Parcelabe 是存放在内存中的。这就导致了下面的一点</li>
+<li>Parcelable 的读写速度比 Serializable 在数据量大的时候，快很多</li>
+<li>Serializable 的实现十分简单，而 Parcelable 的代码量却比较多</li>
+</ul>
+</li>
+</ul>
+<p>Parcelable接口是Android特有功能，效率比实现Serializable接口高效，可用于Intent数据传递，也可以用于进程间通信（IPC）</p>
+<h5 id="Q-Android中为何新增Binder来作为主要的IPC方式？"><a href="#Q-Android中为何新增Binder来作为主要的IPC方式？" class="headerlink" title="Q:Android中为何新增Binder来作为主要的IPC方式？"></a>Q:Android中为何新增Binder来作为主要的IPC方式？</h5><h5 id="Q-使用Binder进行数据传输的具体过程？"><a href="#Q-使用Binder进行数据传输的具体过程？" class="headerlink" title="Q:使用Binder进行数据传输的具体过程？"></a>Q:使用Binder进行数据传输的具体过程？</h5><h5 id="Q-Binder框架中ServiceManager的作用？"><a href="#Q-Binder框架中ServiceManager的作用？" class="headerlink" title="Q:Binder框架中ServiceManager的作用？"></a>Q:Binder框架中ServiceManager的作用？</h5><h5 id="Q-是否了解AIDL？原理是什么？如何优化多模块都使用AIDL的情况？"><a href="#Q-是否了解AIDL？原理是什么？如何优化多模块都使用AIDL的情况？" class="headerlink" title="Q:是否了解AIDL？原理是什么？如何优化多模块都使用AIDL的情况？"></a>Q:是否了解AIDL？原理是什么？如何优化多模块都使用AIDL的情况？</h5><h5 id="Q-IPC方式的优缺点和适用场景"><a href="#Q-IPC方式的优缺点和适用场景" class="headerlink" title="Q:IPC方式的优缺点和适用场景"></a>Q:IPC方式的优缺点和适用场景</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">优点</th>
+<th style="text-align:center">缺点</th>
+<th style="text-align:center">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Bundle</td>
+<td style="text-align:center">简单易用</td>
+<td style="text-align:center">只能传输Bundle支持的数据类型</td>
+<td style="text-align:center">四大组件间的进程通信</td>
+</tr>
+<tr>
+<td style="text-align:center">文件共享</td>
+<td style="text-align:center">简单易用</td>
+<td style="text-align:center">不适合高并发场景，并且无法做到进程间的通信</td>
+<td style="text-align:center">无并访问情形，交换简单的数据实时性不高的场景</td>
+</tr>
+<tr>
+<td style="text-align:center">AIDL</td>
+<td style="text-align:center">功能强大，支持一对多并发通信，支持实时通信</td>
+<td style="text-align:center">使用稍复杂，需要处理好线程同步</td>
+<td style="text-align:center">一对多通信且有RPC需求</td>
+</tr>
+<tr>
+<td style="text-align:center">Messenger</td>
+<td style="text-align:center">功能一般，支持一对多串行通信，支持实时通信</td>
+<td style="text-align:center">不能很好的处理高并发情形，不支持RPC，数据通过Message进行传输，因此只能传输Bundle支持的数据类型</td>
+<td style="text-align:center">低并发的一对多即时通信，无RPC需求，或者无须返回结果的RPC需求</td>
+</tr>
+<tr>
+<td style="text-align:center">ContentProvider</td>
+<td style="text-align:center">在数据源访问方面功能强大，支持一对多并发数据共享</td>
+<td style="text-align:center">可以理解闭为受约束的AIDL，主要提供数据源的CRUD操作</td>
+<td style="text-align:center">一对多的进程间的数据共享</td>
+</tr>
+<tr>
+<td style="text-align:center">Socket</td>
+<td style="text-align:center">功能强大，可以通过网络传输字节流，支持一对多并发实时通信</td>
+<td style="text-align:center">实现细节稍微有点烦琐，不支持直接的RPC</td>
+<td style="text-align:center">网络数据交换</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> 面试 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Broadcast Receiver知识梳理]]></title>
+      <url>/2018/09/20/Broadcast-Receiver%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
+      <content type="html"><![CDATA[<h4 id="Q-广播种类"><a href="#Q-广播种类" class="headerlink" title="Q:广播种类"></a>Q:广播种类</h4><p>分类</p>
+<ul>
+<li>普通广播（Normal Broadcast）</li>
+<li>系统广播（System Broadcast）</li>
+<li>有序广播（Ordered Broadcast）</li>
+<li>粘性广播（Sticky Broadcast）(在Android5.0 &amp; API 21中已经失效，不建议使用)</li>
+<li>App应用内广播（Local Broadcast）</li>
+</ul>
+<h4 id="Q-广播的两种注册形式？区别在哪？"><a href="#Q-广播的两种注册形式？区别在哪？" class="headerlink" title="Q:广播的两种注册形式？区别在哪？"></a>Q:广播的两种注册形式？区别在哪？</h4><h5 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h5><ul>
+<li>在AndroidMainfest中通过<receiver>标签声明</receiver></li>
+<li>不受任何组件生命周期的影响</li>
+<li>耗电、占内存</li>
+<li>需要时刻监听广播</li>
+</ul>
+<h5 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h5><ul>
+<li>在代码中调用Context.registerReveiver方法</li>
+<li>非常驻，灵活，跟随组件的生命周期变化</li>
+<li>需要特定时刻监听广播</li>
+<li>动态注册的广播永远要快于静态注册的广播,不管静态注册的优先级设置的多高,不管动态注册的优先级有多低</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/ca3d87a4cdf3" target="_blank" rel="external">参考</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> Broadcast Receiver </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Service知识梳理]]></title>
       <url>/2018/09/17/Service%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
       <content type="html"><![CDATA[<h4 id="startService"><a href="#startService" class="headerlink" title="startService"></a>startService</h4><p>startService第一次启动会调用<code>onCreate</code>,<code>onCreate</code>只会在创建的时候调用一次，之后多次启动会多次调用<code>onStartCommand</code>。<code>stopService</code>会停止Service，多次调用<code>stopService</code>不会报错。</p>
