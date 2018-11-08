@@ -250,7 +250,7 @@
 <h3 id="示例与QA"><a href="#示例与QA" class="headerlink" title="示例与QA"></a>示例与QA</h3><p>假设有两个Activity，A和B。</p>
 <h4 id="情况一-AB都不是透明的"><a href="#情况一-AB都不是透明的" class="headerlink" title="情况一 AB都不是透明的"></a>情况一 AB都不是透明的</h4><p>启动A，开始时，A被实例化，执行的回调有A:onCreate -&gt; A:onStart -&gt; A:onResume。</p>
 <p>当用户点击A中按钮来到B时，假设B全部遮挡住了A，将依次执行A:onPause -&gt; B:onCreate -&gt; B:onStart -&gt; B:onResume -&gt; A:onStop。<br>此时如果点击Back键，将依次执行B:onPause -&gt; A:onRestart -&gt; A:onStart -&gt; A:onResume -&gt; B:onStop -&gt; B:onDestroy。</p>
-<h4 id="情况二-B都不是透明的"><a href="#情况二-B都不是透明的" class="headerlink" title="情况二 B都不是透明的"></a>情况二 B都不是透明的</h4><p>启动A，开始时，A被实例化，执行的回调有A:onCreate -&gt; A:onStart -&gt; A:onResume。<br>当用户点击A中按钮来到B时，，将依次执行A:onPause -&gt; B:onCreate -&gt; B:onStart -&gt; B:onResume 。<br>此时如果点击Back键，将依次执行B:onPause -&gt; A:onResume -&gt; B:onStop -&gt; B:onDestroy。</p>
+<h4 id="情况二-B不是透明的"><a href="#情况二-B不是透明的" class="headerlink" title="情况二 B不是透明的"></a>情况二 B不是透明的</h4><p>启动A，开始时，A被实例化，执行的回调有A:onCreate -&gt; A:onStart -&gt; A:onResume。<br>当用户点击A中按钮来到B时，，将依次执行A:onPause -&gt; B:onCreate -&gt; B:onStart -&gt; B:onResume 。<br>此时如果点击Back键，将依次执行B:onPause -&gt; A:onResume -&gt; B:onStop -&gt; B:onDestroy。</p>
 <h4 id="情况三-在A已经位于栈顶的时候弹出Dialog"><a href="#情况三-在A已经位于栈顶的时候弹出Dialog" class="headerlink" title="情况三 在A已经位于栈顶的时候弹出Dialog"></a>情况三 在A已经位于栈顶的时候弹出Dialog</h4><ol>
 <li>启动Dialog的主题是默认的。<br>启动A，A被实例化，执行的回调有A:onCreate -&gt; A:onStart -&gt; A:onResume。当在A是中弹出Dialog时，A的生命周期不会有任何变化。</li>
 <li>启动Dialog的主题是Activity的。 待测</li>
