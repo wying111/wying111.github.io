@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Tue Jun 19 2018 14:19:08 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Oct 05 2018 22:48:17 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 19 2018 22:27:54 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/19/JetPack之lifecycles/index.html",
     "headline": "JetPack之lifecycles",
     "datePublished": "Tue Jun 19 2018 14:19:08 GMT+0800",
-    "dateModified": "Fri Oct 05 2018 22:48:17 GMT+0800",
+    "dateModified": "Mon Nov 19 2018 22:27:54 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -504,7 +504,7 @@
 <li><p><code>State</code>。生命周期对象组件的当前状态。</p>
 </li>
 </ul>
-<p><img src="http://p97o4wfou.bkt.clouddn.com//20180619154207.png" alt=""></p>
+<p><img src="http://changqin.iaimer.com//20180619154207.png" alt=""></p>
 <p>一个类可以通过向其方法添加注解来监视组件的生命周期状态。然后，通过调用<code>Lifecycle</code>类的<code>addObserver()</code>方法来添加一个观察者。下面是示例代码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class MyObserver implements LifecycleObserver &#123;</div><div class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)</div><div class="line">    public void connectListener() &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)</div><div class="line">    public void disconnectListener() &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myLifecycleOwner.getLifecycle().addObserver(new MyObserver());</div></pre></td></tr></table></figure>
 <p>在上面的示例中，<code>myLifecycleOwner</code>对象实现了<code>LifecycleOwner</code>接口。</p>

@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Fri Jun 15 2018 10:45:47 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Oct 05 2018 22:48:17 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 19 2018 22:27:59 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/15/Android中的长按快捷方式实现/index.html",
     "headline": "Android中的长按快捷方式实现",
     "datePublished": "Fri Jun 15 2018 10:45:47 GMT+0800",
-    "dateModified": "Fri Oct 05 2018 22:48:17 GMT+0800",
+    "dateModified": "Mon Nov 19 2018 22:27:59 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -509,7 +509,7 @@
 <li><code>shortcutDisabledMessage</code>指的是当用户试图启动禁用的快捷方式时，APP中出现的消息。这个消息应该向用户解释为什么现在禁用了快捷方式。如果<code>android:enabled</code>是<code>true</code>，则该属性的值没有影响。</li>
 <li><code>android:shortcutShortLabel</code>、<code>android:shortcutLongLabel</code>和<code>android:shortcutDisabledMessage</code>必须使用<code>@string/shortcut_short_label</code>格式</li>
 </ul>
-<p>正常显示的快捷方式<br><img src="http://p97o4wfou.bkt.clouddn.com//20180615144615.png" alt=""></p>
+<p>正常显示的快捷方式<br><img src="http://changqin.iaimer.com//20180615144615.png" alt=""></p>
 <h3 id="3-使用动态快捷方式"><a href="#3-使用动态快捷方式" class="headerlink" title="3. 使用动态快捷方式"></a>3. 使用动态快捷方式</h3><p>动态快捷方式应该为应用程序中特定的、上下文敏感的操作提供<code>actions</code>。这些<code>actions</code>可以在应用程序的使用之间进行更改，甚至在应用程序运行时也可以进行更改。<br><code>ShortcutManager</code>允许我们在动态快捷方式中做以下操作</p>
 <ul>
 <li><strong>添加</strong>: 使用<code>setDynamicShortcuts()</code>来重新添加整个快捷方列表</li>
@@ -525,7 +525,7 @@
 <li>调用<code>requestPinShortcut()</code>请求添加桌面快捷方式。在此期间，可以通过<code>PendingIntent</code>对象来监听快捷方式是否添加成功。ps: 如果用户不允许添加，是不会收到回调的。当快捷方式添加成功后，可以用<code>updateShortcuts()</code>来更新。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@RequiresApi(api = Build.VERSION_CODES.O)</div><div class="line">public void addDesktopShort(View view) &#123;</div><div class="line">    if (mShortcutManager.isRequestPinShortcutSupported()) &#123;</div><div class="line">        // Assumes there&apos;s already a shortcut with the ID &quot;my-shortcut&quot;.</div><div class="line"> // The shortcut must be enabled.  ShortcutInfo pinShortcutInfo =</div><div class="line">                new ShortcutInfo.Builder(this, &quot;my-shortcut&quot;)</div><div class="line">                        .build();    // Create the PendingIntent object only if your app needs to be notified</div><div class="line"> // that the user allowed the shortcut to be pinned. Note that, if the // pinning operation fails, your app isn&apos;t notified. We assume here that the // app has implemented a method called createShortcutResultIntent() that // returns a broadcast intent.  Intent pinnedShortcutCallbackIntent =</div><div class="line">                mShortcutManager.createShortcutResultIntent(pinShortcutInfo);    // Configure the intent so that your app&apos;s broadcast receiver gets</div><div class="line"> // the callback successfully.  PendingIntent successCallback = PendingIntent.getBroadcast(this, 0,</div><div class="line">  pinnedShortcutCallbackIntent, 0);    mShortcutManager.requestPinShortcut(pinShortcutInfo,</div><div class="line">  successCallback.getIntentSender());</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://p97o4wfou.bkt.clouddn.com//20180615153135.png" alt=""></p>
+<p><img src="http://changqin.iaimer.com//20180615153135.png" alt=""></p>
 
         
     

@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Fri Jun 08 2018 16:39:03 GMT+0800" />
-        <meta property="article:modified_time" content="Fri Oct 05 2018 22:48:17 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 19 2018 22:27:55 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/08/Android的简单国际化/index.html",
     "headline": "Android的简单国际化",
     "datePublished": "Fri Jun 08 2018 16:39:03 GMT+0800",
-    "dateModified": "Fri Oct 05 2018 22:48:17 GMT+0800",
+    "dateModified": "Mon Nov 19 2018 22:27:55 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -493,8 +493,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h3 id="1-新建资源文件夹"><a href="#1-新建资源文件夹" class="headerlink" title="1. 新建资源文件夹"></a>1. 新建资源文件夹</h3><p><img src="http://p97o4wfou.bkt.clouddn.com/20180608152844733060654.png" alt="20180608152844733060654.png"></p>
-<p><img src="http://p97o4wfou.bkt.clouddn.com/20180608152844739744143.png" alt="20180608152844739744143.png"></p>
+        <h3 id="1-新建资源文件夹"><a href="#1-新建资源文件夹" class="headerlink" title="1. 新建资源文件夹"></a>1. 新建资源文件夹</h3><p><img src="http://changqin.iaimer.com/20180608152844733060654.png" alt="20180608152844733060654.png"></p>
+<p><img src="http://changqin.iaimer.com/20180608152844739744143.png" alt="20180608152844739744143.png"></p>
 <h3 id="2-拷贝strings-xml到新的目录下"><a href="#2-拷贝strings-xml到新的目录下" class="headerlink" title="2. 拷贝strings.xml到新的目录下"></a>2. 拷贝<code>strings.xml</code>到新的目录下</h3><h3 id="3-编写不同的语言文件"><a href="#3-编写不同的语言文件" class="headerlink" title="3. 编写不同的语言文件"></a>3. 编写不同的语言文件</h3><h3 id="4-在Application中进行切换"><a href="#4-在Application中进行切换" class="headerlink" title="4. 在Application中进行切换"></a>4. 在<code>Application</code>中进行切换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initLocaleLanguage</span><span class="params">()</span> </span>&#123;</div><div class="line">    Resources resources = get().getResources();</div><div class="line">  Configuration configuration = resources.getConfiguration();</div><div class="line">  configuration.locale = Locale.getDefault();</div><div class="line">  resources.updateConfiguration(configuration, resources.getDisplayMetrics());<span class="comment">//更新配置 </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         

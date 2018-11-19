@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Sun Sep 16 2018 11:52:31 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Nov 08 2018 12:40:37 GMT+0800" />
+        <meta property="article:modified_time" content="Mon Nov 19 2018 22:28:03 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/16/Activity知识梳理/index.html",
     "headline": "Activity知识梳理",
     "datePublished": "Sun Sep 16 2018 11:52:31 GMT+0800",
-    "dateModified": "Thu Nov 08 2018 12:40:37 GMT+0800",
+    "dateModified": "Mon Nov 19 2018 22:28:03 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -501,7 +501,7 @@
 <li>当Activity被其他Activity<code>完全遮挡</code>，此时此Activity对用户不可见，此时处于<code>停止状态</code>。这个时候它仍然保留着所有的状态和成员信息，然而，它对用户来说<code>不再可见</code>，所以它的窗口被隐藏，当需要在其他地方使用内存时，它常常被系统杀死。</li>
 <li>当Activity由于人为或系统原因（如低内存等）被销毁，此时处于<code>销毁状态</code>;</li>
 </ol>
-<h4 id="官方图"><a href="#官方图" class="headerlink" title="官方图"></a>官方图</h4><p><img src="http://p97o4wfou.bkt.clouddn.com/2018091315368294235616.png" alt="2018091315368294235616.png"></p>
+<h4 id="官方图"><a href="#官方图" class="headerlink" title="官方图"></a>官方图</h4><p><img src="http://changqin.iaimer.com/2018091315368294235616.png" alt="2018091315368294235616.png"></p>
 <p>图中需要注意一下几点：</p>
 <p>1.Activity实例是由系统自动创建，并在不同的状态期间回调相应的方法。一个最简单的完整的Activity生命周期会按照如下顺序回调：onCreate -&gt; onStart -&gt; onResume -&gt; onPause -&gt; onStop -&gt; onDestroy。称之为<code>entire lifetime</code>。</p>
 <p>2.当执行onStart回调方法时，Activity开始被用户所见（也就是说，onCreate时用户是看不到此Activity的，那用户看到的是哪个？当然是此Activity之前的那个Activity），一直到onStop之前，此阶段Activity都是被用户可见，称之为<code>visible lifetime</code>。</p>
@@ -515,7 +515,7 @@
 <li>启动Dialog的主题是Activity的。 待测</li>
 </ol>
 <h4 id="情况四-在A已经位于栈顶的时候弹出PopWindow"><a href="#情况四-在A已经位于栈顶的时候弹出PopWindow" class="headerlink" title="情况四 在A已经位于栈顶的时候弹出PopWindow"></a>情况四 在A已经位于栈顶的时候弹出PopWindow</h4><p>没任何影响</p>
-<h4 id="情况五-横竖屏切换时候的生命周期"><a href="#情况五-横竖屏切换时候的生命周期" class="headerlink" title="情况五 横竖屏切换时候的生命周期"></a>情况五 横竖屏切换时候的生命周期</h4><p><img src="http://p97o4wfou.bkt.clouddn.com//20180915205621.png" alt=""><br>此处必须设置<code>screenSize</code>的原文在<a href="https://developer.android.com/guide/topics/resources/runtime-changes?hl=zh-cn" target="_blank" rel="external">这里</a></p>
+<h4 id="情况五-横竖屏切换时候的生命周期"><a href="#情况五-横竖屏切换时候的生命周期" class="headerlink" title="情况五 横竖屏切换时候的生命周期"></a>情况五 横竖屏切换时候的生命周期</h4><p><img src="http://changqin.iaimer.com//20180915205621.png" alt=""><br>此处必须设置<code>screenSize</code>的原文在<a href="https://developer.android.com/guide/topics/resources/runtime-changes?hl=zh-cn" target="_blank" rel="external">这里</a></p>
 <h4 id="Q-onSaveInstanceState何时会调用？"><a href="#Q-onSaveInstanceState何时会调用？" class="headerlink" title="Q:onSaveInstanceState何时会调用？"></a>Q:onSaveInstanceState何时会调用？</h4><p>只有在Activity异常终止的时候才会调用，也可以说是Activity即将被销毁并且有机会重新显示的情况下才会调用。</p>
 <h5 id="会触发的情况"><a href="#会触发的情况" class="headerlink" title="会触发的情况"></a>会触发的情况</h5><ul>
 <li>Activity启动一个新的Activity的时候</li>
