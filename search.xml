@@ -225,11 +225,11 @@
       <url>/2018/09/17/Service%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
       <content type="html"><![CDATA[<h4 id="startService"><a href="#startService" class="headerlink" title="startService"></a>startService</h4><p>startService第一次启动会调用<code>onCreate</code>,<code>onCreate</code>只会在创建的时候调用一次，之后多次启动会多次调用<code>onStartCommand</code>。<code>stopService</code>会停止Service，多次调用<code>stopService</code>不会报错。</p>
 <h4 id="bindService"><a href="#bindService" class="headerlink" title="bindService"></a>bindService</h4><p>bindService第一次启动会依次调用<code>onCreate</code>-&gt;<code>onBind</code>-&gt;<code>onServiceConnected</code>。多次调用<code>bindService</code>， <code>onBind</code>和<code>onServiceConnected</code>都不会多次回调。多次调用<code>unBindService</code>会报错。</p>
-<h4 id="startCommand"><a href="#startCommand" class="headerlink" title="startCommand"></a>startCommand</h4><p>onStartCommand() 方法必须返回整型数。整型数是一个值，用于描述系统应该如何在服务终止的情况下继续运行服务（如上所述，IntentService 的默认实现将为您处理这种情况，不过您可以对其进行修改）。从 onStartCommand() 返回的值必须是以下常量之一：</p>
-<ul>
-<li>START_NOT_STICKY<br>如果系统在 onStartCommand() 返回后终止服务，则除非有挂起 Intent 要传递，否则系统不会重建服务。这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务。</li>
-<li>START_STICKY<br>如果系统在 onStartCommand() 返回后终止服务，则会重建服务并调用 onStartCommand()，但不会重新传递最后一个 Intent。相反，除非有挂起 Intent 要启动服务（在这种情况下，将传递这些 Intent ），否则系统会通过空 Intent 调用 onStartCommand()。这适用于不执行命令、但无限期运行并等待作业的媒体播放器（或类似服务）。</li>
-<li>START_REDELIVER_INTENT<br>如果系统在 onStartCommand() 返回后终止服务，则会重建服务，并通过传递给服务的最后一个 Intent 调用 onStartCommand()。任何挂起 Intent 均依次传递。这适用于主动执行应该立即恢复的作业（例如下载文件）的服务。</li>
+<h4 id="startCommand"><a href="#startCommand" class="headerlink" title="startCommand"></a>startCommand</h4><ul>
+<li><strong>START_STICKY</strong>：如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。</li>
+<li><strong>START_NOT_STICKY</strong>：“非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。</li>
+<li><strong>START_REDELIVER_INTENT</strong>：重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。</li>
+<li><strong>START_STICKY_COMPATIBILITY</strong>：START_STICKY的兼容版本，但不保证服务被kill后一定能重启。</li>
 </ul>
 <p>服务在其托管进程的主线程中运行的</p>
 <h4 id="Q-谈一谈Service的生命周期？"><a href="#Q-谈一谈Service的生命周期？" class="headerlink" title="Q:谈一谈Service的生命周期？"></a>Q:谈一谈Service的生命周期？</h4><p><img src="http://changqin.iaimer.com//20180917123329.png" alt=""></p>
@@ -242,6 +242,7 @@
 <li>组件可以调用服务里面的方法</li>
 </ul>
 <h4 id="Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？"><a href="#Q-一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory-方法？" class="headerlink" title="Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？"></a>Q:一个Activty先start一个Service后，再bind时会回调什么方法？此时如何做才能回调Service的destory()方法？</h4><p>同时调用<code>stopService</code>和<code>unbindService</code>才可以回调<code>onDestory</code></p>
+<h4 id="Q-Service-的生命周期方法-onCreate、onStart、onBind-等运行在哪个线程"><a href="#Q-Service-的生命周期方法-onCreate、onStart、onBind-等运行在哪个线程" class="headerlink" title="Q:Service 的生命周期方法 onCreate、onStart、onBind 等运行在哪个线程?"></a>Q:Service 的生命周期方法 onCreate、onStart、onBind 等运行在哪个线程?</h4><p>都运行在主线程</p>
 <h4 id="Q-Service如何和Activity进行通信？"><a href="#Q-Service如何和Activity进行通信？" class="headerlink" title="Q:Service如何和Activity进行通信？"></a>Q:Service如何和Activity进行通信？</h4><ul>
 <li>使用<code>Intent</code>，<code>onStartCommand</code>时候传入的<code>Intent</code></li>
 <li><code>BroadcastReceiver</code>,Service发送，Activity接收</li>
