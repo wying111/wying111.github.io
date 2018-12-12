@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Sun Sep 16 2018 11:52:31 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Nov 19 2018 22:28:03 GMT+0800" />
+        <meta property="article:modified_time" content="Sat Dec 08 2018 15:27:11 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/16/Activity知识梳理/index.html",
     "headline": "Activity知识梳理",
     "datePublished": "Sun Sep 16 2018 11:52:31 GMT+0800",
-    "dateModified": "Mon Nov 19 2018 22:28:03 GMT+0800",
+    "dateModified": "Sat Dec 08 2018 15:27:11 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -534,6 +534,21 @@
 </ul>
 <h4 id="Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"><a href="#Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？" class="headerlink" title="Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"></a>Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？</h4><p>A: Activity被回收后可以在onCreate中的Bundle中判断是否有值来恢复数据。也可以在onRestoreInstanceState中恢复。</p>
 <h4 id="Q-说下Activity的四种启动模式？"><a href="#Q-说下Activity的四种启动模式？" class="headerlink" title="Q:说下Activity的四种启动模式？"></a>Q:说下Activity的四种启动模式？</h4><p>(adb shell dumpsys activity 可以查看栈中的Activity)</p>
+<ol>
+<li><p><strong>standard</strong></p>
+<p>标准模式。一个任务栈中可以有多个实例，每个实例也可以属于不同的任务栈。谁启动了这个Activity，这个Activity就运行在它的那个任务栈中。</p>
+</li>
+<li><p><strong>singleTop</strong></p>
+<p>栈顶复用模式。如果新Activity已经位于任务栈的栈顶，那么此Activity不会被重新创建，同时会回调它的onNewIntent方法。</p>
+</li>
+<li><p><strong>singleTask</strong></p>
+<p>栈内复用模式。只要Activity在一个栈中存在，那么多次启动此Activity都不会重新创建实例，也会回调onNewIntent方法。比如Activity A，系统会首先寻找是否存在A想要的任务栈。如果不存在，就重新创建一个任务栈，然后创建A的实例后把A放入栈中。如果存在，看是否有A的实例在栈中存在。如果存在，系统会把A调到栈顶并调用它的onNewIntent方法，如果实例不存在，就创建A的实例并把A压入栈中。</p>
+<p>singleTask具有clearTop的效果。</p>
+</li>
+<li><p><strong>singleInstance</strong></p>
+<p>单实例模式。具有singleTask的所有特性。具有此种模式的Activity只能单独地位于一个任务栈中。</p>
+</li>
+</ol>
 <h4 id="Q-谈谈singleTop和singleTask的区别以及应用场景"><a href="#Q-谈谈singleTop和singleTask的区别以及应用场景" class="headerlink" title="Q:谈谈singleTop和singleTask的区别以及应用场景"></a>Q:谈谈singleTop和singleTask的区别以及应用场景</h4><h5 id="singleTop"><a href="#singleTop" class="headerlink" title="singleTop"></a>singleTop</h5><ul>
 <li>处理通知</li>
 </ul>
@@ -683,7 +698,7 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/12/">十二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         
@@ -701,7 +716,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Algorithm/">Algorithm<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">42</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Glide/">Glide<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Kotlin/">Kotlin<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Test/">Test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/面试/">面试<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Centos/">Centos<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Go/">Go<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Kotlin/">Kotlin<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Mac/">Mac<span class="sidebar_archives-count">3</span></a>
+                <a class="sidebar_archives-link" href="/categories/Algorithm/">Algorithm<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/">Android<span class="sidebar_archives-count">43</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Glide/">Glide<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Java/">Java<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Kotlin/">Kotlin<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/Test/">Test<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Android/面试/">面试<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Centos/">Centos<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Go/">Go<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Kotlin/">Kotlin<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/Mac/">Mac<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         

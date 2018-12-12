@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title><![CDATA[Android面试总结(二)]]></title>
+      <url>/2018/12/09/Android%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-%E4%BA%8C/</url>
+      <content type="html"><![CDATA[<h4 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h4><h5 id="Q-Java-中有哪几种引用-它们的含义和区别是什么"><a href="#Q-Java-中有哪几种引用-它们的含义和区别是什么" class="headerlink" title="Q:Java 中有哪几种引用?它们的含义和区别是什么?"></a>Q:Java 中有哪几种引用?它们的含义和区别是什么?</h5><ul>
+<li>强引用(Strong Reference)就是指在程序代码中普遍存在的，类似”Object obj = new Object()”这类的引用，只要强引用还在，垃圾收集器永远不会回收掉被引用的对象。</li>
+<li>软引用(Sofr Reference)是用来描述一些还有用但并非必需的对象。对于软引用关联着的对象,在系统将要发生内存溢出异常之前,将会把这些对象列进回收范围之中进行第二次回收。如果这次回收还没有足够的内存,才会抛出内存溢出异常。在JDK1.2之后,提供了SoftReference类来实现软引用</li>
+<li>弱引用也是用来描述非必需对象的,但是它的强度比软引用更弱一些,被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时,无论当前内存是否足够,都会回收掉只被弱引用关联的对象。在JDK1.2之后,提供了WeakReference类来实现弱引用。</li>
+<li>虚引用(Phantom Reference)也称为幽灵引用或者幻影引用,它是最弱的一种引用关系。一个对象是否有虚引用的存在,完全不会对其生存时间构成影响,也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到个系统通知。在JDK1.2之后,提供了 PhantomReference类来实现虚引用</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+            <category> 面试 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+            <tag> 面试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[理解Synchronized]]></title>
       <url>/2018/12/06/%E7%90%86%E8%A7%A3Synchronized/</url>
       <content type="html"><![CDATA[<p><img src="http://changqin.iaimer.com//20181206173330.png" alt=""></p>
@@ -94,6 +124,10 @@
 <li>Application会多次创建</li>
 </ol>
 <h5 id="Q-什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？"><a href="#Q-什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？" class="headerlink" title="Q:什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？"></a>Q:什么是序列化？Serializable接口和Parcelable接口的区别？为何推荐使用后者？</h5><p>序列化是将对象持久化到存储设备上或者通过网络传输给其它客户端。</p>
+<blockquote>
+<p>静态成员属于类不属于对象，不会参与序列化的过程。</p>
+<p>用<code>transient</code>关键字标记的成员变量不会参与序列化过程。</p>
+</blockquote>
 <p>Serializable &amp; Parcelable</p>
 <ul>
 <li>相同点：<ul>
@@ -101,7 +135,7 @@
 </ul>
 </li>
 <li>不同点：<ul>
-<li>Serializable 的数据最后是存放在硬盘上的，那么读的时候也是 I/O 操作，而 Parcelabe 是存放在内存中的。这就导致了下面的一点</li>
+<li>Serializable 的数据最后是存放在硬盘上的，那么读的时候也是 I/O 操作，使用简单但是开销很大。而 Parcelabe 是存放在内存中的。这就导致了下面的一点</li>
 <li>Parcelable 的读写速度比 Serializable 在数据量大的时候，快很多</li>
 <li>Serializable 的实现十分简单，而 Parcelable 的代码量却比较多</li>
 </ul>
@@ -332,6 +366,21 @@
 </ul>
 <h4 id="Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"><a href="#Q-优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？" class="headerlink" title="Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？"></a>Q:优先级低的Activity在内存不足被回收后怎样做可以恢复到销毁前状态？</h4><p>A: Activity被回收后可以在onCreate中的Bundle中判断是否有值来恢复数据。也可以在onRestoreInstanceState中恢复。</p>
 <h4 id="Q-说下Activity的四种启动模式？"><a href="#Q-说下Activity的四种启动模式？" class="headerlink" title="Q:说下Activity的四种启动模式？"></a>Q:说下Activity的四种启动模式？</h4><p>(adb shell dumpsys activity 可以查看栈中的Activity)</p>
+<ol>
+<li><p><strong>standard</strong></p>
+<p>标准模式。一个任务栈中可以有多个实例，每个实例也可以属于不同的任务栈。谁启动了这个Activity，这个Activity就运行在它的那个任务栈中。</p>
+</li>
+<li><p><strong>singleTop</strong></p>
+<p>栈顶复用模式。如果新Activity已经位于任务栈的栈顶，那么此Activity不会被重新创建，同时会回调它的onNewIntent方法。</p>
+</li>
+<li><p><strong>singleTask</strong></p>
+<p>栈内复用模式。只要Activity在一个栈中存在，那么多次启动此Activity都不会重新创建实例，也会回调onNewIntent方法。比如Activity A，系统会首先寻找是否存在A想要的任务栈。如果不存在，就重新创建一个任务栈，然后创建A的实例后把A放入栈中。如果存在，看是否有A的实例在栈中存在。如果存在，系统会把A调到栈顶并调用它的onNewIntent方法，如果实例不存在，就创建A的实例并把A压入栈中。</p>
+<p>singleTask具有clearTop的效果。</p>
+</li>
+<li><p><strong>singleInstance</strong></p>
+<p>单实例模式。具有singleTask的所有特性。具有此种模式的Activity只能单独地位于一个任务栈中。</p>
+</li>
+</ol>
 <h4 id="Q-谈谈singleTop和singleTask的区别以及应用场景"><a href="#Q-谈谈singleTop和singleTask的区别以及应用场景" class="headerlink" title="Q:谈谈singleTop和singleTask的区别以及应用场景"></a>Q:谈谈singleTop和singleTask的区别以及应用场景</h4><h5 id="singleTop"><a href="#singleTop" class="headerlink" title="singleTop"></a>singleTop</h5><ul>
 <li>处理通知</li>
 </ul>
