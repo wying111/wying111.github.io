@@ -3,6 +3,223 @@
   
     
     <entry>
+      <title><![CDATA[Gradle的生命周期]]></title>
+      <url>/2018/12/15/Gradle%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+      <content type="html"><![CDATA[<h4 id="Gradle生命周期分三个阶段"><a href="#Gradle生命周期分三个阶段" class="headerlink" title="Gradle生命周期分三个阶段"></a>Gradle生命周期分三个阶段</h4><p><img src="http://changqin.iaimer.com//20181213221116.png" alt=""></p>
+<blockquote>
+<h2 id="Build-phases"><a href="#Build-phases" class="headerlink" title="Build phases"></a><a href="https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases" target="_blank" rel="external">Build phases</a></h2><p>A Gradle build has three distinct phases.</p>
+<ul>
+<li><p>Initialization</p>
+<p>Gradle supports single and multi-project builds. During the initialization phase, Gradle determines which projects are going to take part in the build, and creates a <a href="https://docs.gradle.org/current/dsl/org.gradle.api.Project.html" target="_blank" rel="external">Project</a> instance for each of these projects.</p>
+</li>
+<li><p>Configuration</p>
+<p>During this phase the project objects are configured. The build scripts of <em>all</em> projects which are part of the build are executed.</p>
+</li>
+<li><p>Execution</p>
+<p>Gradle determines the subset of the tasks, created and configured during the configuration phase, to be executed. The subset is determined by the task name arguments passed to the <code>gradle</code> command and the current directory. Gradle then executes each of the selected tasks.</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//配置阶段前的监听回调</span></div><div class="line"><span class="keyword">this</span>.beforeEvaluate &#123;</div><div class="line">    println <span class="string">'配置前阶段--&gt;ok'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//配置阶段以后的监听回调</span></div><div class="line"><span class="keyword">this</span>.afterEvaluate &#123;</div><div class="line">    println <span class="string">'配置后阶段--&gt;ok'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//gradle执行完成以后的监听回调</span></div><div class="line"><span class="keyword">this</span>.gradle.buildFinished &#123;</div><div class="line">    println <span class="string">'执行阶段--&gt;ok'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://docs.gradle.org/current/userguide/build_lifecycle.html" target="_blank" rel="external">Gradle官网</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Groovy中的json操作]]></title>
+      <url>/2018/12/14/Groovy%E4%B8%AD%E7%9A%84json%E6%93%8D%E4%BD%9C/</url>
+      <content type="html"><![CDATA[<h4 id="json-gt-object"><a href="#json-gt-object" class="headerlink" title="json -&gt;object"></a>json -&gt;object</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> String myJson =<span class="string">'''</span></div><div class="line"><span class="string">&#123;"code":200,"body":&#123;"search_result":[&#123;"id":"1393","name":"东京食尸鬼漫画","cover_url":"http://img.1whour.com/xpic/东京食尸鬼.jpg","other_1":"","other_2":""&#125;,&#123;"id":"2402","name":"东京都立咒术学校漫画","cover_url":"http://img.1whour.com/xpic/东京都立咒术学校.jpg","other_1":"","other_2":""&#125;,&#123;"id":"1107","name":"大东京玩具箱漫画","cover_url":"http://img.1whour.com/xpic/大东京玩具箱.jpg","other_1":"","other_2":""&#125;,&#123;"id":"2026","name":"东京小红帽漫画","cover_url":"http://img.1whour.com/xpic/东京小红帽.jpg","other_1":"","other_2":""&#125;,&#123;"id":"879","name":"东京ESP漫画","cover_url":"http://img.1whour.com/xpic/djESP.jpg","other_1":"","other_2":""&#125;,&#123;"id":"2064","name":"东京暗鸦SwordOfSong漫画","cover_url":"http://img.1whour.com/xpic/东京暗鸦Sword.jpg","other_1":"","other_2":""&#125;,&#123;"id":"943","name":"东京乌鸦漫画","cover_url":"http://img.1whour.com/xpic/东京乌鸦.jpg","other_1":"","other_2":""&#125;,&#123;"id":"1954","name":"东京奇迹少年漫画","cover_url":"http://img.1whour.com/xpic/东京奇迹少年.jpg","other_1":"","other_2":""&#125;,&#123;"id":"1106","name":"东京玩具箱漫画","cover_url":"http://img.1whour.com/xpic/东京玩具箱.jpg","other_1":"","other_2":""&#125;,&#123;"id":"430","name":"东京MewMew漫画","cover_url":"http://img.1whour.com/xpic/0djmm.jpg","other_1":"","other_2":""&#125;,&#123;"id":"358","name":"东京80年代漫画","cover_url":"http://img.1whour.com/xpic/363.jpg","other_1":"","other_2":""&#125;]&#125;&#125;</span></div><div class="line"><span class="string">'''</span></div><div class="line"><span class="keyword">def</span> jsonSluper = <span class="keyword">new</span> JsonSlurper()</div><div class="line"><span class="keyword">def</span> object = jsonSluper.parseText(myJson)</div><div class="line">println object.body.search_result[<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>[id:1393, name:东京食尸鬼漫画, cover_url:<a href="http://img.1whour.com/xpic/东京食尸鬼.jpg" target="_blank" rel="external">http://img.1whour.com/xpic/东京食尸鬼.jpg</a>, other_1:, other_2:]<br>东京食尸鬼漫画</p>
+</blockquote>
+<h4 id="object-gt-json"><a href="#object-gt-json" class="headerlink" title="object -&gt; json"></a>object -&gt; json</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> cars = [<span class="keyword">new</span> Car(<span class="string">name:</span> <span class="string">'qihu'</span>,<span class="string">money:</span> <span class="number">2000</span>),</div><div class="line">           <span class="keyword">new</span> Car(<span class="string">name:</span> <span class="string">'qq'</span>,<span class="string">money:</span> <span class="number">1000</span>),</div><div class="line">           <span class="keyword">new</span> Car(<span class="string">name:</span> <span class="string">'haha'</span>,<span class="string">money:</span> <span class="number">3000</span>)]</div><div class="line"><span class="keyword">def</span> json = JsonOutput.toJson(cars)</div><div class="line">println JsonOutput.prettyPrint(json)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>[{“money”:2000,”name”:”qihu”},{“money”:1000,”name”:”qq”},{“money”:3000,”name”:”haha”}]</p>
+<p>[<br>​    {<br>​        “money”: 2000,<br>​        “name”: “qihu”<br>​    },<br>​    {<br>​        “money”: 1000,<br>​        “name”: “qq”<br>​    },<br>​    {<br>​        “money”: 3000,<br>​        “name”: “haha”<br>​    }<br>]</p>
+</blockquote>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Groovy中的json操作]]></title>
+      <url>/2018/12/13/Groovy%E4%B8%AD%E7%9A%84xml%E6%93%8D%E4%BD%9C/</url>
+      <content type="html"><![CDATA[<h4 id="解析xml数据"><a href="#解析xml数据" class="headerlink" title="解析xml数据"></a>解析xml数据</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> String xml = <span class="string">'''</span></div><div class="line"><span class="string">    &lt;response version-api="2.0"&gt;</span></div><div class="line"><span class="string">        &lt;value&gt;</span></div><div class="line"><span class="string">            &lt;books id="1" classification="android"&gt;</span></div><div class="line"><span class="string">                &lt;book available="20" id="1"&gt;</span></div><div class="line"><span class="string">                    &lt;title&gt;疯狂Android讲义&lt;/title&gt;</span></div><div class="line"><span class="string">                    &lt;author id="1"&gt;李刚&lt;/author&gt;</span></div><div class="line"><span class="string">                &lt;/book&gt;</span></div><div class="line"><span class="string">                &lt;book available="14" id="2"&gt;</span></div><div class="line"><span class="string">                   &lt;title&gt;第一行代码&lt;/title&gt;</span></div><div class="line"><span class="string">                   &lt;author id="2"&gt;郭林&lt;/author&gt;</span></div><div class="line"><span class="string">               &lt;/book&gt;</span></div><div class="line"><span class="string">               &lt;book available="13" id="3"&gt;</span></div><div class="line"><span class="string">                   &lt;title&gt;Android开发艺术探索&lt;/title&gt;</span></div><div class="line"><span class="string">                   &lt;author id="3"&gt;任玉刚&lt;/author&gt;</span></div><div class="line"><span class="string">               &lt;/book&gt;</span></div><div class="line"><span class="string">               &lt;book available="5" id="4"&gt;</span></div><div class="line"><span class="string">                   &lt;title&gt;Android源码设计模式&lt;/title&gt;</span></div><div class="line"><span class="string">                   &lt;author id="4"&gt;何红辉&lt;/author&gt;</span></div><div class="line"><span class="string">               &lt;/book&gt;</span></div><div class="line"><span class="string">           &lt;/books&gt;</span></div><div class="line"><span class="string">           &lt;books id="2" classification="web"&gt;</span></div><div class="line"><span class="string">               &lt;book available="10" id="1"&gt;</span></div><div class="line"><span class="string">                   &lt;title&gt;Vue从入门到精通&lt;/title&gt;</span></div><div class="line"><span class="string">                   &lt;author id="4"&gt;李刚&lt;/author&gt;</span></div><div class="line"><span class="string">               &lt;/book&gt;</span></div><div class="line"><span class="string">           &lt;/books&gt;</span></div><div class="line"><span class="string">       &lt;/value&gt;</span></div><div class="line"><span class="string">    &lt;/response&gt;</span></div><div class="line"><span class="string">'''</span></div><div class="line"></div><div class="line"><span class="keyword">def</span> xmlSluper = <span class="keyword">new</span> XmlSlurper()</div><div class="line"><span class="keyword">def</span> resp = xmlSluper.parseText(xml)</div><div class="line">println resp.value.books[<span class="number">1</span>].book[<span class="number">0</span>].title.text()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Vue从入门到精通</p>
+</blockquote>
+<h4 id="xml数据简单查找"><a href="#xml数据简单查找" class="headerlink" title="xml数据简单查找"></a>xml数据简单查找</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//xml，resp同上 </span></div><div class="line"><span class="keyword">def</span> list = []</div><div class="line">resp.value.books.each &#123;books-&gt;</div><div class="line">    books.book.each &#123; book -&gt;</div><div class="line">        <span class="keyword">def</span> author =  book.author.text()</div><div class="line">        <span class="keyword">if</span> (author == <span class="string">'李刚'</span>)&#123;</div><div class="line">            list.add(book)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">println list.toListString()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>[疯狂Android讲义李刚, Vue从入门到精通李刚]</p>
+</blockquote>
+<h4 id="深度遍历"><a href="#深度遍历" class="headerlink" title="深度遍历"></a>深度遍历</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//深度遍历</span></div><div class="line"><span class="keyword">def</span> titles1 = resp.depthFirst().findAll &#123;book -&gt;</div><div class="line">    <span class="keyword">return</span> book.author.text() == <span class="string">'李刚'</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">def</span> titles2 = resp.depthFirst().findAll &#123;node -&gt;</div><div class="line">    node.name() == <span class="string">'book'</span> &amp;&amp; node.<span class="meta">@id</span> == <span class="string">'2'</span></div><div class="line">&#125;</div><div class="line">println titles1</div><div class="line">println titles2</div></pre></td></tr></table></figure>
+<blockquote>
+<p>[疯狂Android讲义李刚, Vue从入门到精通李刚]</p>
+<p>[第一行代码郭林]</p>
+</blockquote>
+<h4 id="广度遍历"><a href="#广度遍历" class="headerlink" title="广度遍历"></a>广度遍历</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//广度遍历</span></div><div class="line"><span class="keyword">def</span> name = resp.value.books.children().findAll &#123; node-&gt;</div><div class="line">    node.name() == <span class="string">'book'</span> &amp;&amp; node.<span class="meta">@id</span>==<span class="string">'2'</span></div><div class="line">&#125;</div><div class="line">println name</div></pre></td></tr></table></figure>
+<blockquote>
+<p>第一行代码郭林</p>
+</blockquote>
+<h4 id="生成xml"><a href="#生成xml" class="headerlink" title="生成xml"></a>生成xml</h4><p>Groovy中生成xml用的是<code>MarkupBuilder</code></p>
+<p>例如要生成如下的xml文档</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">langs</span> <span class="attr">type</span>=<span class="string">'current'</span> <span class="attr">count</span>=<span class="string">'3'</span> <span class="attr">mainstream</span>=<span class="string">'true'</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">language</span> <span class="attr">flavor</span>=<span class="string">'static'</span> <span class="attr">version</span>=<span class="string">'1.5'</span>&gt;</span>Java<span class="tag">&lt;/<span class="name">language</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">language</span> <span class="attr">flavor</span>=<span class="string">'dynamic'</span> <span class="attr">version</span>=<span class="string">'1.6.0'</span>&gt;</span>Groovy<span class="tag">&lt;/<span class="name">language</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">language</span> <span class="attr">flavor</span>=<span class="string">'dynamic'</span> <span class="attr">version</span>=<span class="string">'1.9'</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">language</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">langs</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> sw = <span class="keyword">new</span> StringWriter()</div><div class="line"><span class="keyword">def</span> xmlBuilder = <span class="keyword">new</span> MarkupBuilder(sw)</div><div class="line">xmlBuilder.langs(<span class="string">type:</span> <span class="string">'current'</span>, <span class="string">count:</span> <span class="string">'3'</span>, <span class="string">mainstream:</span> <span class="string">'true'</span>) &#123;</div><div class="line">    language(<span class="string">flavor:</span> <span class="string">'static'</span>, <span class="string">version:</span> <span class="string">'1.5'</span>, <span class="string">"Java"</span>)</div><div class="line">    language(<span class="string">flavor:</span> <span class="string">'dynamic'</span>, <span class="string">version:</span> <span class="string">'1.6'</span>, <span class="string">"Groovy"</span>)</div><div class="line">    language(<span class="string">flavor:</span> <span class="string">'dynamic'</span>, <span class="string">version:</span> <span class="string">'1.9'</span>, <span class="string">"JavaScript"</span>)</div><div class="line">&#125;</div><div class="line">println sw</div></pre></td></tr></table></figure>
+<blockquote>
+<langs type="current" count="3" mainstream="true"><br>  <language flavor="static" version="1.5">Java</language><br>  <language flavor="dynamic" version="1.6">Groovy</language><br>  <language flavor="dynamic" version="1.9">JavaScript</language><br></langs>
+
+</blockquote>
+<p>一般我们生成xml都是用实体对象动态生成的</p>
+<p>定义class如下</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对应xml中的Langs结点</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Langs</span> &#123;</span></div><div class="line">    String type = <span class="string">"current"</span></div><div class="line">    <span class="keyword">int</span> count = <span class="number">3</span></div><div class="line">    <span class="keyword">boolean</span> mainstream = <span class="literal">true</span></div><div class="line">    <span class="keyword">def</span> language = [<span class="keyword">new</span> Language(<span class="string">flavor:</span> <span class="string">"static"</span>, <span class="string">version:</span> <span class="number">1.5</span>, <span class="string">value:</span> <span class="string">"java"</span>),</div><div class="line">                    <span class="keyword">new</span> Language(<span class="string">flavor:</span> <span class="string">"dynamic"</span>, <span class="string">version:</span> <span class="number">1.6</span>, <span class="string">value:</span> <span class="string">"Groovy"</span>),</div><div class="line">                    <span class="keyword">new</span> Language(<span class="string">flavor:</span> <span class="string">"dynamic"</span>, <span class="string">version:</span> <span class="number">1.9</span>, <span class="string">value:</span> <span class="string">"JavaScript"</span>)]</div><div class="line">&#125;</div><div class="line"><span class="comment">//对应xml中的language结点</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Language</span> &#123;</span></div><div class="line">    String flavor</div><div class="line">    String version</div><div class="line">    String value</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> langs = <span class="keyword">new</span> Langs()</div><div class="line">xmlBuilder.langs(<span class="string">type:</span> langs.type, <span class="string">count:</span> langs.count, <span class="string">mainstream:</span> langs.mainstream) &#123;</div><div class="line">    langs.language.each &#123; lang -&gt;</div><div class="line">        language(<span class="string">flavor:</span> lang.flavor,</div><div class="line"><span class="symbol">                version:</span> lang.value,</div><div class="line">                lang.value)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">println sw</div></pre></td></tr></table></figure>
+<p>上面的生成方式也是可以的</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Groovy的列表]]></title>
+      <url>/2018/12/12/Groovy%E7%9A%84%E5%88%97%E8%A1%A8/</url>
+      <content type="html"><![CDATA[<h5 id="1-列表"><a href="#1-列表" class="headerlink" title="1.列表"></a>1.列表</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> list = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>]</div><div class="line">println list.<span class="keyword">class</span></div><div class="line">println list.size()</div></pre></td></tr></table></figure>
+<h5 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>] <span class="keyword">as</span> <span class="keyword">int</span>[]</div><div class="line">println array.<span class="keyword">class</span></div><div class="line">println array.size()</div><div class="line"><span class="keyword">int</span>[] array2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//排序</span></div><div class="line"><span class="keyword">def</span> sortList = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>]</div><div class="line"><span class="comment">//Comparator mc = &#123; a, b -&gt; a == b ? 0 : Math.abs(a) &lt; Math.abs(b) ? -1 : 1 &#125;</span></div><div class="line"><span class="comment">//Collections.sort(sortList,mc)</span></div><div class="line">sortList.sort&#123;a, b -&gt; a == b ? 0 : Math.abs(a) &lt; Math.abs(b) ? -1 : <span class="number">1</span> &#125;</div><div class="line"><span class="comment">//println sortList</span></div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查找</span></div><div class="line"><span class="keyword">def</span> findList = [<span class="number">2</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">-3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>]</div><div class="line"><span class="keyword">int</span> res1 = findList.find &#123;it % <span class="number">2</span> !=<span class="number">0</span>&#125;</div><div class="line"><span class="keyword">def</span> res2 = findList.findAll &#123;it % <span class="number">2</span> == <span class="number">0</span>&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Groovy 闭包进阶]]></title>
+      <url>/2018/12/11/Groovy-%E9%97%AD%E5%8C%85%E8%BF%9B%E9%98%B6/</url>
+      <content type="html"><![CDATA[<h5 id="1-闭包关键变量"><a href="#1-闭包关键变量" class="headerlink" title="1.闭包关键变量"></a>1.闭包关键变量</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//闭包中定义一个闭包</span></div><div class="line"><span class="keyword">def</span> nestClouser = &#123;</div><div class="line">    <span class="keyword">def</span> innerClouser = &#123;</div><div class="line">         <span class="comment">//this 代表闭包定义处的类</span></div><div class="line">        println <span class="string">"innerClouser this:"</span> + <span class="keyword">this</span></div><div class="line">         <span class="comment">//owner 代表闭包定义处的类或对象</span></div><div class="line">        println <span class="string">"innerClouser owner:"</span> + owner</div><div class="line">        <span class="comment">//delegate 代表任意第三方对象 默认值=owner</span></div><div class="line">        println <span class="string">"innerClouser delegate:"</span> + delegate</div><div class="line">    &#125;</div><div class="line">	<span class="comment">//innerClouser.delegate = p //修改默认的delegate，this和owner不能修改</span></div><div class="line">    innerClouser.call()</div><div class="line">&#125;</div><div class="line">nestClouser.call()</div><div class="line"></div><div class="line"><span class="string">out:</span></div><div class="line">innerClouser <span class="string">this:</span>Demo49@<span class="number">3</span>ecedf21 </div><div class="line">innerClouser <span class="string">owner:</span>Demo49$_run_closure2@<span class="number">6</span>df20ade <span class="comment">//指向了它最近的一个类或对象</span></div><div class="line">innerClouser <span class="string">delegate:</span>Demo49$_run_closure2@<span class="number">6</span>df20ade</div><div class="line"><span class="comment">//innerClouser delegate:Person@9a7a808</span></div></pre></td></tr></table></figure>
+<h5 id="2-闭包的委托策略"><a href="#2-闭包的委托策略" class="headerlink" title="2.闭包的委托策略"></a>2.闭包的委托策略</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>&#123;</span></div><div class="line">    String name</div><div class="line">    <span class="keyword">def</span> pretty = &#123;<span class="string">"my name is $&#123;name&#125;"</span>&#125;</div><div class="line">    String toString()&#123;</div><div class="line">        pretty.call()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span>&#123;</span></div><div class="line">    String name</div><div class="line">&#125;</div><div class="line"><span class="keyword">def</span> stu = <span class="keyword">new</span> Student(<span class="string">name:</span> <span class="string">'wcq'</span>)</div><div class="line"><span class="keyword">def</span> tea = <span class="keyword">new</span> Teacher(<span class="string">name:</span> <span class="string">'qqq'</span>)</div><div class="line"></div><div class="line">stu.pretty.delegate = tea</div><div class="line">stu.pretty.resolveStrategy = Closure.DELEGATE_FIRST</div><div class="line"></div><div class="line">println  stu.toString()</div></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Groovy 闭包]]></title>
+      <url>/2018/12/10/Groovy-%E9%97%AD%E5%8C%85/</url>
+      <content type="html"><![CDATA[<h3 id="Groovy-闭包"><a href="#Groovy-闭包" class="headerlink" title="Groovy 闭包"></a>Groovy 闭包</h3><h5 id="1、闭包参数"><a href="#1、闭包参数" class="headerlink" title="1、闭包参数"></a>1、闭包参数</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> clouser = &#123; String name -&gt;</div><div class="line">    println <span class="string">"Hello groovy by $&#123;name&#125;"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> clouser = &#123;</div><div class="line">    println <span class="string">"Hello groovy by $&#123;it&#125;"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clouser(<span class="string">'wcq'</span>)</div></pre></td></tr></table></figure>
+<p>闭包和kotlin一样，有默认的参数名it</p>
+<h5 id="2、闭包返回值"><a href="#2、闭包返回值" class="headerlink" title="2、闭包返回值"></a>2、闭包返回值</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> clouser = &#123;</div><div class="line">    println  <span class="string">"Hello groovy by $&#123;it&#125;"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码的默认返回值是<code>null</code></p>
+<h5 id="3-闭包的用法"><a href="#3-闭包的用法" class="headerlink" title="3.闭包的用法"></a>3.闭包的用法</h5><ul>
+<li><p>与基本类型的结合使用</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x = fab(<span class="number">5</span>)</div><div class="line"><span class="keyword">int</span> fab(<span class="keyword">int</span> number) &#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">1</span></div><div class="line">    <span class="number">1.</span>upto(number, &#123; num -&gt; result *= num &#125;)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line">println x</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> y = cal(<span class="number">5</span>)</div><div class="line"><span class="keyword">int</span> cal(<span class="keyword">int</span> number) &#123;</div><div class="line">    <span class="keyword">int</span> result = <span class="number">0</span></div><div class="line">    number.times &#123;</div><div class="line">        <span class="comment">//note: time方法开始的值是0</span></div><div class="line">        num -&gt; result += num</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line">println y</div></pre></td></tr></table></figure>
+</li>
+<li><p>与String结合使用</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">'ChangQin251129'</span></div><div class="line"><span class="comment">//each的遍历</span></div><div class="line">str.each &#123;s -&gt;</div><div class="line">    print s.toLowerCase()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//find 找到符合条件的第一个</span></div><div class="line">println  str.find &#123; s -&gt;</div><div class="line">    <span class="keyword">return</span> s.isNumber()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找到符合条件的所有值</span></div><div class="line"><span class="keyword">def</span> list =  str.findAll &#123; s -&gt;</div><div class="line">    <span class="keyword">return</span> s.isNumber()</div><div class="line">&#125;</div><div class="line">println list.toListString()</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//遍历输入项，查看是否有一项符合条件</span></div><div class="line"><span class="keyword">def</span> isContainNumber =  str.any &#123;s-&gt; s.isNumber() &#125;</div><div class="line"><span class="comment">//遍历输入项，查看是否所有项都符合条件</span></div><div class="line"><span class="keyword">def</span> totalIsNumber =  str.every &#123; s-&gt;s.isNumber() &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">def</span> list2 = [<span class="number">1</span>, <span class="string">'a'</span>, <span class="number">1.23</span>, <span class="literal">true</span> ]             </div><div class="line"><span class="keyword">def</span> types = list2.collect &#123; it.<span class="keyword">class</span> &#125;        </div><div class="line">println types               </div><div class="line"><span class="comment">//each返回的是自身  collect返回的是一个集合</span></div></pre></td></tr></table></figure>
+<p>​    </p>
+</li>
+<li><p>与数据结构结合使用</p>
+</li>
+<li><p>与文件结合使用</p>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Gradle </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Gradle </tag>
+            
+            <tag> Groovy </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android面试总结(二)]]></title>
       <url>/2018/12/09/Android%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93-%E4%BA%8C/</url>
       <content type="html"><![CDATA[<h4 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h4><h5 id="Q-Java-中有哪几种引用-它们的含义和区别是什么"><a href="#Q-Java-中有哪几种引用-它们的含义和区别是什么" class="headerlink" title="Q:Java 中有哪几种引用?它们的含义和区别是什么?"></a>Q:Java 中有哪几种引用?它们的含义和区别是什么?</h5><ul>
