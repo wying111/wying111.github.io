@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 20 2018 19:07:22 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Dec 20 2018 19:08:17 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 20 2018 19:11:01 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html",
     "headline": "Android中的ClassLoader",
     "datePublished": "Thu Dec 20 2018 19:07:22 GMT+0800",
-    "dateModified": "Thu Dec 20 2018 19:08:17 GMT+0800",
+    "dateModified": "Thu Dec 20 2018 19:11:01 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -493,8 +493,8 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h4 id="Android中的ClassLoader"><a href="#Android中的ClassLoader" class="headerlink" title="Android中的ClassLoader"></a>Android中的ClassLoader</h4><p>Java中的<code>ClassLoader</code>可以加载<code>jar</code>包和<code>class</code>文件，在Android则不同。在Android中，不论DVM还是ART，加载的都是dex文件。Android中的<code>ClassLoader</code>可以分为系统类加载器和自定义加载器。</p>
-<p>Android中ClassLoader类继承关系如下</p>
+        <h4 id="Android中的ClassLoader"><a href="#Android中的ClassLoader" class="headerlink" title="Android中的ClassLoader"></a>Android中的ClassLoader</h4><p>Java中的<code>ClassLoader</code>可以加载<code>jar</code>包和<code>class</code>文件，在Android则不同。在Android中，不论DVM还是ART，加载的都是<code>dex</code>文件。Android中的<code>ClassLoader</code>可以分为系统类加载器和自定义加载器。</p>
+<p>Android中<code>ClassLoader</code>类继承关系如下</p>
 <p><img src="http://changqin.iaimer.com//20181220181115.png" alt=""></p>
 <h5 id="BootClassLoader"><a href="#BootClassLoader" class="headerlink" title="BootClassLoader"></a>BootClassLoader</h5><p><a href="http://androidxref.com/8.1.0_r33/xref/libcore/ojluni/src/main/java/java/lang/ClassLoader.java" target="_blank" rel="external">源码</a></p>
 <p><code>BootClassLoader</code>是<code>ClassLoader</code>的一个内部类，并继承自<code>ClassLoader</code>。</p>
