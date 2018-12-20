@@ -37,7 +37,7 @@
     
     <title>
         
-            标签: Centos | 
+            Android中的ClassLoader | 
         
         Happy&#39;s blog
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="ChangQin">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Android">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -231,15 +231,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: Centos | Happy&#39;s blog">
+    <meta property="og:title" content="Android中的ClassLoader | Happy&#39;s blog">
     <meta property="og:image" content="http://yoursite.com/img/avatar.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Android"> 
 
+    
+        <meta property="article:published_time" content="Thu Dec 20 2018 19:07:22 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 20 2018 19:08:17 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: Centos | Happy&#39;s blog">
+    <meta name="twitter:title" content="Android中的ClassLoader | Happy&#39;s blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://yoursite.com/img/avatar.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -247,13 +250,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/tags/Centos/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html",
+    "headline": "Android中的ClassLoader",
+    "datePublished": "Thu Dec 20 2018 19:07:22 GMT+0800",
+    "dateModified": "Thu Dec 20 2018 19:08:17 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "ChangQin",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Happy&#39;s blog",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/avatar.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
 
 
     
@@ -287,100 +320,246 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Android中的ClassLoader"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android中的ClassLoader</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BootClassLoader"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">BootClassLoader</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#UrlClassLoader"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">UrlClassLoader</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#BaseDexClassLoader"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">BaseDexClassLoader</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PathClassLoader"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">PathClassLoader</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#DexClassLoader"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">DexClassLoader</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#InMemoryDexClassLoader"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">InMemoryDexClassLoader</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ClassLoader-的双亲委托模型"><span class="post-toc-number">2.</span> <span class="post-toc-text">ClassLoader 的双亲委托模型</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/09/07/Linux下添加FTP账号和服务器、增加密码和用户，更改FTP目录/">Linux下添加FTP账号和服务器、增加密码和用户，更改FTP目录</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            1、 启动VSFTP服务器
-A:cenos下运行:yum  install  vsftpd
-...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/09/07/Linux下添加FTP账号和服务器、增加密码和用户，更改FTP目录/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="ChangQin's avatar">
-            </div>
-            <div>
-                <strong>ChangQin</strong>
-                <span>9月 07, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Centos/">Centos</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Android中的ClassLoader
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>ChangQin</strong>
+        <span>12月 20, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android中的ClassLoader&url=http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html&pic=http://yoursite.com/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android中的ClassLoader&url=http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html&via=ChangQin" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="Android中的ClassLoader"><a href="#Android中的ClassLoader" class="headerlink" title="Android中的ClassLoader"></a>Android中的ClassLoader</h4><p>Java中的<code>ClassLoader</code>可以加载<code>jar</code>包和<code>class</code>文件，在Android则不同。在Android中，不论DVM还是ART，加载的都是dex文件。Android中的<code>ClassLoader</code>可以分为系统类加载器和自定义加载器。</p>
+<p>Android中ClassLoader类继承关系如下</p>
+<p><img src="http://changqin.iaimer.com//20181220181115.png" alt=""></p>
+<h5 id="BootClassLoader"><a href="#BootClassLoader" class="headerlink" title="BootClassLoader"></a>BootClassLoader</h5><p><a href="http://androidxref.com/8.1.0_r33/xref/libcore/ojluni/src/main/java/java/lang/ClassLoader.java" target="_blank" rel="external">源码</a></p>
+<p><code>BootClassLoader</code>是<code>ClassLoader</code>的一个内部类，并继承自<code>ClassLoader</code>。</p>
+<p>它是包内可见的，因此我们没法使用它，也不能使用动态加载。</p>
+<h5 id="UrlClassLoader"><a href="#UrlClassLoader" class="headerlink" title="UrlClassLoader"></a>UrlClassLoader</h5><p><code>UrlClassLoader</code>继承自<code>SecureClassLoader</code>，它只能用于加载jar文件，但是由于 dalvik 不能直接识别jar，所以在 Android 中无法使用这个加载器。</p>
+<h5 id="BaseDexClassLoader"><a href="#BaseDexClassLoader" class="headerlink" title="BaseDexClassLoader"></a>BaseDexClassLoader</h5><p><a href="http://androidxref.com/8.0.0_r4/xref/libcore/dalvik/src/main/java/dalvik/system/BaseDexClassLoader.java" target="_blank" rel="external">源码</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">BaseDexClassLoader</span><span class="params">(String dexPath, File optimizedDirectory,</span></span></div><div class="line"><span class="function"><span class="params">        String librarySearchPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(parent);</div><div class="line">    <span class="keyword">this</span>.pathList = <span class="keyword">new</span> DexPathList(<span class="keyword">this</span>, dexPath, librarySearchPath, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (reporter != <span class="keyword">null</span>) &#123;</div><div class="line">        reportClassLoaderChain();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">BaseDexClassLoader</span><span class="params">(ByteBuffer[] dexFiles, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(parent);</div><div class="line">    <span class="keyword">this</span>.pathList = <span class="keyword">new</span> DexPathList(<span class="keyword">this</span>, dexFiles);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>BaseDexClassLoader</code>继承自<code>ClassLoader</code>，用于加载各种<code>dex</code>中的类。</p>
+<p>具体参数的含义</p>
+<ul>
+<li><code>dexPath</code>. 指目标类所在的APK或jar文件的路径,类装载器将从该路径中寻找指定的目标类,该类必须是APK或jar的全路径.如果要包含多个路径,路径之间必须使用特定的分割符分隔,特定的分割符可以使用System.getProperty(“path.separtor”)获得。最终做的是将dexPath路径上的文件ODEX优化到内部位置optimizedDirectory，然后，再进行加载的。</li>
+<li><code>optimizedDirectory</code>. 由于dex文件被包含在APK或者Jar文件中,因此在装载目标类之前需要先从APK或Jar文件中解压出dex文件,该参数就是制定解压出的dex 文件存放的路径。这也是对apk中dex根据平台进行ODEX优化的过程。其实APK是一个程序压缩包，里面包含dex文件，ODEX优化就是把包里面的执行程序提取出来，就变成ODEX文件，因为你提取出来了，系统第一次启动的时候就不用去解压程序压缩包的程序，少了一个解压的过程。这样的话系统启动就加快了。为什么说是第一次呢？是因为DEX版本的也只有第一次会解压执行程序到 /data/dalvik-cache（针对PathClassLoader）或者optimizedDirectory(针对DexClassLoader）目录，之后也是直接读取目录下的的dex文件，所以第二次启动就和正常的差不多了。当然这只是简单的理解，实际生成的ODEX还有一定的优化作用。ClassLoader只能加载内部存储路径中的dex文件，所以这个路径必须为内部路径。</li>
+<li><code>librarySearchPath</code>.指目标类中所使用的C/C++库存放的路径</li>
+<li><code>parent</code>. 是指该装载器的父装载器,一般为当前执行类的装载器，例如在Android中以context.getClassLoader()作为父装载器。</li>
+</ul>
+<h5 id="PathClassLoader"><a href="#PathClassLoader" class="headerlink" title="PathClassLoader"></a>PathClassLoader</h5><p><a href="http://androidxref.com/8.0.0_r4/xref/libcore/dalvik/src/main/java/dalvik/system/PathClassLoader.java" target="_blank" rel="external">源码</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, <span class="keyword">null</span>, parent);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">PathClassLoader</span><span class="params">(String dexPath, String librarySearchPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(dexPath, <span class="keyword">null</span>, librarySearchPath, parent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>PathClassLoader</code>的构造方法中没有参数<code>optimizedDirectory</code>，这是因为<code>PathClassLoader</code>已经默认了参数<code>optimizedDirectory</code>的值为<code>/data/dalvik-cache</code>目录。所以<code>PathClassLoader</code>无法定义解压的dex文件的存储路径，因此<code>PathClassLoader</code>通常用来加载已经安装的apk的dex文件。</p>
+<h5 id="DexClassLoader"><a href="#DexClassLoader" class="headerlink" title="DexClassLoader"></a>DexClassLoader</h5><p><a href="http://androidxref.com/8.0.0_r4/xref/libcore/dalvik/src/main/java/dalvik/system/DexClassLoader.java" target="_blank" rel="external">源码</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">DexClassLoader</span><span class="params">(String dexPath, String optimizedDirectory,</span></span></div><div class="line"><span class="function"><span class="params">        String librarySearchPath, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(dexPath, <span class="keyword">new</span> File(optimizedDirectory), librarySearchPath, parent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>DexClassLoader</code>可以加载dex文件以及包含dex的压缩文件，不管加载哪种文件，最终都是要加载dex文件。</p>
+<h5 id="InMemoryDexClassLoader"><a href="#InMemoryDexClassLoader" class="headerlink" title="InMemoryDexClassLoader"></a>InMemoryDexClassLoader</h5><p><a href="http://androidxref.com/8.0.0_r4/xref/libcore/dalvik/src/main/java/dalvik/system/InMemoryDexClassLoader.java" target="_blank" rel="external">源码</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">InMemoryDexClassLoader</span><span class="params">(ByteBuffer[] dexBuffers, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(dexBuffers, parent);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">InMemoryDexClassLoader</span><span class="params">(ByteBuffer dexBuffer, ClassLoader parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>(<span class="keyword">new</span> ByteBuffer[] &#123; dexBuffer &#125;, parent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>InMemoryDexClassLoader</code>是API26的时候新增的。ByteBuffer数组构造了一个DexPathList，可用于内存中的dex文件。</p>
+<h4 id="ClassLoader-的双亲委托模型"><a href="#ClassLoader-的双亲委托模型" class="headerlink" title="ClassLoader 的双亲委托模型"></a>ClassLoader 的双亲委托模型</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve)</div><div class="line">        <span class="keyword">throws</span> ClassNotFoundException</div><div class="line">    &#123;</div><div class="line">            <span class="comment">// First, check if the class has already been loaded</span></div><div class="line">            Class&lt;?&gt; c = findLoadedClass(name);</div><div class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</div><div class="line">                        c = parent.loadClass(name, <span class="keyword">false</span>);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        c = findBootstrapClassOrNull(name);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">                    <span class="comment">// ClassNotFoundException thrown if class not found</span></div><div class="line">                    <span class="comment">// from the non-null parent class loader</span></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="comment">// If still not found, then invoke findClass in order</span></div><div class="line">                    <span class="comment">// to find the class.</span></div><div class="line">                    c = findClass(name);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> c;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> Class&lt;?&gt; findBootstrapClassOrNull(String name)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>加载类的时候，首先判断有没有加载过，如果已经加载过了直接返回，否则就判断父加载器是否存在。如果存在父加载器，则调用父加载器的<code>loadClass</code>方法，不存在则调用<code>findBootstrapClassOrNull</code>方法。但是<code>findBootstrapClassOrNull</code>会直接返回<code>null</code>。所以最终又会调用到<code>findClass</code>方法。而<code>findClass</code>会直接抛出异常，所以这个需要子类来实现。这就是双亲委托模型。双亲委托模型一方面可以避免重复加载类，另一方面可以避免有人恶意编写一个类加载到JVM中。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/12/15/Gradle的生命周期/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -541,6 +720,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
