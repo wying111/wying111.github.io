@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Dec 20 2018 19:07:22 GMT+0800" />
-        <meta property="article:modified_time" content="Thu Dec 20 2018 19:11:01 GMT+0800" />
+        <meta property="article:modified_time" content="Thu Dec 20 2018 19:12:26 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/12/20/Android中的ClassLoader/index.html",
     "headline": "Android中的ClassLoader",
     "datePublished": "Thu Dec 20 2018 19:07:22 GMT+0800",
-    "dateModified": "Thu Dec 20 2018 19:11:01 GMT+0800",
+    "dateModified": "Thu Dec 20 2018 19:12:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "ChangQin",
@@ -521,6 +521,7 @@
 <p><code>InMemoryDexClassLoader</code>是API26的时候新增的。ByteBuffer数组构造了一个DexPathList，可用于内存中的dex文件。</p>
 <h4 id="ClassLoader-的双亲委托模型"><a href="#ClassLoader-的双亲委托模型" class="headerlink" title="ClassLoader 的双亲委托模型"></a>ClassLoader 的双亲委托模型</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve)</div><div class="line">        <span class="keyword">throws</span> ClassNotFoundException</div><div class="line">    &#123;</div><div class="line">            <span class="comment">// First, check if the class has already been loaded</span></div><div class="line">            Class&lt;?&gt; c = findLoadedClass(name);</div><div class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</div><div class="line">                        c = parent.loadClass(name, <span class="keyword">false</span>);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        c = findBootstrapClassOrNull(name);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">                    <span class="comment">// ClassNotFoundException thrown if class not found</span></div><div class="line">                    <span class="comment">// from the non-null parent class loader</span></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="comment">// If still not found, then invoke findClass in order</span></div><div class="line">                    <span class="comment">// to find the class.</span></div><div class="line">                    c = findClass(name);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> c;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> Class&lt;?&gt; findBootstrapClassOrNull(String name)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>加载类的时候，首先判断有没有加载过，如果已经加载过了直接返回，否则就判断父加载器是否存在。如果存在父加载器，则调用父加载器的<code>loadClass</code>方法，不存在则调用<code>findBootstrapClassOrNull</code>方法。但是<code>findBootstrapClassOrNull</code>会直接返回<code>null</code>。所以最终又会调用到<code>findClass</code>方法。而<code>findClass</code>会直接抛出异常，所以这个需要子类来实现。这就是双亲委托模型。双亲委托模型一方面可以避免重复加载类，另一方面可以避免有人恶意编写一个类加载到JVM中。</p>
+<p>Refer:<a href="https://www.jianshu.com/p/a620e368389a" target="_blank" rel="external">https://www.jianshu.com/p/a620e368389a</a></p>
 
         
     
